@@ -13,33 +13,35 @@ const latestPosts = allPosts.slice(1, allPosts.length);
 ---
 
 <Layout>
-  <section class="container py-8 space-y-8">
+  <section class="container py-8 flex flex-col gap-8">
     <div class="text-center space-y-2">
       <h1>All blogs</h1>
       <p class="text-muted-foreground">บล็อกที่นิลเขียนมาทั้งหมด</p>
     </div>
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      <Image
-        src={firstPost.featuredImage.url}
-        alt={firstPost.featuredImage.alt}
-        inferSize
-        loading="eager"
-        class="rounded-md aspect-[120/63] object-cover"
-      />
-      <div class="flex flex-col gap-1">
-        <span
-          class="text-xs items-end bg-primary/30 rounded-full w-fit px-2 py-1"
-        >
-          {firstPost.category.name}
-        </span>
-        <h2 class="text-2xl font-medium" set:html={firstPost.title} />
-        <p
-          class="text-sm text-foreground/70 line-clamp-3"
-          set:html={firstPost.excerpt}
+    <a href={`/blog/${firstPost.slug}`}>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <Image
+          src={firstPost.featuredImage.url}
+          alt={firstPost.featuredImage.alt}
+          inferSize
+          loading="eager"
+          class="rounded-md aspect-[120/63] object-cover"
         />
-        <p class="text-xs text-muted-foreground">{firstPost.date}</p>
+        <div class="flex flex-col gap-1">
+          <span
+            class="text-xs items-end bg-primary/30 rounded-full w-fit px-2 py-1"
+          >
+            {firstPost.category.name}
+          </span>
+          <h2 class="text-2xl font-medium" set:html={firstPost.title} />
+          <p
+            class="text-sm text-foreground/70 line-clamp-3"
+            set:html={firstPost.excerpt}
+          />
+          <p class="text-xs text-muted-foreground">{firstPost.date}</p>
+        </div>
       </div>
-    </div>
+    </a>
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {
         latestPosts.map((post, index) => {
