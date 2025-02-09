@@ -62,6 +62,7 @@ const parsedContent = convertBrushToPrism(content);
       alt={featuredImage.alt}
       inferSize
       class="aspect-[120/63] rounded-lg"
+      loading="eager"
     />
     <article set:html={parsedContent} class="article-content" />
   </section>
