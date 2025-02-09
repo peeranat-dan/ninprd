@@ -1,3 +1,4 @@
+import { glob } from "astro/loaders";
 import { postLoader } from "../lib/wordpress/post-loader";
 import { defineCollection, z } from "astro:content";
 
@@ -6,7 +7,10 @@ const blog = defineCollection({
 });
 
 const experience = defineCollection({
-  type: "content",
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "src/content/experience",
+  }),
   schema: z.object({
     company: z.string(),
     position: z.string(),
