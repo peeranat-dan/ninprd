@@ -1,0 +1,69 @@
+---
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@ninprd/ui/components/breadcrumb";
+import { getCollection } from "astro:content";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { Image } from "astro:assets";
+
+import Layout from "../../layouts/Layout.astro";
+import { convertBrushToPrism } from "../../utils/converters/convert-brush-to-prism";
+
+export const getStaticPaths = (async () => {
+  const collection = await getCollection("blog");
+  if (!collection) return [];
+  return collection.map((post) => {
+    return {
+      params: {
+        slug: post.data.slug,
+      },
+      props: {
+        post: post.data,
+      },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post } = Astro.props;
+const { title, content, featuredImage, excerpt } = post;
+
+const parsedContent = convertBrushToPrism(content);
+---
+
+<Layout title={title} article description={excerpt} image={featuredImage.url}>
+  <section class="max-w-4xl mx-auto space-y-8 px-4 lg:px-0 py-4">
+    <div class="">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink
+              href="/"
+              className="text-primary font-semibold hover:text-primary"
+              >หน้าหลัก</BreadcrumbLink
+            >
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{title}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+    </div>
+    <h1 set:html={title} />
+    <Image
+      src={featuredImage.url}
+      alt={featuredImage.alt}
+      inferSize
+      class="aspect-[120/63] rounded-lg"
+    />
+    <article set:html={parsedContent} class="article-content" />
+  </section>
+  <script src="../../scripts/prism.js"></script>
+</Layout>
