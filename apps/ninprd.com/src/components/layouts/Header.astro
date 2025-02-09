@@ -23,13 +23,21 @@ import WebringLogo from "../WebringLogo.astro";
         <nav class="flex items-center gap-0.5 sm:gap-1">
           <a
             href="/blog"
-            class="text-sm transition-colors hover:text-primary/80"
+            class={buttonVariants({
+              size: "sm",
+              variant: "ghost",
+              className: "font-normal",
+            })}
           >
             Blog
           </a>
           <!-- <a
             href="/about"
-            class="text-sm font-medium transition-colors hover:text-foreground/80"
+            class={buttonVariants({
+              size: "sm",
+              variant: "ghost",
+              className: "font-normal",
+            })}
           >
             About
           </a> -->
