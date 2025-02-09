@@ -1,7 +1,20 @@
 ---
 import "../styles.css";
+// Font imports
+import "@fontsource-variable/jetbrains-mono";
+import "@fontsource/ibm-plex-sans-thai-looped/400.css";
+import "@fontsource/ibm-plex-sans-thai-looped/600.css";
+import "@fontsource/ibm-plex-sans-thai-looped/700.css";
+import "@fontsource/ibm-plex-sans-thai/400.css";
+import "@fontsource/ibm-plex-sans-thai/500.css";
+import "@fontsource/ibm-plex-sans-thai/600.css";
+import "@fontsource/ibm-plex-sans-thai/700.css";
+import "@fontsource-variable/sora";
 
+import Header from "../components/layouts/Header.astro";
+import ThemeProvider from "../components/theme/ThemeProvider.astro";
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,17 +23,10 @@ import "../styles.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
+    <ThemeProvider />
   </head>
-  <body>
+  <body class="min-h-screen bg-background font-sans antialiased">
+    <Header />
     <slot />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
