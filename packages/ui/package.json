@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "type": "module",
   "private": true,
-  "scripts": {
-    "lint": "eslint . --max-warnings 0"
-  },
+  "scripts": {},
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.6",
     "@radix-ui/react-slot": "^1.1.1",
+    "motion": "^12.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^2.5.4",
@@ -18,9 +17,8 @@
     "@ninprd/typescript-config": "workspace:*",
     "@turbo/gen": "^2.2.3",
     "@types/node": "^22.9.0",
-    "@types/react": "18.3.0",
-    "@types/react-dom": "18.3.1",
-    "react": "^18.3.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
     "typescript": "^5.6.3"
   },
   "exports": {
