@@ -1,5 +1,14 @@
 ---
+import { buttonVariants } from "@ninprd/ui/components/button";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import { ArrowRight } from "lucide-react";
+
 import Layout from "../layouts/Layout.astro";
+
+const posts = await getCollection("blog");
+
+const latestPosts = posts.map((post) => post.data).slice(0, 3);
 ---
 
 <Layout>
@@ -19,7 +28,43 @@ import Layout from "../layouts/Layout.astro";
       </h1>
     </div>
   </section>
-  <section class="container py-8">
-    <h2>Latest blogs</h2>
+  <section class="container py-8 space-y-8">
+    <div class="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between">
+      <h2>Latest blogs</h2>
+      <a class={buttonVariants({ variant: "outline" })} href="/blog"
+        >See all blogs<ArrowRight /></a
+      >
+    </div>
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        latestPosts.map((post, index) => {
+          const { slug, featuredImage, title, excerpt, category, date } = post;
+          return (
+            <a href={`/blog/${slug}`}>
+              <div class="flex flex-col gap-4">
+                <Image
+                  src={featuredImage.url}
+                  alt={featuredImage.alt}
+                  inferSize
+                  class="rounded-md aspect-[120/63] object-cover"
+                  loading={index < 6 ? "eager" : "lazy"}
+                />
+                <div class="space-y-2">
+                  <span class="text-xs items-end bg-primary/30 rounded-full w-fit px-2 py-1">
+                    {category.name}
+                  </span>
+                  <h2 class="text-2xl font-medium" set:html={title} />
+                  <p
+                    class="text-sm text-foreground/70 line-clamp-3"
+                    set:html={excerpt}
+                  />
+                  <p class="text-xs text-muted-foreground">{date}</p>
+                </div>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
   </section>
 </Layout>
