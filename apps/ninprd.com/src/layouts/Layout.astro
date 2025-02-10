@@ -13,6 +13,19 @@ import "@fontsource-variable/sora";
 
 import Header from "../components/layouts/Header.astro";
 import ThemeProvider from "../components/theme/ThemeProvider.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description } = Astro.props;
+
+const titleText = `${title} | ninprd`;
+const descriptionText =
+  description ??
+  "Connect with Peeranat Danaidusadeekul (ninprd) - User-Centered Developer";
 ---
 
 <!doctype html>
@@ -21,9 +34,15 @@ import ThemeProvider from "../components/theme/ThemeProvider.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>{titleText}</title>
+    <meta name="robots" content="index,follow" />
     <ThemeProvider />
+    <meta name="description" content={descriptionText} />
+    <meta property="og:description" content={descriptionText} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={titleText} />
+    <meta name="twitter:description" content={descriptionText} />
   </head>
   <body class="min-h-screen bg-background font-sans antialiased">
     <Header />

@@ -37,7 +37,7 @@ const { title, content, featuredImage, excerpt } = post;
 const parsedContent = convertBrushToPrism(content);
 ---
 
-<Layout title={title} article description={excerpt} image={featuredImage.url}>
+<Layout title={title} description={excerpt} ogImage={featuredImage.url}>
   <section class="max-w-4xl mx-auto space-y-8 px-4 lg:px-0 py-4">
     <div class="">
       <Breadcrumb>
