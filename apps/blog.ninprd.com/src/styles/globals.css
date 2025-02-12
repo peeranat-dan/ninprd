@@ -168,9 +168,7 @@
   }
 
   pre::-webkit-scrollbar-thumb:hover {
-    background: hsl(
-      var(--muted-foreground)
-    ); /* Color of the scrollbar thumb on hover */
+    background: hsl(var(--muted-foreground)); /* Color of the scrollbar thumb on hover */
   }
 
   /* For Firefox */

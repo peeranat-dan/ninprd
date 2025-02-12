@@ -1,7 +1,6 @@
 ---
-import { getCollection } from "astro:content";
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-import Layout from "../../layouts/Layout.astro";
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,13 +8,14 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@ninprd/ui/components/breadcrumb";
-import { Image } from "astro:assets";
-import { convertBrushToPrism } from "../../utils/converters/convert-brush-to-prism";
+} from '@ninprd/ui/components/breadcrumb'
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
+import Layout from '../../layouts/Layout.astro'
+import { convertBrushToPrism } from '../../utils/converters/convert-brush-to-prism'
 
 export const getStaticPaths = (async () => {
-  const collection = await getCollection("blog");
-  if (!collection) return [];
+  const collection = await getCollection('blog')
+  if (!collection) return []
   return collection.map((post) => {
     return {
       params: {
@@ -24,16 +24,16 @@ export const getStaticPaths = (async () => {
       props: {
         post: post.data,
       },
-    };
-  });
-}) satisfies GetStaticPaths;
+    }
+  })
+}) satisfies GetStaticPaths
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
-const { post } = Astro.props;
-const { title, content, featuredImage, excerpt } = post;
+const { post } = Astro.props
+const { title, content, featuredImage, excerpt } = post
 
-const parsedContent = convertBrushToPrism(content);
+const parsedContent = convertBrushToPrism(content)
 ---
 
 <Layout title={title} article description={excerpt} image={featuredImage.url}>

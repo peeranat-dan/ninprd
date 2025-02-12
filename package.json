@@ -6,12 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format:ninprd.com": "pnpm exec prettier ./apps/ninprd.com/** --write",
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "format-and-lint": "biome check .",
+    "format-and-lint:fix": "biome check . --write"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "turbo": "^2.4.0"

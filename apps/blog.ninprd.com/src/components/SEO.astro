@@ -1,22 +1,22 @@
 ---
 interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
-  noindex?: boolean;
+  title?: string
+  description?: string
+  image?: string
+  noindex?: boolean
 }
 
 const {
   title,
-  description = "Read about experience sharing and technology on blog.ninprd, a dynamic blog by Peeranat Danaidusadeekul, a full-time Software Engineer and part-time blogger.",
-  image = "/og-image.png",
+  description = 'Read about experience sharing and technology on blog.ninprd, a dynamic blog by Peeranat Danaidusadeekul, a full-time Software Engineer and part-time blogger.',
+  image = '/og-image.png',
   noindex = false,
-} = Astro.props;
+} = Astro.props
 
-const siteUrl = import.meta.env.SITE_URL ?? "https://blog.ninprd.com/";
-const siteName = "blog.ninprd";
-const pageTitle = title ? `${title} | ${siteName}` : siteName;
-const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const siteUrl = import.meta.env.SITE_URL ?? 'https://blog.ninprd.com/'
+const siteName = 'blog.ninprd'
+const pageTitle = title ? `${title} | ${siteName}` : siteName
+const canonicalURL = new URL(Astro.url.pathname, siteUrl)
 ---
 
 <!-- Global Metadata -->

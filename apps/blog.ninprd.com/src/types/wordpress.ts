@@ -1,4 +1,4 @@
-import { z } from "astro/zod";
+import { z } from 'astro/zod'
 
 export const WordPressPostSchema = z.object({
   id: z.number(),
@@ -6,18 +6,18 @@ export const WordPressPostSchema = z.object({
     rendered: z.string(),
   }),
   date: z.string().transform((d) =>
-    new Date(d).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    })
+    new Date(d).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }),
   ),
   slug: z.string(),
   content: z.object({
     rendered: z.string(),
   }),
   excerpt: z.object({
-    rendered: z.string().transform((value) => value.replace(/<\/?p>/g, "")),
+    rendered: z.string().transform((value) => value.replace(/<\/?p>/g, '')),
   }),
   _embedded: z.object({
     author: z.array(
@@ -30,9 +30,9 @@ export const WordPressPostSchema = z.object({
           48: z.string(),
           96: z.string(),
         }),
-      })
+      }),
     ),
-    "wp:featuredmedia": z.array(
+    'wp:featuredmedia': z.array(
       z.object({
         id: z.number(),
         slug: z.string(),
@@ -45,22 +45,22 @@ export const WordPressPostSchema = z.object({
               width: z.number(),
               height: z.number(),
               source_url: z.string(),
-            })
+            }),
           ),
         }),
-      })
+      }),
     ),
-    "wp:term": z.array(
+    'wp:term': z.array(
       z.array(
         z.object({
           id: z.number(),
           name: z.string(),
           slug: z.string(),
           taxonomy: z.string(),
-        })
-      )
+        }),
+      ),
     ),
   }),
-});
+})
 
-export type WordPressPost = z.infer<typeof WordPressPostSchema>;
+export type WordPressPost = z.infer<typeof WordPressPostSchema>

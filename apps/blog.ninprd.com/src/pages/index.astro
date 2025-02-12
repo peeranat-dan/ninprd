@@ -1,14 +1,14 @@
 ---
-import { GridPattern } from "@ninprd/ui/components/magicui/grid-pattern";
-import { cn } from "@ninprd/ui/lib/utils";
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import { GridPattern } from '@ninprd/ui/components/magicui/grid-pattern'
+import { cn } from '@ninprd/ui/lib/utils'
 
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro'
 
-const posts = await getCollection("blog");
+const posts = await getCollection('blog')
 
-const latestPosts = posts.map((post) => post.data);
+const latestPosts = posts.map((post) => post.data)
 ---
 
 <Layout>

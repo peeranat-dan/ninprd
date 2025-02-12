@@ -1,31 +1,31 @@
-import { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
-import { Button } from "@ninprd/ui/components/button";
+import { Button } from '@ninprd/ui/components/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@ninprd/ui/components/dropdown-menu";
+} from '@ninprd/ui/components/dropdown-menu'
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"theme-light" | "dark" | "system">(
-    "theme-light"
-  );
+  const [theme, setTheme] = useState<'theme-light' | 'dark' | 'system'>(
+    'theme-light',
+  )
 
   useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setTheme(isDarkMode ? "dark" : "theme-light");
-  }, []);
+    const isDarkMode = document.documentElement.classList.contains('dark')
+    setTheme(isDarkMode ? 'dark' : 'theme-light')
+  }, [])
 
   useEffect(() => {
     const isDark =
-      theme === "dark" ||
-      (theme === "system" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-  }, [theme]);
+      theme === 'dark' ||
+      (theme === 'system' &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
+  }, [theme])
 
   return (
     <DropdownMenu>
@@ -37,16 +37,16 @@ export function ThemeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("theme-light")}>
+        <DropdownMenuItem onClick={() => setTheme('theme-light')}>
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem onClick={() => setTheme('dark')}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem onClick={() => setTheme('system')}>
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  );
+  )
 }

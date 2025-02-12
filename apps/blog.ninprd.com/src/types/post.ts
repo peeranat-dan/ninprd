@@ -1,5 +1,5 @@
-import { z } from "astro/zod";
-import { TaxonomySchema } from "./taxonomy";
+import { z } from 'astro/zod'
+import { TaxonomySchema } from './taxonomy'
 
 export const PostSchema = z.object({
   id: z.number(),
@@ -18,6 +18,6 @@ export const PostSchema = z.object({
   }),
   category: TaxonomySchema,
   tags: TaxonomySchema,
-});
+})
 
-export type Post = z.infer<typeof PostSchema>;
+export type Post = z.infer<typeof PostSchema>
