@@ -1,0 +1,28 @@
+---
+import { BookOpen } from "lucide-react";
+
+import { ThemeToggle } from "../theme/ThemeToggle";
+import WebringLogo from "../WebringLogo.astro";
+---
+
+<header class="border-grid sticky top-0 z-50 w-full px-2 sm:px-0 py-2">
+  <div
+    class="max-w-3xl px-4 mx-auto border rounded-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex h-14 items-center justify-between"
+  >
+    <div class="flex h-14 items-center justify-between w-full">
+      <div class="mr-4 flex">
+        <a href="/" class="flex items-center space-x-2">
+          <BookOpen className="w-4 h-4" />
+          <span class="font-bold sm:inline-block text-primary">BLOG.NINPRD</span
+          >
+        </a>
+      </div>
+      <div class="flex items-center justify-between gap-2 md:justify-end">
+        <nav class="flex items-center gap-2">
+          <WebringLogo />
+          <ThemeToggle client:load />
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

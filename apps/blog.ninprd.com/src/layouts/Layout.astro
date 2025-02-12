@@ -1,0 +1,61 @@
+---
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import ThemeProvider from "../components/theme/ThemeProvider.astro";
+import SEO from "../components/SEO.astro";
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+// Font imports
+import "../styles/globals.css";
+import "@fontsource-variable/jetbrains-mono";
+import "@fontsource/ibm-plex-sans-thai-looped/400.css";
+import "@fontsource/ibm-plex-sans-thai-looped/600.css";
+import "@fontsource/ibm-plex-sans-thai-looped/700.css";
+import "@fontsource/ibm-plex-sans-thai/400.css";
+import "@fontsource/ibm-plex-sans-thai/500.css";
+import "@fontsource/ibm-plex-sans-thai/600.css";
+import "@fontsource/ibm-plex-sans-thai/700.css";
+import "@fontsource-variable/sora";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  noindex?: boolean;
+  withAnalytics?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  article,
+  noindex,
+  withAnalytics = true,
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      noindex={noindex}
+    />
+    <ThemeProvider />
+    {withAnalytics ? <Analytics /> : null}
+    <SpeedInsights />
+    {article ? <link href="/css/prism.css" rel="stylesheet" /> : null}
+  </head>
+  <body class="min-h-screen bg-background font-sans antialiased">
+    <div class="elative flex min-h-screen flex-col">
+      <Header />
+      <main class="flex-auto">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

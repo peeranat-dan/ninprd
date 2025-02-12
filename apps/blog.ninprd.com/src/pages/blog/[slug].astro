@@ -1,4 +1,7 @@
 ---
+import { getCollection } from "astro:content";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import Layout from "../../layouts/Layout.astro";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,11 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@ninprd/ui/components/breadcrumb";
-import { getCollection } from "astro:content";
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { Image } from "astro:assets";
-
-import Layout from "../../layouts/Layout.astro";
 import { convertBrushToPrism } from "../../utils/converters/convert-brush-to-prism";
 
 export const getStaticPaths = (async () => {
@@ -37,16 +36,16 @@ const { title, content, featuredImage, excerpt } = post;
 const parsedContent = convertBrushToPrism(content);
 ---
 
-<Layout title={title} description={excerpt} ogImage={featuredImage.url}>
+<Layout title={title} article description={excerpt} image={featuredImage.url}>
   <section class="max-w-4xl mx-auto space-y-8 px-4 lg:px-0 py-4">
     <div class="">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink
-              href="/blog"
+              href="/"
               className="text-primary font-semibold hover:text-primary"
-              >Blog</BreadcrumbLink
+              >หน้าหลัก</BreadcrumbLink
             >
           </BreadcrumbItem>
           <BreadcrumbSeparator />
@@ -62,7 +61,6 @@ const parsedContent = convertBrushToPrism(content);
       alt={featuredImage.alt}
       inferSize
       class="aspect-[120/63] rounded-lg"
-      loading="eager"
     />
     <article set:html={parsedContent} class="article-content" />
   </section>

@@ -11,7 +11,7 @@ import {
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"theme-light" | "dark" | "system">(
-    "theme-light",
+    "theme-light"
   );
 
   useEffect(() => {

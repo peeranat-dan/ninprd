@@ -1,0 +1,60 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = "Read about experience sharing and technology on blog.ninprd, a dynamic blog by Peeranat Danaidusadeekul, a full-time Software Engineer and part-time blogger.",
+  image = "/og-image.png",
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = import.meta.env.SITE_URL ?? "https://blog.ninprd.com/";
+const siteName = "blog.ninprd";
+const pageTitle = title ? `${title} | ${siteName}` : siteName;
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+---
+
+<!-- Global Metadata -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" href="/favicon.ico" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Robots Meta Tags -->
+{
+  noindex ? (
+    <meta name="robots" content="noindex,nofollow" />
+  ) : (
+    <meta name="robots" content="index,follow" />
+  )
+}
+
+<!-- Primary Meta Tags -->
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, siteUrl)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={pageTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, siteUrl)} />
+
+<link rel="sitemap" href="/sitemap-index.xml" />

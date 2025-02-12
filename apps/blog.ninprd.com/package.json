@@ -1,5 +1,5 @@
 {
-  "name": "@peeranat-dan/ninprd.com",
+  "name": "@peeranat-dan/blog.ninprd.com",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
+    "@astrojs/rss": "^4.0.11",
     "@fontsource-variable/jetbrains-mono": "^5.1.2",
     "@fontsource-variable/sora": "^5.1.1",
     "@fontsource/ibm-plex-sans-thai": "^5.1.1",
@@ -19,6 +20,8 @@
     "@tailwindcss/vite": "^4.0.3",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@vercel/analytics": "^1.4.1",
+    "@vercel/speed-insights": "^1.1.0",
     "astro": "^5.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

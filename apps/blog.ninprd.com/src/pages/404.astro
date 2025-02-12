@@ -1,0 +1,27 @@
+---
+import { buttonVariants } from "@ninprd/ui/components/button";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Page Not Found"
+  description="404 Page"
+  noindex
+  withAnalytics={false}
+>
+  <div
+    class="flex flex-col h-96 items-center justify-center text-center px-4 lg:px-0 gap-4"
+  >
+    <div class="gap-2">
+      <p class="font-semibold text-primary">404</p>
+      <h1>Page not found</h1>
+      <p class="text-foreground/70">
+        Sorry, we couldn&apos;t find the page you&apos;re looking for.
+      </p>
+    </div>
+    <div class="flex items-center justify-center gap-x-6">
+      <a href="/" class={buttonVariants({ variant: "default" })}>Go back home</a
+      >
+    </div>
+  </div>
+</Layout>

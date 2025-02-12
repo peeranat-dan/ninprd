@@ -1,0 +1,71 @@
+---
+import { GridPattern } from "@ninprd/ui/components/magicui/grid-pattern";
+import { cn } from "@ninprd/ui/lib/utils";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+import Layout from "../layouts/Layout.astro";
+
+const posts = await getCollection("blog");
+
+const latestPosts = posts.map((post) => post.data);
+---
+
+<Layout>
+  <section class="container pt-4">
+    <div
+      class="relative flex h-[200px] w-full gap-4 flex-col items-center justify-center overflow-hidden bg-background"
+    >
+      <h1
+        class="z-10 text-center font-medium tracking-tighter text-foreground dark:text-foreground uppercase"
+      >
+        blog.ninprd
+      </h1>
+      <p class="text-center italic text-sm text-foreground/60">
+        Building blocks, writing blogs
+      </p>
+      <GridPattern
+        squares={[
+          // TODO: Add more square here
+        ]}
+        className={cn(
+          "[mask-image:radial-gradient(250px_circle_at_center,white,transparent)]",
+          "inset-x-0 inset-y-[-30%] h-[150%] skew-y-12",
+        )}
+      />
+    </div>
+  </section>
+  <section class="container pt-4 pb-8 space-y-8">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        latestPosts.map((post, index) => {
+          const { slug, featuredImage, title, excerpt, category, date } = post;
+          return (
+            <a href={`/blog/${slug}`}>
+              <div class="flex flex-col gap-4">
+                <Image
+                  src={featuredImage.url}
+                  alt={featuredImage.alt}
+                  inferSize
+                  class="rounded-md aspect-[120/63] object-cover"
+                  loading={index < 6 ? "eager" : "lazy"}
+                />
+                <div class="space-y-2">
+                  <span class="text-xs items-end bg-primary/30 rounded-full w-fit px-2 py-1">
+                    {category.name}
+                  </span>
+                  <h2 class="text-2xl font-medium" set:html={title} />
+                  <p
+                    class="text-sm text-foreground/70 line-clamp-3"
+                    set:html={excerpt}
+                  />
+                  <p class="text-xs text-muted-foreground">{date}</p>
+                </div>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
+</Layout>

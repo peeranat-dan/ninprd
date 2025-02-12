@@ -10,7 +10,7 @@ export const WordPressPostSchema = z.object({
       year: "numeric",
       month: "long",
       day: "numeric",
-    }),
+    })
   ),
   slug: z.string(),
   content: z.object({
@@ -30,7 +30,7 @@ export const WordPressPostSchema = z.object({
           48: z.string(),
           96: z.string(),
         }),
-      }),
+      })
     ),
     "wp:featuredmedia": z.array(
       z.object({
@@ -45,10 +45,10 @@ export const WordPressPostSchema = z.object({
               width: z.number(),
               height: z.number(),
               source_url: z.string(),
-            }),
+            })
           ),
         }),
-      }),
+      })
     ),
     "wp:term": z.array(
       z.array(
@@ -57,8 +57,8 @@ export const WordPressPostSchema = z.object({
           name: z.string(),
           slug: z.string(),
           taxonomy: z.string(),
-        }),
-      ),
+        })
+      )
     ),
   }),
 });

@@ -1,13 +1,13 @@
+import { PostSchema, type Post } from "../types/post";
+import { WordPressPostSchema } from "../types/wordpress";
+import type { Loader, LoaderContext } from "astro/loaders";
+import { z } from "astro/zod";
+
 import {
   WORDPRESS_URL,
   WORDPRESS_USERNAME,
   WORDPRESS_PASSWORD,
 } from "astro:env/server";
-import type { Loader, LoaderContext } from "astro/loaders";
-import { z } from "astro/zod";
-
-import { PostSchema } from "../../types/post";
-import { WordPressPostSchema } from "../../types/wordpress";
 
 async function fetchWordPressPosts({
   page = 1,
@@ -24,8 +24,8 @@ async function fetchWordPressPosts({
     "Authorization",
     "Basic " +
       Buffer.from(WORDPRESS_USERNAME + ":" + WORDPRESS_PASSWORD).toString(
-        "base64",
-      ),
+        "base64"
+      )
   );
 
   const response = await fetch(url, {
@@ -60,12 +60,14 @@ async function fetchWordPressPosts({
       },
       category: post._embedded["wp:term"][0][0],
       tags: post._embedded["wp:term"][1][0],
-    }));
+    })) as Post[];
 }
 
-export function postLoader(): Loader {
+export function wordpressLoader(): Loader {
+  // Return a loader object
   return {
     name: "wordpress-loader",
+    // Called when updating the collection.
     load: async ({ store, logger }: LoaderContext): Promise<void> => {
       logger.info("Loading posts");
       const posts = await fetchWordPressPosts();
@@ -79,6 +81,8 @@ export function postLoader(): Loader {
         });
       }
     },
-    schema: () => PostSchema,
+    // Optionally, define the schema of an entry.
+    // It will be overridden by user-defined schema.
+    schema: async () => PostSchema,
   };
 }
