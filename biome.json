@@ -3,7 +3,7 @@
   "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["*/.vercel/*", "*/.astro/*", "scripts/*.js"]
+    "ignore": ["*/.vercel/*", "*/.astro/*", "scripts/*.js", "*/public/*"]
   },
   "formatter": {
     "enabled": true,
