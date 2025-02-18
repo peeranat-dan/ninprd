@@ -2,8 +2,15 @@
   "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
   "files": {
+    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     "ignoreUnknown": false,
-    "ignore": ["*/.vercel/*", "*/.astro/*", "scripts/*.js", "*/public/*"]
+    "ignore": [
+      "*/.vercel/*",
+      "*/.astro/*",
+      "scripts/*.js",
+      "*/public/*",
+      "*/.obsidian/*"
+    ]
   },
   "formatter": {
     "enabled": true,
