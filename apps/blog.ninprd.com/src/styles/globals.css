@@ -176,6 +176,10 @@
     [&_figcaption]:font-sans [&_figcaption]:text-muted-foreground [&_figcaption]:text-center;
   }
 
+  .article-content .blog-reference {
+    @apply [&_a]:no-underline [&_img]:rounded-sm [&_*]:no-underline [&_*]:mt-0 p-4 flex flex-col sm:flex-row gap-4 items-center border rounded-lg;
+  }
+
   pre::-webkit-scrollbar-track {
     background: transparent; /* Background color of the scrollbar track */
   }

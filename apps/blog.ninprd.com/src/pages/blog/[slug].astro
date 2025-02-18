@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,7 +11,6 @@ import {
 } from '@ninprd/ui/components/breadcrumb'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 import Layout from '../../layouts/Layout.astro'
-import { convertBrushToPrism } from '../../utils/converters/convert-brush-to-prism'
 
 export const getStaticPaths = (async () => {
   const collection = await getCollection('blog')
@@ -19,10 +18,10 @@ export const getStaticPaths = (async () => {
   return collection.map((post) => {
     return {
       params: {
-        slug: post.data.slug,
+        slug: post.id,
       },
       props: {
-        post: post.data,
+        post: post,
       },
     }
   })
@@ -31,12 +30,11 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { post } = Astro.props
-const { title, content, featuredImage, excerpt } = post
-
-const parsedContent = convertBrushToPrism(content)
+const { title, featuredImage, excerpt } = post.data
+const { Content } = await render(post)
 ---
 
-<Layout title={title} article description={excerpt} image={featuredImage.url}>
+<Layout title={title} description={excerpt} image={featuredImage.src}>
   <section class="max-w-4xl mx-auto space-y-8 px-4 lg:px-0 py-4">
     <div class="">
       <Breadcrumb>
@@ -57,12 +55,15 @@ const parsedContent = convertBrushToPrism(content)
     </div>
     <h1 set:html={title} />
     <Image
-      src={featuredImage.url}
-      alt={featuredImage.alt}
-      inferSize
+      src={featuredImage}
+      alt={`Cover of ${title}`}
+      width={featuredImage.width}
+      height={featuredImage.height}
       class="aspect-[120/63] rounded-lg"
+      loading="eager"
     />
-    <article set:html={parsedContent} class="article-content" />
+    <article class="article-content">
+      <Content />
+    </article>
   </section>
-  <script src="../../scripts/prism.js"></script>
 </Layout>

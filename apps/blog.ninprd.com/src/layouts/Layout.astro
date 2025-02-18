@@ -21,7 +21,6 @@ interface Props {
   title?: string
   description?: string
   image?: string
-  article?: boolean
   noindex?: boolean
   withAnalytics?: boolean
 }
@@ -30,8 +29,7 @@ const {
   title,
   description,
   image,
-  article,
-  noindex,
+  noindex = false,
   withAnalytics = true,
 } = Astro.props
 ---
@@ -47,7 +45,6 @@ const {
     <ThemeProvider />
     {withAnalytics ? <Analytics /> : null}
     <SpeedInsights />
-    {article ? <link href="/css/prism.css" rel="stylesheet" /> : null}
   </head>
   <body class="min-h-screen bg-background font-sans antialiased">
     <div class="elative flex min-h-screen flex-col">
