@@ -16,7 +16,7 @@ const latestPosts = posts
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 ---
 
-<Layout>
+<Layout noindex>
   <section class="container pt-4">
     <div
       class="relative flex h-[200px] w-full gap-4 flex-col items-center justify-center overflow-hidden bg-background"
