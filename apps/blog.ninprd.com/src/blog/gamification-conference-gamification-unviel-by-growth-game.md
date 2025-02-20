@@ -23,7 +23,7 @@ status: published
 
 Engagement Loop คือ Experience ที่จะทำ Motivate User ให้ทำ Action ต่อไปเรื่อย ๆ ได้ โดยองค์ประกอบของ Engagement Loop ประกอบไปด้วย Action, Feedback, และ Motivation
 
-![](assets/engagement-loop-picture.webp)
+![engagement-loop-picture](assets/engagement-loop-picture.webp)
 
 
 ### 🏃 Action

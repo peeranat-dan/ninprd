@@ -44,7 +44,7 @@ status: published
 
 และระดับสุดท้ายคือ Component นั่นคือการเอาชื่อ Component มาระบุเข้าไป เช่น Card-Title, Card-Background เป็นต้น
 
-![](assets/naming-figma-color.webp)
+![Chart showing color naming in Figma](assets/naming-figma-color.webp)
 
 ซึ่งหลัก ๆ จากข้อนี้คือให้เราเริ่มจากการค่อย ๆ กำหนด brand color ละไล่ไป semantic และค่อยไล่ไป component **อย่ารีบซับซ้อนโดยไม่จำเป็น**
 

@@ -33,7 +33,7 @@ status: published
 
 ในวันนั้นเขาก็ให้แต่ละทีมมาอธิบายว่าทีมตัวเองมีช่วยพัฒนา WordPress ในส่วนไหนอยู่ครับ โดยคนที่มาพูดในแต่ละทีมจะเป็น Table Leads หรือว่าคนที่ประจำโต๊ะของทีมนั้น ๆ อยู่ ซึ่งพอฟังทุกทีมขึ้นมาพูดแล้ว นิลรู้สึกว่านิลอยากไปทำทีม Documentation ครับ ซึ่งทีมนี้จะเป็นทีมที่ช่วยกันเขียน Documentation หรือ User Manual ของ WordPress นั่นเอง โดยปัจจัยตัดสินใจของนิลคือนิลชอบการ Document ของอยู่แล้วกับอยากรู้ว่าทำไม Document ของ WordPress ถึงไม่ค่อยถูกอัปเดทเท่าที่ควร
 
-![](assets/wordcamp-asia-with-nin-image-1.webp)
+![WordCamp Asia image, taken by Nin](assets/wordcamp-asia-with-nin-image-1.webp)
 <p align="center">Image Taken By me</p>
 
 พอได้เข้าทีม นิลก็ได้เจอกับ Leo ซึ่งเป็นหนึ่งใน Table Leads ของทีม Documentation ครับ Leo ก็ได้พานิลเริ่มตั้งแต่สร้าง Account ที่หน้าเว็บ WordPress.org ซึ่งนั่นเป็นปัญหาแรกที่เจอในงานครับ หน้าเว็บส่วน Login โหลดโคตรช้า ตอนแรกนิลก็คิดว่าที่ Internet แต่ว่าพอเข้าหน้าเว็บอื่น ๆ มันก็เข้าได้ปกติ แต่หน้า Login ของ WordPress นั้นช้ามาก ทำให้เสียเวลาไปเกือบ ๆ ครึ่งชั่วโมงเลย ซึ่งพอสร้าง Account และ Login สำเร็จ Leo ก็ได้สอนวิธีที่จะ Contribute ให้กับทีม Doc ของ WordPress ครับ ซึ่งนิลก็ได้เรียนรู้วิธีและได้เริ่มสร้างประโยชน์แก่ WordPress เป็นครั้งแรก 5555
@@ -77,18 +77,18 @@ status: published
 - อยากทำ Integration Directory สำหรับ WordPress เพื่อให้สามารถเริ่ม Project ได้ง่าย ๆ เหมือนพวก Frontend Framework สมัยใหม่
 - ใน Service ยุคใหม่ ๆ อาจจะต้องเอา WordPress ไป Plug กับ Service อื่น ๆ เพื่อทำให้ WordPress กลับมาเป็นผู้นำตลาดอีกครั้ง
 
-![](assets/wordcamp-asia-noel-tock.webp)
+![Noel Tock on the stage in WordCamp Asia 2024, taken by Nin](assets/wordcamp-asia-noel-tock.webp)
 
 พอจบ Session Keynote ทุกคนก็ปรบมือกันลั่น Hall เลย ส่วนตัวนิลก็แบบ อะไรวะเนี่ย ข้อมูลเป็นล้าน 5555555 พอฟัง Keynotes เสร็จนิลก็ได้เข้าไปฟัง Session ต่าง ๆ (ส่วนสรุป Session ต่าง ๆ นิลขอเอาไว้เขียนแยกเป็นอีก Blog นะไม่งั้นเยอะเกิน) พอถึงพักเที่ยงนิลก็ได้เจอกับพี่ไทแห่ง BKK.JS หลังจากนั้นนิลก็ทำเสมือนเล่นเกมและเปิด Bot เลย นิลก็เป็น Bot เดินตามพี่ไทเลยเพราะนิลไม่รู้เลยว่าถ้ามางาน Networking แบบนี้ นิลจะต้องทำตัวยังไง พี่ไทก็พานิลไปนู่นนี่นั่น พาไปกินข้าว เปิดบทสนทนาในโต๊ะกินข้าว จนสุดท้ายนิลก็ผ่านมื้อเที่ยงที่ต้องคุยกับคนแปลกหน้าหลายคนได้ (p.s. ข้าวเที่ยงวันนี้ไม่ค่อยอร่อยอะ ฮืออออ)
 
 นอกจากนั้นพี่ไทยังพานิลไปเจอกับชุนซึ่งชุนเป็นคนที่ร่วมทำ Commu ฝั่ง JavaScript กับพี่ไทมา พี่ไทบอกว่าชุนเป็น Indie Hacker และกำลังทำโปรเจค [https://learnalgorithm.com/](https://learnalgorithm.com/) นิลก็ตกใจมากแบบ เชี่ยย นี่แม่งบุคคลที่แบบโคตรตึง โคตรโหด โคตรอันตราย ก็ได้ทำความรู้จักกับชุนที่ตรงนั้นครับ แต่ก็ได้คุยแปปเดียวเพราะว่า Session บ่ายกำลังจะเริ่มแล้ว
 
 หลังจากนั้นนิลก็เข้า Session บ่ายปกติไป ซักพักนึงพี่ไทก็เดินมาบอกว่าเดี๋ยวบ่าย 3 คนไทยมีรวมตัวกันถ่ายรูปรวม ตอนแรกนิลก็สองจิตสองใจเพราะว่าในตอนแรกนิลก็ไม่อยากพลาดซัก Session เลย แต่ยังไงก็ตาม นิลก็เลือกที่จะมารวมตัวกับคนไทยคนอื่น ๆ เพราะอยากรู้ว่าคนไทยมากันเยอะไหม พอรวมตัวกันครบ ก็ได้รู้ว่าคนไทยมากันเยอะมาก เกือบ 30 คนแหนะ แต่แค่ทีมงาน Seed Webs ก็ล่อไป 10 คนแล้ว ยังมีทีมงานจากมหาวิทยาลัยเชียงใหม่อีก รู้สึกว่าเปิดโลกมากเลย ได้คุยกับพี่เม่นกับทีมงาน Seed Webs ด้วย ทุกคน Friendly มากเลยแหละ ปลาบปลื้มใจมาก ตอนแรกคิดว่าจะ Connect กับคนอื่น ๆ ยากกว่านี้
-![](assets/pmen-and-nin.webp)
+![A photo of P'Menn from SeedWebs and Nin, taken by Junior from SeedWebs](assets/pmen-and-nin.webp)
 <p align="center"><em>Image of Nin and P'Men by Junior from Seed Webs Team</em></p>
 
-![](assets/wordcamp-asia-2024-thai-people.webp)
-<p align="center"><em>Image by <a href="https://www.facebook.com/WordPress" data-type="link" data-id="https://www.facebook.com/WordPress" target="_blank" rel="noreferrer noopener">WordPress Facebook Page</a></em></p>
+![A photo of Thai people at WordCamp Asia 2024, taken by WordPress Staff](assets/wordcamp-asia-2024-thai-people.webp)
+<p align="center"><em>Image of Thai people at WordCamp Asia 2024, taken by WordPress Staff</em></p>
 
 พอถ่ายรูปรวมชาวไทยที่ WordCamp Asia กับเม้ามอยเสร็จ นิลก็จะกลับไปฟัง Session อื่น ๆ พี่ไทยก็มาบอกนิลว่า Session พวกนี้มีปล่อยฟรีบน YouTube ถ้ามาแค่ฟังอย่างเดียว โดยไม่ได้มีคำถามไปถามคนพูดหรืออยากไป Connect คนพูดแล้ว ก็เหมือนเสียค่าบัตรฟรี เอาเวลาไปคุยกับคนในงานหรือ Sponsor Booth ที่ตั้งอยู่ในงานดีกว่า นิลก็มานั่งคิดไปคิดมาละเห็นด้วย แต่ด้วยความที่นิลเข้าหาคนไม่เก่ง นิลจึงเลือกที่จะไปลองคุยกับ Booth Sponsor และ Booth แรกที่นิลเข้าไปคุยคือ Booth ของ Elementor ซึ่งเป็น Page Builder Plugin ที่นิลใช้กับ Project ล่าสุด นิลได้คุยกับ Rami ซึ่งเป็นหนึ่งในทีมพัฒนา Elementor เขาก็ให้คำแนะนำเกี่ยวกับการใช้มาและเขาก็พูดปัญหาที่ตอนนี้ Elementor กำลังเจอ นั่นคือการ Backward Compatability ของต่าง ๆ ไม่ว่าจะเป็น Icon Pack หรือ php version เพื่อ Support ผู้ใช้งาน 16 ล้านคนทั่วโลก (เยอะมากกกก) นอกจากนี้นิลยังถามเรื่องการพัฒนา Feature ว่าเขามี Strategy ยังไง Rami เลยตอบนิลว่า 1 ใน Strategy คือดูใน Github Issues ว่ามีคน Feature Request อะไรและมีคนเข้าไป Like หรือ +1 กันเยอะไหม ซึ่งก็แอบตกใจเหมือนกันว่าทำไมถึงไม่ได้เป็นการ Drive Feature จากทีมมาด้วย แต่นิลก็ไม่ได้ถามเหตุผลเพิ่มเติมไป จบ Booth นี้นิลก็ได้หมวก Elementor มาใบนึง 555555
 
@@ -108,7 +108,9 @@ status: published
 
 และแล้วก็มาถึง Session Q&A with Matt, Co-Founder ของ WordPress ซึ่งนิลรู้สึกชอบ Session อะไรแบบนี้มาก จริงใจสุด ก็มีคนมีคำถามจะถาม Matt เยอะมาก และ Matt ก็ตอบอย่างดีทุกอันด้วย ตัวนิลก็เสียดายนิดนึงเพราะจริง ๆ ก็มีคำถามที่อยากถามเหมือนกัน แต่คนถามเยอะเกิน แย่งไม่ไหว TT นอกจากนี้ Matt ยังประกาศอีกว่าจะมีงาน State of The Word ซึ่งจะเป็นงานที่เกี่ยวกับการอัพเดท WordPress ที่กรุงโตเกียว ประเทศญี่ปุ่นแหละ 🤩 พอ Matt พูดเสร็จก็มีประมวลภาพจบ WordCamp Asia 2024 และก็ประกาศว่าปีหน้า [WordCamp Asia 2025](https://asia.wordcamp.org/2025/) จะจัดที่ประเทศฟิลิปปินส์ 🥳🎉 นอกจากนี้ก่อนจบงานเขาก็ประกาศว่าจะมี After Party ที่ MAJI Square ด้วยซึ่ง Party จะเริ่มตอนทุ่มนึงครับ โดยมีอาหารฟรี เครื่องดื่มฟรี (หูผึ่งตรงนี้ 5555)
 
-![](assets/wordcam-asia-2024-matt.webp)<p align="center"><em>Image of Matt on stage, taken by me</em></p>![](assets/wordcamp-asia-2024-me.webp)
+![Image of Matt on stage, taken by Nin](assets/wordcam-asia-2024-matt.webp)
+<p align="center"><em>Image of Matt on stage, taken by me</em></p>
+![Image of Nin, taken by Chun Rapeepat](assets/wordcamp-asia-2024-me.webp)
 <p align="center"><em>Image of me by Chun Rapeepat</em></p>
 
 หลังจากจบ Session ก็จะเหลือเวลาประมาณ 2 ชั่วโมงก่อนจะเริ่ม Party ครับ นิลก็เลยไปเดินเล่นกับชุน เดินจากงาน WordCamp ไปที่ National Theatre and Concert Hall (ระยะทาง 4.6 กิโล) ระยะทางแบบบ้าบอมาก ระหว่างทางก็ได้คุยสัพเพเหระไปเรื่อย เดินไปประมาณชั่วโมงกว่าก็ถึงที่หมาย นิลก็แยกกับชุนและเดินไปที่พักนิลต่อ (อีก 2 โล) เดินให้ขาพังไปเลย 5555555 พอถึงที่พักนิลก็ทุ่มกว่าแล้ว นิลเลยเข้าไปอ่านข้อความชาวไทยที่ถึงที่งานแล้วว่าบรรยากาศงานเป็นไงบ้าง ก็เห็น Feedback เหมือนงานค่อนข้างเสียงดัง + คนเยอะ + เน้นแอลกอฮอล์ซึ่งตัวนิลไม่ค่อยชอบปัจจัยเหล่านี้ ตอนแรกนิลจะไม่ไปละ แต่พี่ไททักมาบอกว่ามาก่อนละถ้า Social Energy หมดค่อยไปเดินสวนเล่นกัน นิลเลยไป (โดนล่อด้วยการเดินสวน 555555)

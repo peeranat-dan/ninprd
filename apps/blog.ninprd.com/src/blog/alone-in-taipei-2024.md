@@ -31,7 +31,7 @@ status: published
 
 ตอนแรกนิลว่าจะไปแช่น้ำพุร้อนที่ Beitou Hotspring กับแก๊งค์ชาวไทยที่นิลเจอที่งาน WordCamp Asia แต่ว่าไม่สะดวกกัน นิลเลยเปลี่ยนแผนนิดหน่อย เลยย้าย Hotspring ไปพรุ่งนี้และเปิดวันด้วยการไปกินร้านชานม 50 Lan มา ส่วนตัวนิลชอบมากก แนะนำเลย เสร็จแล้วนิลก็ไปหากินข้าวเที่ยงแล้วก็ไปที่ตึก Taipei 101 เพราะตอนแรกจะไปลองร้านกาแฟ Simple Kaffa (เพื่อนแนะนำมา) แต่แบบไปถึงแล้วมันต้อง Reserve + ค่ากาแฟแพงมาก นิลเลยเปลี่ยนไปกินอีกร้านนึงชื่อว่า Cafe Acme ครับ ได้ไปซิบกาแฟชมวิวจากตึก Taipei 101 ชั้น 35 แล้วก็นั่งเขียน Blog ไปด้วย โคตรดีเลยครับ จากนั้นนิลก็จะไปกินข้าวเย็นที่ร้าน Din Tai Fung แต่ดูจากปริมาณคิวแล้ว นิลน่าจะได้กินอีกทีชาติหน้า นิลเลยลงไปหากินที่ Food Court (อีกแล้ว) และตามระเบียบที่นี่ครับ Food Court ก็เกือบ 200 อีกแล้ว (คิดถึง Food Court ไทยก็ทีนี้แหละ TT) พอกินเสร็จ นิลก็จะกลับที่พักแล้วครับ แต่ท้องไส้ปั่นป่วนหนักมากเลย ไม่รู้ว่าโดนอะไรมา แต่มันก็ทำให้นิลพลาดที่จะลองร้าน Chun Shui Tang ที่อยู่ใน Bucket List นิลได้แหละ 5555 พอกลับถึงที่พักก็ดีขึ้นฮะและก็กลายเป็นมานั่งปั่นงานต่อถึงเที่ยงคืนเลย 55555
 
-![](assets/alone-in-taipei-foot-court.webp)
+![Curry in Food Court in Taipei](assets/alone-in-taipei-foot-court.webp)
 
 ## วันสุดท้ายแล้ว
 
@@ -40,11 +40,11 @@ status: published
 
 <div class="flex gap-2 sm:gap-4">
 
-![](assets/alone-in-taipei-2024-coco.webp)
+![Coco Ichibanya in Taipei](assets/alone-in-taipei-2024-coco.webp)
 
-![](assets/alone-in-taipei-2024-syntrends.webp)
+![Syntrend Building in Taipei](assets/alone-in-taipei-2024-syntrends.webp)
 
-![](assets/alone-in-taipei-2024-moca.webp)
+![Moca in Taipei](assets/alone-in-taipei-2024-moca.webp)
 
 </div>
 

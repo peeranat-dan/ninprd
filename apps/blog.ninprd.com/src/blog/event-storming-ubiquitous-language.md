@@ -52,7 +52,7 @@ EventStorming เป็น Workshop ที่เอา Stakeholder ที่เ�
 
 อันนี้เป็นตัวอย่างของชุด Post-it ที่ใช้นะครับ
 
-![](assets/event-storming-post-it.webp)
+![post-it-example-for-event-storming](assets/event-storming-post-it.webp)
 
 สีส้มกับสีฟ้าเป็นสีที่ใน EventStorming ทุกคนใช้กัน แต่สีอื่นก็แล้วแต่กำหนดกันเลยฮะ
 
@@ -74,7 +74,7 @@ EventStorming เป็น Workshop ที่เอา Stakeholder ที่เ�
 9. ถ้ามีจุดไหนที่สงสัยหรือคาใจ ติด Post-it คำถามทิ้งไว้
 10. เมื่อทำเสร็จแล้วก็จะมา Review กันและเช็คความเข้าใจร่วมกันอีกทีนึง
 
-![](assets/event-storming-post-it-example.webp)
+![post-it-colors-for-event-storming](assets/event-storming-post-it-example.webp)
 
 การทำ EventStorming เป็นสิ่งที่เราสามารถ Iterate ไปเรื่อย ๆ ได้เพื่อทำให้ภาพมันชัดมากขึ้น สุดท้ายก็ขึ้นกับการ Weight ระหว่างความชัดเจนกับเวลาที่ต้องเสียไปในการทำ EventStorming ว่าคุ้มค่าหรือเปล่า
 

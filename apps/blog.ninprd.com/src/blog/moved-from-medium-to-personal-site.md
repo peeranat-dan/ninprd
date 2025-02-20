@@ -41,13 +41,13 @@ status: published
 5. ตอนนี้นิลยังคงสับสนกับการ cache ของ NextJS ตัว app directory และก็ยังงง ๆ เรื่องของ data fetching ของ Version ใหม่ของมันอยู่ + Library บางตัวก็เหมือนจะยังไม่ support Next Version ใหม่ นิลเลยมาลองใช้ของที่ใกล้เคียงกันครับ
 6. สามารถเขียน Server Endpoint ได้ จริง ๆ ก็คือสามารถเขียน API Route ข้างใน Frontend Repo ได้เลย ซึ่งอาจจะทำให้นิล Extend ของเพิ่มในอนาคตได้ครับ
 
-![](assets/astro-landing.webp)
+![landing page of astro js framework](assets/astro-landing.webp)
 
 ## โอเค ได้ Framework ที่จะใช้แล้ว ไปต่อที่ CMS กัน
 
 อย่างที่บอกไปตอนแรกว่านิลใช้ Notion ในการ Manage Content แต่ตอนที่เลือกตอนแรกก็มีความไปหาตัวเลือก Headless CMS เจ้าอื่น ๆ เช่น Strapi, Storyblok, WordPress, Webflow, etc. แต่ CMS ส่วนใหญ่จะมาติดปัญหาที่ Pricing ที่ค่อนข้างสูงหรือถ้าไม่อยากจ่ายราคาแพงก็ต้อง Self-Hosted เอง หรืออีกปัญหาคือ Free tier ที่นิลไม่รู้ว่าจะชนเมื่อไหร่ กลัวต้องมาลำบาก Migrate ของถ้ามันชนเร็ว นิลเลยกลับมามอง Notion ที่เคย Setup ไว้อยู่เพื่อ Manage Content อยู่แล้ว รวมทั้ง Notion เองก็มี SDK ของ JavaScript ที่ใช้งานไม่ยากมาก (ติดความยากที่การประกาศ Type นิดนึง) ทำให้นิลเลือกจะใช้ Notion ที่ตัวเองเคย Setup ไว้มาใช้ต่อครับ
 
-![](assets/notion-landing.webp)
+![notion landing page](assets/notion-landing.webp)
 
 ## ว่าด้วยเรื่อง Deployment
 
@@ -58,7 +58,7 @@ status: published
 3. User Interface ของ Website สวย และ User Experience ก็ใช้งานง่าย
 4. (สำคัญที่สุด) Free 555555555555
 
-![](assets/vercel-landing.webp)
+![vercel landing page](assets/vercel-landing.webp)
 ## Feature(s)/Enhancement(s) ที่อยากเพิ่มในอนาคต
 
 - คิดว่าอยากเพิ่มทางให้สามารถกด Like/Comment ได้เหมือนใน Medium หรือ Application อื่น ๆ

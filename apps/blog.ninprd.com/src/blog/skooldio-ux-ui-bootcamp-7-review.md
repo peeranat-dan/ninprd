@@ -44,8 +44,8 @@ Key หลักที่ได้จาก Week นี้คือ:
 
 > ทำ User Interview เพื่อลดความเสี่ยงให้กับ Business
 
-![](assets/uxui-bootcamp-week-1-2.webp)
-![](assets/uxui-bootcamp-week-1-3.jpg)
+![Classes of Week 1](assets/uxui-bootcamp-week-1-2.webp)
+![Classes of Week 1](assets/uxui-bootcamp-week-1-3.jpg)
 
 ## Week 2: Problems to Solutions
 
@@ -65,7 +65,7 @@ Key หลักที่ได้จาก Week นี้คือ:
 
 > การทำ UX Process ไม่ใช่เส้นตรง เราต้องตระหนักรู้ว่าตอนนี้เราอยู่ตรงไหน และคอยย้ำกับตัวเองตลอดว่าเรารู้หรือไม่รู้อะไรเกี่ยวกับ Users
 
-![](assets/uxui-bootcamp-week-2-1.webp)
+![Classes of Week 2](assets/uxui-bootcamp-week-2-1.webp)
 ## Week 3: UI Interaction Design
 
 เอาล่ะ วีคนี้โคตรมันส์ Instructor คือพี่แบงค์แห่ง UX Academy ครับ ซึ่งในวีคนี้พี่แบงค์ก็จะมาสอนหลักการต่าง ๆ ของการทำ UI และการทำ UI Interaction Design ครับ วีคนี้ In-Class Activity เยอะมากกก ได้ใช้ Figma ฉ่ำมาก Key หลัก ๆ ของ Week 3 มีประมาณนี้ครับ
@@ -85,8 +85,8 @@ Key หลักที่ได้จาก Week นี้คือ:
 
 > เราเรียนหลักการต่าง ๆ เกี่ยวกับ UI เพื่อสร้างของที่ใช้งานง่ายและเอาไปคุยกับ Stakeholder ได้อย่างมีเหตุผล
 
-![](assets/uxui-bootcamp-week-3-1.webp)
-![](assets/uxui-bootcamp-week-3-2.webp)
+![Classes of Week 3](assets/uxui-bootcamp-week-3-1.webp)
+![Classes of Week 3](assets/uxui-bootcamp-week-3-2.webp)
 ## Week 4: Design Psychology
 
 วีคนี้ Instructor คือพี่ปุ้ม Head of UX Design ที่ Skooldio ครับ พี่ปุ้มจะมาเล่าเกี่ยวกับ UX/UI ในมุมของหลักการต่าง ๆ ทาง Psychology ครับ ซึ่งด้วยประสบการณ์และการยกตัวอย่าง Good และ Bad Examples ของพี่ปุ้มทำให้การเล่าเรื่อง Psychology นั้นฟังดูย่อยไม่ยากอย่างที่คิดไว้ครับ ในวีคนี้ Key หลัก ๆ มีประมาณนี้ครับ
@@ -110,7 +110,8 @@ Key หลักที่ได้จาก Week นี้คือ:
 
 > นอกจากจะต้องออกแบบตามหลักการต่าง ๆ แล้ว เรายังต้องเข้าใจ Mental Model ของกลุ่มผู้ใช้งานของเรา เพื่อให้ Web/App ใช้งานง่ายและลดความต้องคิดของผู้ใช้งาน
 
-![](assets/uxui-bootcamp-week-4-1.webp)
+![Classes of Week 4](assets/uxui-bootcamp-week-4-1.webp)
+
 ## Week 5: Design Systems
 
 ในวีคนี้ส่วนใหญ่จะเป็นงานปฏิบัติครับ วันนี้พี่แบงค์มาสอนในเรื่องต่าง ๆ ของการทำ Design System ตั้งแต่ Basic ยันไปถึงเรื่องของ Figma Variables ซึ่งเป็น Feature ใหม่ของ Figma เลยครับ ในวีคนี้ Key หลัก ๆ ที่ได้จะเป็นประมาณนี้ครับ
@@ -127,7 +128,7 @@ Key หลักที่ได้จาก Week นี้คือ:
 
 Week นี้หลัก ๆ จะปฏิบัติเยอะมากกและเหนื่อยมากกกกกกกกก แต่ที่ชอบคือการมาด้วยแนวคิดที่ว่าเดี๋ยวของก็โดนรื้อครับ อย่ารีบใส่แรงในช่วงแรก ๆ ของการ Design ครับ
 
-![](assets/uxui-bootcamp-week-5-1.webp)
+![Classes of Week 5](assets/uxui-bootcamp-week-5-1.webp)
 ## Week 6: Lean UX
 
 ในวีคนี้ได้เรียนกับพี่ชาญ Lead Design Consultant ที่ Thoughtworks ฮะ พี่ชาญมาเล่าว่าก่อนที่เราจะทำ Design Thinking ที่เป็น Double Diamond Space เนี่ย เราต้องเข้าใจเรื่องของ Vision ขององค์กรกับ Vision ของ Product และการวัดผลซึ่งเป็นขั้นตอนหลังจากทำ Design Thinking ฮะ ซึ่ง Key หลัก ๆ ของ Week นี้มีตามนี้ครับ
@@ -150,12 +151,12 @@ Week นี้หลัก ๆ จะปฏิบัติเยอะมาก�
 ## Group Project
 
 ระหว่าง 6 คลาสสุดตึงก็จะมีงานกลุ่มที่เราจะต้องไปทำในแต่ละอาทิตย์ครับ ซึ่งตอน Orientation เราจะได้โจทย์มาเพื่อไปทำ UX และ UI Process และนำมา Pitch กันในคลาสสุดท้ายครับ ซึ่งนิลสปอยโจทย์ไม่ได้แต่ว่ากลุ่มนิลได้โจทย์ที่หินมากฮะ ใครอยากรู้ว่านิลได้โจทย์อะไร [ดู Project “สุขี” ใน Landing Page ของ UXB ได้](https://landing.skooldio.com/ux-ui-bootcamp?utm_source=ninprd&utm_medium=organic) 5555555 ระหว่างทางเนี่ย เราก็ต้องไป Interview Stakeholder, Interview Users, ทำ UX Process ต่าง ๆ รวมทั้งได้ทำ UI Process ต่าง ๆ พวกการทำ Wireframe, High Fidelity Design, Design System, Prototyping เพื่อเอาไป Test กับ Users อีก รวมถึงได้ใช้ Figma Local Variables ในการลองทำแอปในรูปแบบ Dark Mode ด้วย (อันนี้เป็นโจทย์เสริมซึ่งทีมนิลก็สู้ด้วยไง ทำไปซะหมดเลย 555555) ซึ่งในระหว่างทางเราก็จะผ่านขั้นตอนเหล่านี้และผ่านการทำงานและตบตี (ถกกันเรื่องความคิดและไอเดีย) กับเพื่อนร่วมทีมจนสุดท้ายก็ผ่านพ้นไปด้วยดีครับ อย่างที่เขียนบอกไว้เลย ใน Project เราได้ทำอะไรเยอะมากและเราจะได้ทวนของเหล่านั้นในระหว่างการทำ Presentation ไปนำเสนอในคลาสสุดท้ายครับ นอกจากนั้น การได้ดูกลุ่มอื่น ๆ นำเสนอผลงานตัวเองก็ถือเป็นการได้ดูวิธีการทำงานและวิธีคิดของกลุ่มอื่น ๆ ด้วย เพื่อนร่วมรุ่นทุกกลุ่มคือสุดมากกก ถึงขนาดที่พี่แบงค์บอกว่ารุ่นนี้ใส่พลังกับ UXB เยอะมาก ปลาบปลื้มสุดด ภาพสรุปตอนจบนั้นคือการที่เราได้เข้าใจการทำงานในขาของ UX, UI และการทำงานเป็นทีมครับ
-![](assets/uxui-bootcamp-ending-1.webp)
-![](assets/uxui-bootcamp-ending-2.webp)
+![Group project team winners with prizes](assets/uxui-bootcamp-ending-1.webp)
+![Group project team winners with certificates](assets/uxui-bootcamp-ending-2.webp)
 
 หลังจากจบในส่วนที่เราไปนำเสนองานกลุ่มกันจบแล้ว ก็มี Session Wrap-Up Bootcamp ครับ พี่แบงค์ก็มาทวนให้อีกรอบว่าเราผ่านอะไรกันมาบ้างในระยะเวลา 3 เดือนที่ผ่านมา ซึ่งภาพคร่าว ๆ ก็เป็นประมาณนี้ครับ
 
-![](assets/uxui-bootcamp-summary-1.webp)
+![A slide to wrap up UXB 7 by Skooldio](assets/uxui-bootcamp-summary-1.webp)
 
 จากภาพนี้จะเห็นได้เลยว่า UXB นี่ค่อนข้างวางหลักสูตรมาให้เรียนไล่จากความเป็น UX มาทำ UI และเข้าใจการทำงานกับทีมมากขึ้นครับ หลังจากเรียนไปก็รับรู้ถึงความตั้งใจของ Program Director, Instructor, Facilitator และทีม Business Development ที่ร่วมกันสร้างบรรยากาศการเรียนรู้ให้กับคนเรียนทุกคนจริง ๆ (ขอบคุณทุกคนมา ณ ที่นี้คร้าบบ)
 
