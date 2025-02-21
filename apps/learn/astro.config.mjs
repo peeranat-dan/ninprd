@@ -1,6 +1,6 @@
+// @ts-check
 import starlight from '@astrojs/starlight'
 import tailwindcss from '@tailwindcss/vite'
-// @ts-check
 import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
@@ -10,11 +10,22 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: 'My Docs',
+      title: 'Learn.ninprd.com',
       social: {
-        github: 'https://github.com/withastro/starlight',
+        github: 'https://github.com/peeranat-dan/ninprd',
       },
-      customCss: ['./src/styles/globals.css'],
+      customCss: [
+        './src/styles/globals.css',
+        '@fontsource-variable/jetbrains-mono',
+        '@fontsource/ibm-plex-sans-thai-looped/400.css',
+        '@fontsource/ibm-plex-sans-thai-looped/600.css',
+        '@fontsource/ibm-plex-sans-thai-looped/700.css',
+        '@fontsource/ibm-plex-sans-thai/400.css',
+        '@fontsource/ibm-plex-sans-thai/500.css',
+        '@fontsource/ibm-plex-sans-thai/600.css',
+        '@fontsource/ibm-plex-sans-thai/700.css',
+        '@fontsource-variable/sora',
+      ],
       sidebar: [
         {
           label: 'Guides',
