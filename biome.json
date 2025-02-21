@@ -10,7 +10,8 @@
       "**/*.astro",
       "**/*.md",
       "**/*.mdx",
-      "**/*.css"
+      "**/*.css",
+      "**/*.mjs"
     ],
     "ignoreUnknown": true,
     "ignore": [
