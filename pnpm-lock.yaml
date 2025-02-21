@@ -117,6 +117,18 @@ importers:
       '@astrojs/starlight':
         specifier: ^0.32.0
         version: 0.32.0(astro@5.3.0(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.8)(typescript@5.7.3)(yaml@2.7.0))
+      '@fontsource-variable/jetbrains-mono':
+        specifier: ^5.1.2
+        version: 5.1.2
+      '@fontsource-variable/sora':
+        specifier: ^5.1.1
+        version: 5.1.1
+      '@fontsource/ibm-plex-sans-thai':
+        specifier: ^5.1.1
+        version: 5.1.1
+      '@fontsource/ibm-plex-sans-thai-looped':
+        specifier: ^5.1.1
+        version: 5.1.1
       '@ninprd/ui':
         specifier: workspace:*
         version: link:../../packages/ui
