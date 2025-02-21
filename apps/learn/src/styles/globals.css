@@ -1,3 +1,26 @@
 @import "tailwindcss";
 
 @import "@ninprd/ui/globals.css";
+
+@view-transition {
+  /* biome-ignore lint/correctness/noUnknownProperty: <explanation> */
+  navigation: auto;
+}
+
+:root {
+  --sl-font: "Sora Variable", "IBM Plex Sans Thai", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  div.content-panel ol > li {
+    @apply list-decimal list-inside;
+  }
+
+  div.content-panel ul > li {
+    @apply list-disc list-inside;
+  }
+}
