@@ -31,4 +31,8 @@ export default defineConfig({
       rehypeTrimMdLinks,
     ],
   },
+  redirects: {
+    '/blog/wordpress-basic-i':
+      'https://learn.ninprd.com/wordpress-series/wordpress-basic/wordpress-basic-1/',
+  },
 })
