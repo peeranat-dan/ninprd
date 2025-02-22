@@ -1,6 +1,7 @@
 // @ts-check
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import expressiveCode from 'astro-expressive-code'
 import { defineConfig, envField } from 'astro/config'
@@ -10,12 +11,14 @@ import rehypeTrimMdLinks from './plugins/rehype-trim-md-links'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://blog.ninprd.com',
   integrations: [
     react(),
     expressiveCode({
       useDarkModeMediaQuery: false, // disable dark mode by system
     }),
     mdx(),
+    sitemap(),
   ],
   vite: {
     plugins: [tailwindcss()],
