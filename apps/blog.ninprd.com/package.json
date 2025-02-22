@@ -26,6 +26,7 @@
     "@vercel/speed-insights": "^1.1.0",
     "astro": "^5.3.0",
     "astro-expressive-code": "^0.40.2",
+    "astro-robots-txt": "^1.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rehype-external-links": "^3.0.0",
