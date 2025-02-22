@@ -9,6 +9,18 @@
 
 :root {
   --sl-font: "Sora Variable", "IBM Plex Sans Thai", sans-serif;
+
+  --sl-color-accent: var(--primary);
+  --sl-color-accent-high: var(--primary);
+  --sl-color-accent-low: var(--primary);
+  --sl-color-text-accent: var(--primary);
+}
+
+:root[data-theme="light"] {
+  --sl-color-accent: var(--primary);
+  --sl-color-accent-high: var(--primary);
+  --sl-color-accent-low: var(--primary);
+  --sl-color-text-accent: var(--primary);
 }
 
 @layer base {
