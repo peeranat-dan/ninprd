@@ -4,6 +4,7 @@ import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import expressiveCode from 'astro-expressive-code'
+import robotsTxt from 'astro-robots-txt'
 import { defineConfig, envField } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 
@@ -19,6 +20,7 @@ export default defineConfig({
     }),
     mdx(),
     sitemap(),
+    robotsTxt(),
   ],
   vite: {
     plugins: [tailwindcss()],
