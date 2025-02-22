@@ -24,3 +24,10 @@
     @apply list-disc list-inside;
   }
 }
+
+@layer components {
+  /* Starlight Component Override */
+  article.card {
+    @apply rounded-lg;
+  }
+}
