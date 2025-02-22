@@ -42,4 +42,8 @@
   article.card {
     @apply rounded-lg;
   }
+
+  .sl-markdown-content a {
+    @apply underline underline-offset-2;
+  }
 }
