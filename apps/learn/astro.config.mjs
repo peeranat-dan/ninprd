@@ -2,11 +2,15 @@
 import starlight from '@astrojs/starlight'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
+import { remarkHeadingId } from 'remark-custom-heading-id'
 
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+  },
+  markdown: {
+    remarkPlugins: [remarkHeadingId],
   },
   integrations: [
     starlight({
