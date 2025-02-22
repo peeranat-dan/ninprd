@@ -27,16 +27,15 @@ export default defineConfig({
         '@fontsource-variable/sora',
       ],
       sidebar: [
+        'directory',
         {
-          label: 'Guides',
+          label: 'WordPress Series',
           items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', slug: 'guides/example' },
+            {
+              label: 'WordPress Basics',
+              autogenerate: { directory: 'wordpress-series/wordpress-basic' },
+            },
           ],
-        },
-        {
-          label: 'Reference',
-          autogenerate: { directory: 'reference' },
         },
       ],
     }),
