@@ -1,0 +1,39 @@
+---
+import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons'
+
+import { GITHUB_URL, LINKEDIN_URL } from '../../constants'
+---
+
+<footer class="mx-auto w-full max-w-3xl">
+  <div
+    class="flex flex-1 items-center justify-between gap-8 border-t px-6 py-8"
+  >
+    <p class="text-sm text-muted-foreground">
+      &copy; {new Date().getFullYear()} - Peeranat Danaidusadeekul
+    </p>
+    <div class="flex gap-4">
+      <a
+        href={LINKEDIN_URL}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Linkedin profile of Peeranat Danaidusadeekul"
+      >
+        <LinkedInLogoIcon
+          strokeWidth={1}
+          className="h-6 w-6 text-muted-foreground"
+        />
+      </a>
+      <a
+        href={GITHUB_URL}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Github profile of Peeranat Danaidusadeekul"
+      >
+        <GitHubLogoIcon
+          strokeWidth={1}
+          className="h-6 w-6 text-muted-foreground"
+        />
+      </a>
+    </div>
+  </div>
+</footer>

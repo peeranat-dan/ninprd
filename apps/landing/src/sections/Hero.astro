@@ -1,0 +1,39 @@
+---
+import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons'
+
+import { buttonVariants } from '@ninprd/ui/components/button'
+import { Separator } from '@ninprd/ui/components/separator'
+
+import { GITHUB_URL, LINKEDIN_URL } from '../constants'
+---
+
+<section id="hero" class="px-4 lg:px-0 pt-8">
+  <h1 class="text-4xl mb-1 font-semibold">Peeranat Danaidusadeekul</h1>
+  <div class="max-w-md mb-4">
+    <p class="text-muted-foreground text-sm sm:text-base">
+      I'm a software engineer at Skooldio Tech. I'm interested in web
+      development and UX/UI design.
+    </p>
+  </div>
+  <div class="flex gap-2 w-full flex-col sm:flex-row">
+    <a
+      href={LINKEDIN_URL}
+      class={buttonVariants()}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Linkedin profile of Peeranat Danaidusadeekul"
+      >
+      <LinkedInLogoIcon /> Linkedin
+    </a>
+    <a
+      href={GITHUB_URL}
+      class={buttonVariants({ variant: 'outline' })}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Github profile of Peeranat Danaidusadeekul"
+    >
+      <GitHubLogoIcon /> Github
+    </a>
+  </div>
+  <Separator className="mt-4" />
+</section>

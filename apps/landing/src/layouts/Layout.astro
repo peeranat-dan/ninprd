@@ -1,0 +1,46 @@
+---
+import { cn } from '@ninprd/ui/lib/utils'
+import { SEO } from 'astro-seo'
+
+import Footer from '../components/layouts/Footer.astro'
+import Header from '../components/layouts/Header.astro'
+import ThemeProvider from '../components/theme/ThemeProvider.astro'
+import '../styles/globals.css'
+
+const title = 'Peeranat Danaidusadeekul'
+const description = `Dive into Peeranat Danaidusadeekul's coding journey! Explore impressive projects, and skills in software engineering.`
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: 'website',
+          image: '/og-image.png',
+        },
+      }}
+      extend={{
+        link: [{ rel: 'sitemap', href: '/sitemap-index.xml' }],
+      }}
+    />
+    <ThemeProvider />
+  </head>
+  <body class={cn('min-h-screen font-sans antialiased')}>
+    <div class="relative flex min-h-screen flex-col">
+      <Header />
+      <div class="flex-1">
+        <slot />
+      </div>
+      <Footer />
+    </div>
+  </body>
+</html>

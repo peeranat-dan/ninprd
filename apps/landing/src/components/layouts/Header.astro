@@ -1,0 +1,30 @@
+---
+import { buttonVariants } from '@ninprd/ui/components/button'
+
+import { RESUME_URL } from '../../constants'
+import { ModeToggle } from '../theme/mode-toggle'
+---
+
+<header
+  class="sticky top-0 z-40 px-4 lg:px-0 w-full bg-background/95 backdrop-blur"
+>
+  <div class="max-w-3xl mx-auto flex h-14 items-center justify-between">
+    <div class="mr-4 flex">
+      <a href="#" class="mr-6 flex items-center space-x-2">
+        <span class="font-bold sm:inline-block text-primary">PD</span>
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <a
+        class={buttonVariants()}
+        href={RESUME_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Get my resume url"
+      >
+        Get my resume
+      </a>
+      <ModeToggle client:only="react" />
+    </div>
+  </div>
+</header>

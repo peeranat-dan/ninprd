@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@import "@ninprd/ui/globals.css";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
