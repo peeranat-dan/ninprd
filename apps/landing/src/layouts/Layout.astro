@@ -1,5 +1,6 @@
 ---
 import { cn } from '@ninprd/ui/lib/utils'
+import Analytics from '@vercel/analytics/astro'
 import { SEO } from 'astro-seo'
 
 import Footer from '../components/layouts/Footer.astro'
@@ -33,6 +34,7 @@ const description = `Dive into Peeranat Danaidusadeekul's coding journey! Explor
       }}
     />
     <ThemeProvider />
+    <Analytics />
   </head>
   <body class={cn('min-h-screen font-sans antialiased')}>
     <div class="relative flex min-h-screen flex-col">
