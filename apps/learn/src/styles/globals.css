@@ -76,4 +76,8 @@
   .sl-markdown-content a {
     @apply underline underline-offset-2;
   }
+
+  .sl-markdown-content {
+    @apply relative;
+  }
 }

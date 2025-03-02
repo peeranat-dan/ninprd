@@ -1,0 +1,26 @@
+---
+import { Label } from '@ninprd/ui/components/label'
+import { hashString } from '@ninprd/ui/lib/utils'
+interface Props {
+  content: string
+}
+
+const { content } = Astro.props
+
+const id = hashString(content).toString()
+---
+
+<div class="blog-checkpoint flex items-center gap-2 rounded-lg border p-4">
+  <input
+    id={id}
+    type="checkbox"
+    class="peer size-6 shrink-0 cursor-pointer appearance-none rounded-lg border-2 border-slate-300 bg-slate-100 p-2 text-slate-600 outline-none checked:bg-primary focus:ring-2 focus:ring-ring"
+  />
+  <Label
+    htmlFor={id}
+    className="w-full text-foreground peer-checked:text-foreground/50 peer-checked:line-through"
+    client:only="react"
+  >
+    {content}
+  </Label>
+</div>

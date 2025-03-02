@@ -1,0 +1,65 @@
+---
+
+---
+
+<progress-tracker>
+  <div class="p-2 lg:px-0 sticky z-[9999] top-[var(--sl-nav-height)] mx-auto">
+    <div class="space-y-2 w-full bg-background rounded-lg border p-4">
+      <div class="flex justify-between items-center">
+        <p class="text-sm font-medium">Overall Progress</p>
+        <div class="font-semibold">
+          <span id="progress" class="text-2xl mr-1">0</span>%
+        </div>
+      </div>
+      <div class="relative pt-1">
+        <div class="overflow-hidden h-2 text-xs flex rounded bg-accent">
+          <div
+            id="progress-bar"
+            style="width: 0%"
+            class="progress transition-all duration-300 shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</progress-tracker>
+
+<script>
+  class ProgressTracker extends HTMLElement {
+    constructor() {
+      super();
+      let checkedCheckpoints = 0;
+
+      const checkpoints = document.querySelectorAll<HTMLInputElement>(
+        'input[type="checkbox"]'
+      );
+
+      for (const checkpoint of checkpoints) {
+        checkpoint.addEventListener("change", () => {
+          // TODO: Add posthog capture
+          //   if (window?.posthog?.capture) {
+          //     window.posthog.capture("checkpoint_checked", {
+          //       checkpoint_id: checkpoint.id,
+          //     });
+          //   }
+          if (checkpoint.checked) {
+            checkedCheckpoints++;
+          } else {
+            checkedCheckpoints--;
+          }
+          const progress = document.getElementById("progress-bar");
+          const progressPercent =
+            (checkedCheckpoints / checkpoints.length) * 100;
+          if (progress && progress.style) {
+            progress.style.width = `${progressPercent}%`;
+            document!.getElementById("progress")!.textContent =
+              `${progressPercent.toFixed(0)}`;
+          }
+        });
+      }
+    }
+  }
+
+  customElements.define("progress-tracker", ProgressTracker);
+</script>
