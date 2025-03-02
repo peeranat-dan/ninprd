@@ -43,6 +43,15 @@ export default defineConfig({
           ],
         },
       ],
+      head: [
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image',
+            content: '/og-image.webp',
+          },
+        },
+      ],
     }),
     react(),
   ],
