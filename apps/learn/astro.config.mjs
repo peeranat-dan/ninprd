@@ -1,6 +1,7 @@
 // @ts-check
 import react from '@astrojs/react'
 import starlight from '@astrojs/starlight'
+import vercelStatic from '@astrojs/vercel/static'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import { remarkHeadingId } from 'remark-custom-heading-id'
@@ -13,6 +14,11 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkHeadingId],
   },
+  adapter: vercelStatic({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
   integrations: [
     starlight({
       title: 'Learn.ninprd.com',
