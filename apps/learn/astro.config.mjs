@@ -8,6 +8,7 @@ import { remarkHeadingId } from 'remark-custom-heading-id'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://learn.ninprd.com',
   vite: {
     plugins: [tailwindcss()],
   },
