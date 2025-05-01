@@ -9,7 +9,7 @@ tags:
   - Y2025
 featuredImage: ./assets/basic-n8n-for-devs-og.webp
 date: 2025-05-01
-status: draft
+status: published
 ---
 
 สวัสดีครับ นิลหายไป 2 เดือนแหนะะ ช่วงก่อนหน้าน้ีติดงานแบบวุ่น ๆ กับไปนั่งทำ Project เล่น ๆ ของตัวเองมาอันนึง ช่วงนี้นิลเห็น Content เกี่ยวกับ n8n เยอะมากแล้วก็นิลก็ได้มีโอกาสไปช่วย Facilitate Workshop [AI Automation for Business Transformation รุ่นที่ 1](https://www.skooldio.com/workshops/ai-automation-for-business-transformation) มาครับ ทำให้นิลได้ลองเล่น n8n มาในหลาย ๆ use case เลยครับ ทำให้นิลอยากมาแชร์เป็น Basic ของ n8n สำหรับชาว Dev ได้เข้าใจและเข้ามาลองเล่น Tool ตัวนี้ได้ง่ายขึ้นแหละครับ
@@ -20,7 +20,7 @@ n8n เป็น Tool ที่เข้ามาช่วยในการท�
 
 ซึ่งเจ้า Node นี้ก็จะมี Function ที่สำเร็จรูปแล้วครับ ไม่ต้องเขียนเอง เช่น ต่อ Google Sheets, ส่ง HTTP Request,ส่ง Email ด้วย Gmail, Database, AI Agent, etc. รวมทั้งสามารถบันทึกพวก Credentials ที่เอาไว้ต่อกับบริการต่าง ๆ ไว้ได้ด้วยครับ
 
-ซึ่งจริง ๆ แล้ว 1 Node ก็เหมือน 1 Function ครับ และ 1 Workflow ก็เหมือนการประกาศ Function ที่เอา Function อื่น ๆ มาต่อกันไปเรื่อย ๆ แหละครับ เดี๋ยวนิลลองเทียบ Side by Side ด้วย Code ดูครับ 
+ซึ่งจริง ๆ แล้ว 1 Node ก็เหมือน 1 Function ครับ และ 1 Workflow ก็เหมือนการประกาศ Function ที่เอา Function อื่น ๆ มาต่อกันไปเรื่อย ๆ แหละครับ เดี๋ยวนิลลองเทียบ Side by Side ด้วย Code ดูครับ
 
 ![](assets/n8n-to-code-example.webp)
 
@@ -90,7 +90,7 @@ npx n8n
 
 ---
 
-จบไปละกับ Basic n8n for devs ครับ ตอนแรกนิลอยากเอาอันนี้ไปวางไว้ที่ https://learn.ninprd.com/ แหละ แต่รู้สึกว่ามันเป็นเนื้อหาคร่าวมาก ๆ ผนวกกับตอนนี้นิลยังไม่ได้ลองเล่น n8n แบบเยอะมาก ๆ หรือเจอ use case ที่นิลต้องใช้ n8n มาก ๆ ด้วยครับ ถ้าได้ลองเล่นเยอะ ๆ นิลอาจจะไปนั่งทำเป็นเนื้อหาวางไว้ในเว็บ learn ของนิลก็ได้ครับ 
+จบไปละกับ Basic n8n for devs ครับ ตอนแรกนิลอยากเอาอันนี้ไปวางไว้ที่ https://learn.ninprd.com/ แหละ แต่รู้สึกว่ามันเป็นเนื้อหาคร่าวมาก ๆ ผนวกกับตอนนี้นิลยังไม่ได้ลองเล่น n8n แบบเยอะมาก ๆ หรือเจอ use case ที่นิลต้องใช้ n8n มาก ๆ ด้วยครับ ถ้าได้ลองเล่นเยอะ ๆ นิลอาจจะไปนั่งทำเป็นเนื้อหาวางไว้ในเว็บ learn ของนิลก็ได้ครับ
 
 ถ้าใครอยากลองศึกษา n8n เพิ่มเติม ทาง n8n เขามี Tutorial นะครับ ลองไปศึกษากัน[ดูได้ที่นี่เลย](https://docs.n8n.io/try-it-out/tutorial-first-workflow/) หรือสามารถติดตาม Tutorial จากหลาย ๆ เพจได้เลย ไม่ว่าจะเป็น [เทพเอ็กเซล](https://www.facebook.com/thepexcel) [QWERTY is a DUCK](https://www.facebook.com/duckgitalist) หรือ [Prompt Alchemist](https://www.facebook.com/PromptAlchemist) ก็มี Tutorial อยู่ประปรายครับ
 
