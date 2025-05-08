@@ -5,9 +5,11 @@ import { getCollection } from 'astro:content'
 import { Badge } from '@ninprd/ui/components/badge'
 
 const projects = await getCollection('projects')
-const PROJECTS = projects.map((project) => ({
-  ...project.data,
-}))
+const PROJECTS = projects
+  .map((project) => ({
+    ...project.data,
+  }))
+  .sort((a, b) => a.order - b.order)
 ---
 
 <section id="projects" class="px-4 lg:px-0 py-8">
