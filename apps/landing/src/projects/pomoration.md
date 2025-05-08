@@ -4,6 +4,7 @@ description: "A productivity web application that helps users focus on their wor
 stacks: ["React", "Tailwind", "Supabase"]
 url: "https://pomoration.ninprd.com"
 imageUrl: "./assets/pomoration-screenshot.webp"
+order: 5
 ---
 
 ## Overview

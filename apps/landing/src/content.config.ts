@@ -14,6 +14,7 @@ const projects = defineCollection({
       stacks: z.array(z.string()),
       imageUrl: image(),
       url: z.string().url(),
+      order: z.number(),
     }),
 })
 

@@ -4,6 +4,7 @@ description: "A blog website using Astro, React, and Tailwind CSS with @shadcn/u
 stacks: ["Astro", "React", "Tailwind"]
 url: "https://blog.ninprd.com"
 imageUrl: "./assets/blog-screenshot.webp"
+order: 2
 ---
 
 ## Overview
