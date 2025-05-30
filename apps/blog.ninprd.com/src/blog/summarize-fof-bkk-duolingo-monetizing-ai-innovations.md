@@ -1,6 +1,6 @@
 ---
 title: สรุป Session - Monetizing AI Innovations
-excerpt: asd
+excerpt: สวัสดีครับเมื่อ 3 วีคก่อนนิลได้ฟัง Live ของงาน Friends of Figma Bangkok มาครับ ละก็เพิ่งมีเวลามาเรียบเรียงเนื้อหาดี ๆ ซึ่งชื่อ Session คือ Monetizing AI Innovations โดย Speak คือคุณ Leah Lee, Product Designer จาก Duolingo ซึ่ง Leah จะมาเล่าการเดินทางของ Duolingo Max ซึ่งเป็น Feature ที่มีการเอา AI มาใช้งานด้วย จะเป็นยังไงไปดูกันครับ
 tags:
   - summary
   - ux
