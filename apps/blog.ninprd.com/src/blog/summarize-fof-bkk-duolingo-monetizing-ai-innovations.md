@@ -6,7 +6,7 @@ tags:
   - ux
   - ai
 featuredImage: ./assets/duolingo-summarize-og.webp
-date: 2025-05-18
+date: 2025-05-31
 status: published
 ---
 
@@ -42,11 +42,13 @@ status: published
 จากนั้น Leah เลยไป Research ต่อเกี่ยวกับหน้าจอเวลาที่มีคนโทรเข้ามาเพราะว่า User จะสนใจจอเมื่อเวลามีคนโทรเข้ามา นอกจากนี้ Leah ก็ยังไป Research มาต่ออีกว่าเราสามารถทำให้โฆษณาใน App สามารถคลิ๊กเล่นได้จริง (จากพวกโฆษณาเกมในมือถือ) ทำให้ Leah ออกแบบ Version ใหม่มาเป็นเหมือน Lily กำลังโทรเข้ามา
 
 ![](assets/fof-duolingo-video-call-promo-iteration-2.webp)
+
 <p align="center">Iteration ถัดมาของ Video Call Promo</p>
 
 ใน Version นี้ Leah ได้รับ Feedback มาว่าทำ Feature Tie In ได้ดีขึ้น แต่ User สามารถ Skip ได้ง่าย ทำให้สุดท้าย Leah ออกแบบมาเป็นหน้าจอแบบ Slide to answer และเมื่อ Slide ไปก็จะเป็นหน้า Lily มาทักทายด้วยภาษาที่ผู้เรียนคนนั้น ๆ กำลังเรียนอยู่พร้อมบอกว่าจะได้อะไรบ้างเมื่อสมัคร Duolingo Max
 
 ![](assets/fof-duolingo-video-call-promo-final-design.webp)
+
 <p align="center">Prototyping ของ Final Design ของ Video Call Promo</p>
 
 ซึ่ง Iteration สุดท้ายก็ผ่าน Product Review กับ CEO และเป็น Version ที่ปล่อยใช้งานใน App และ Promo อันนี้ก็ช่วย Drive ยอด Subscription ให้กับ Duolingo เป็นอย่างมาก
