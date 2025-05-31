@@ -93,7 +93,7 @@
 @layer utilities {
   .article-content {
     @apply font-paragraph leading-7 [&_*]:mt-4 break-words
-    [&_ul]:list-disc [&_ol]:list-decimal [&>li]:mt-2 [&>ol]:pl-8 [&>ul]:pl-8 [&_li]:my-2 
+    [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:pl-8 [&>li]:mt-2 [&>ol]:pl-8 [&>ul]:pl-8 [&_li]:my-2 
     [&_a]:text-primary [&_a]:underline [&_a]:decoration-2 [&_a]:decoration-primary [&_a]:underline-offset-4 
     [&_img]:rounded-lg [&_img]:w-full
     [&_figcaption]:font-sans [&_figcaption]:text-muted-foreground [&_figcaption]:text-center;
