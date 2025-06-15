@@ -18,7 +18,11 @@ export default defineConfig({
       useDarkModeMediaQuery: false, // disable dark mode by system
     }),
     mdx(),
-    sitemap(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+    }),
     robotsTxt(),
   ],
   vite: {
