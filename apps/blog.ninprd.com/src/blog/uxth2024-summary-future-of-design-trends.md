@@ -5,8 +5,8 @@ tags:
   - conference
   - Y2024
   - uxth
-  - ux/ui
   - ai
+  - ux
 featuredImage: ./assets/blog-future-of-design-teams.webp
 date: 2024-03-22
 status: published

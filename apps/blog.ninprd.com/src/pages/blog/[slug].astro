@@ -37,7 +37,7 @@ const allPosts = await getCollection('blog')
 
 const relatedPosts = allPosts
   .filter(
-    (p) => p.id !== post.id && p.data.tags.some((tag) => tags.includes(tag))
+    (p) => p.id !== post.id && p.data.tags.some((tag) => tags.includes(tag)),
   )
   .slice(0, 3)
   .map((p) => {
@@ -81,9 +81,12 @@ const relatedPosts = allPosts
         <p>Tags:</p>
         {
           tags.map((tag) => (
-            <span class="bg-muted/50 select-none text-muted-foreground px-2 py-1 rounded-md">
+            <a
+              href={`/tags/${tag}`}
+              class="bg-muted/50 select-none text-muted-foreground px-2 py-1 rounded-md"
+            >
               {tag}
-            </span>
+            </a>
           ))
         }
       </div>

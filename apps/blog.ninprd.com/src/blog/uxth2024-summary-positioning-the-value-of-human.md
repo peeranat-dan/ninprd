@@ -5,7 +5,6 @@ tags:
   - conference
   - uxth
   - ux
-  - ux/ui
   - Y2024
 featuredImage: ./assets/blog-positioning-the-value-of-human.webp
 date: 2024-03-23
