@@ -30,13 +30,15 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { post } = Astro.props
-const { title, featuredImage, excerpt } = post.data
+const { title, featuredImage, excerpt, tags } = post.data
 const { Content } = await render(post)
 
 const allPosts = await getCollection('blog')
 
 const relatedPosts = allPosts
-  .filter((p) => p.id !== post.id && p.data)
+  .filter(
+    (p) => p.id !== post.id && p.data.tags.some((tag) => tags.includes(tag))
+  )
   .slice(0, 3)
   .map((p) => {
     return { id: p.id, ...p.data }
@@ -74,37 +76,47 @@ const relatedPosts = allPosts
     <article class="article-content">
       <Content />
     </article>
-  </section>
-  <section class="max-w-4xl mx-auto space-y-8 px-4 lg:px-0 py-4">
-    <h3>Related Posts</h3>
-    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="flex items-center gap-2 text-sm text-muted-foreground">
+      <p>Tags:</p>
       {
-        relatedPosts.map((post) => {
-          const { id, featuredImage, title, excerpt, date } = post
-
-          return (
-            <a href={`/blog/${id}`}>
-              <div class="flex flex-col gap-4">
-                <Image
-                  src={featuredImage}
-                  alt={`Cover of ${title}`}
-                  width={featuredImage.width}
-                  height={featuredImage.height}
-                  class="rounded-md aspect-[120/63] object-cover"
-                />
-                <div class="space-y-2">
-                  <h2 class="text-2xl font-medium" set:html={title} />
-                  <p
-                    class="text-sm text-foreground/70 line-clamp-3"
-                    set:html={excerpt}
-                  />
-                  <p class="text-xs text-muted-foreground">{date}</p>
-                </div>
-              </div>
-            </a>
-          )
-        })
+        tags.map((tag) => (
+          <span class="bg-muted/50 select-none text-muted-foreground px-2 py-1 rounded-md">
+            {tag}
+          </span>
+        ))
       }
     </div>
+    <section class="max-w-4xl mx-auto space-y-8 px-4 lg:px-0 py-4">
+      <h3>Related Posts</h3>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          relatedPosts.map((post) => {
+            const { id, featuredImage, title, excerpt, date } = post
+
+            return (
+              <a href={`/blog/${id}`}>
+                <div class="flex flex-col gap-4">
+                  <Image
+                    src={featuredImage}
+                    alt={`Cover of ${title}`}
+                    width={featuredImage.width}
+                    height={featuredImage.height}
+                    class="rounded-md aspect-[120/63] object-cover"
+                  />
+                  <div class="space-y-2">
+                    <h2 class="text-2xl font-medium" set:html={title} />
+                    <p
+                      class="text-sm text-foreground/70 line-clamp-3"
+                      set:html={excerpt}
+                    />
+                    <p class="text-xs text-muted-foreground">{date}</p>
+                  </div>
+                </div>
+              </a>
+            )
+          })
+        }
+      </div>
+    </section>
   </section>
 </Layout>
