@@ -37,7 +37,7 @@ const allPosts = await getCollection('blog')
 
 const relatedPosts = allPosts
   .filter(
-    (p) => p.id !== post.id && p.data.tags.some((tag) => tags.includes(tag)),
+    (p) => p.id !== post.id && p.data.tags.some((tag) => tags.includes(tag))
   )
   .slice(0, 3)
   .map((p) => {
@@ -94,37 +94,61 @@ const relatedPosts = allPosts
         Posted: {date}
       </div>
     </div>
-    <section class="max-w-4xl mx-auto space-y-8 px-4 lg:px-0 py-4">
-      <h3>Related Posts</h3>
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          relatedPosts.map((post) => {
-            const { id, featuredImage, title, excerpt, date } = post
+    {
+      relatedPosts.length > 0 ? (
+        <section class="border-t pt-8">
+          <h3 class="text-xl font-semibold mb-6 text-foreground">
+            Related Posts
+          </h3>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedPosts.map((post) => {
+              const {
+                id,
+                featuredImage,
+                title,
+                excerpt,
+                date,
+                tags: postTags,
+              } = post
+              const matchingTags = postTags.filter((tag) => tags.includes(tag))
 
-            return (
-              <a href={`/blog/${id}`}>
-                <div class="flex flex-col gap-4">
-                  <Image
-                    src={featuredImage}
-                    alt={`Cover of ${title}`}
-                    width={featuredImage.width}
-                    height={featuredImage.height}
-                    class="rounded-md aspect-[120/63] object-cover"
-                  />
-                  <div class="space-y-2">
-                    <h2 class="text-2xl font-medium" set:html={title} />
-                    <p
-                      class="text-sm text-foreground/70 line-clamp-3"
-                      set:html={excerpt}
-                    />
-                    <p class="text-xs text-muted-foreground">{date}</p>
-                  </div>
-                </div>
-              </a>
-            )
-          })
-        }
-      </div>
-    </section>
+              return (
+                <article class="group">
+                  <a href={`/blog/${id}/`} class="block">
+                    <div class="flex flex-col gap-4 rounded-lg">
+                      <Image
+                        src={featuredImage}
+                        alt={`Cover of ${title}`}
+                        width={featuredImage.width}
+                        height={featuredImage.height}
+                        class="rounded-md aspect-[120/63] object-cover"
+                      />
+                      <div class="space-y-2">
+                        <h4
+                          class="text-lg font-medium group-hover:text-primary transition-colors line-clamp-2"
+                          set:html={title}
+                        />
+                        <p
+                          class="text-sm text-foreground/70 line-clamp-2"
+                          set:html={excerpt}
+                        />
+                        <div class="flex flex-wrap gap-1 mt-2">
+                          {matchingTags.slice(0, 2).map((tag) => (
+                            <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-muted/50 text-muted-foreground group-hover:bg-muted transition-colors">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <p class="text-xs text-muted-foreground">{date}</p>
+                      </div>
+                    </div>
+                  </a>
+                </article>
+              )
+            })}
+          </div>
+        </section>
+      ) : null
+    }
   </section>
 </Layout>
