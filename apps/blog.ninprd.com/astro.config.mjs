@@ -22,6 +22,13 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
+      serialize(item) {
+        if (item.url.includes('/blog/')) {
+          item.priority = 0.8
+          item.changefreq = 'monthly'
+        }
+        return item
+      },
     }),
     robotsTxt(),
   ],
