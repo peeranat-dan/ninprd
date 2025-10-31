@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection, render } from "astro:content";
+import { Image } from 'astro:assets'
+import { getCollection, render } from 'astro:content'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,13 +8,13 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@ninprd/ui/components/breadcrumb";
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-import Layout from "../../layouts/Layout.astro";
+} from '@ninprd/ui/components/breadcrumb'
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
+import Layout from '../../layouts/Layout.astro'
 
 export const getStaticPaths = (async () => {
-  const collection = await getCollection("blog");
-  if (!collection) return [];
+  const collection = await getCollection('blog')
+  if (!collection) return []
   return collection.map((post) => {
     return {
       params: {
@@ -23,26 +23,26 @@ export const getStaticPaths = (async () => {
       props: {
         post: post,
       },
-    };
-  });
-}) satisfies GetStaticPaths;
+    }
+  })
+}) satisfies GetStaticPaths
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
-const { post } = Astro.props;
-const { title, featuredImage, excerpt, tags, date } = post.data;
-const { Content } = await render(post);
+const { post } = Astro.props
+const { title, featuredImage, excerpt, tags, date } = post.data
+const { Content } = await render(post)
 
-const allPosts = await getCollection("blog");
+const allPosts = await getCollection('blog')
 
 const relatedPosts = allPosts
   .filter(
-    (p) => p.id !== post.id && p.data.tags.some((tag) => tags.includes(tag))
+    (p) => p.id !== post.id && p.data.tags.some((tag) => tags.includes(tag)),
   )
   .slice(0, 3)
   .map((p) => {
-    return { id: p.id, ...p.data };
-  });
+    return { id: p.id, ...p.data }
+  })
 ---
 
 <Layout title={title} description={excerpt} image={featuredImage.src}>
