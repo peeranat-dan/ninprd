@@ -26,7 +26,6 @@ export function useSearch() {
       try {
         setIsLoading(true)
         const response = await fetch('/api/search.json')
-        console.log('Fetch response:', response)
         if (!response.ok) {
           throw new Error('Failed to fetch search data')
         }
@@ -44,7 +43,6 @@ export function useSearch() {
   }, [])
 
   const search = (query: string): SearchResult[] => {
-    console.log('Search query:', query)
     if (!fuse || !query.trim()) {
       return []
     }
