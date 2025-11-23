@@ -6,7 +6,12 @@ import {
   CommandItem,
   CommandList,
 } from '@ninprd/ui/components/command'
-import { Dialog, DialogContent } from '@ninprd/ui/components/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from '@ninprd/ui/components/dialog'
 import { Calendar, FileText, Search, Tag } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 import { useKeyboardShortcut } from './useKeyboardShortcut'
@@ -49,6 +54,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
         className="overflow-hidden p-0 max-w-2xl"
         showCloseButton={false}
       >
+        <DialogTitle className="sr-only">Search Blog Posts</DialogTitle>
+        <DialogDescription className="sr-only">
+          Search for blog posts by title, content, or tags
+        </DialogDescription>
         <Command shouldFilter={false}>
           <CommandInput
             placeholder="Search posts by title, content, or tags..."
