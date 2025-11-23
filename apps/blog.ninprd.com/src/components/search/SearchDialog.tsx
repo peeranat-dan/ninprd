@@ -27,7 +27,10 @@ interface SearchDialogProps {
   onOpenChange: (open: boolean) => void
 }
 
-export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
+export function SearchDialog({
+  open,
+  onOpenChange,
+}: Readonly<SearchDialogProps>) {
   const [query, setQuery] = useState('')
   const { search, isLoading, error } = useSearch()
 
@@ -65,19 +68,19 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
             onValueChange={setQuery}
           />
           <CommandList className="max-h-[400px]">
-            {isLoading && (
+            {isLoading ? (
               <div className="py-6 text-center text-sm text-muted-foreground">
                 Loading search index...
               </div>
-            )}
+            ) : null}
 
-            {error && (
+            {error ? (
               <div className="py-6 text-center text-sm text-destructive">
                 Failed to load search data. Please try again.
               </div>
-            )}
+            ) : null}
 
-            {!isLoading && !error && (
+            {!isLoading && !error ? (
               <>
                 <CommandEmpty>
                   {query ? (
@@ -143,7 +146,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                   </CommandGroup>
                 )}
               </>
-            )}
+            ) : null}
           </CommandList>
         </Command>
       </DialogContent>
@@ -155,7 +158,7 @@ interface SearchButtonProps {
   onClick: () => void
 }
 
-export function SearchButton({ onClick }: SearchButtonProps) {
+export function SearchButton({ onClick }: Readonly<SearchButtonProps>) {
   const handleClick = useCallback(() => {
     onClick()
   }, [onClick])
