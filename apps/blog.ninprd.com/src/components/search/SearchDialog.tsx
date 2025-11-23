@@ -104,7 +104,7 @@ export function SearchDialog({
                   )}
                 </CommandEmpty>
 
-                {results.length > 0 && (
+                {results.length > 0 ? (
                   <CommandGroup heading="Posts">
                     {results.map((result) => {
                       const { item } = result
@@ -133,18 +133,18 @@ export function SearchDialog({
                               <Calendar className="h-3 w-3" />
                               <span>{item.date}</span>
                             </div>
-                            {item.tags.length > 0 && (
+                            {item.tags.length > 0 ? (
                               <div className="flex items-center gap-1">
                                 <Tag className="h-3 w-3" />
                                 <span>{item.tags.slice(0, 2).join(', ')}</span>
                               </div>
-                            )}
+                            ) : null}
                           </div>
                         </CommandItem>
                       )
                     })}
                   </CommandGroup>
-                )}
+                ) : null}
               </>
             ) : null}
           </CommandList>
