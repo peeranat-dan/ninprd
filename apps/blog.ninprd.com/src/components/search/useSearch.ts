@@ -9,10 +9,11 @@ const FUSE_OPTIONS: IFuseOptions<SearchablePost> = {
     { name: 'content', weight: 0.15 },
     { name: 'tags', weight: 0.05 },
   ],
-  threshold: 0.3,
+  threshold: 0.2,
   includeScore: true,
   includeMatches: true,
   minMatchCharLength: 2,
+  ignoreLocation: true,
 }
 
 export function useSearch() {
