@@ -1,0 +1,108 @@
+---
+title: จด ๆ จากงาน Typhoon เฮ็ดให้ AI ใจอีสาน
+excerpt: สวัสดีครับ วันนี้นิลไปงาน Typhoon เฮ็ดให้ AI ใจอีสานมาครับ มาดูสิ่งที่น่าสนใจที่นิลจดมากัน
+tags:
+  - ai
+  - Y2025
+featuredImage: ./assets/typhoon-ai-isan.webp
+date: 2025-11-27
+status: published
+---
+สวัสดีครับ วันนี้นิลไปงาน Typhoon เฮ็ดให้ AI ใจอีสานมาครับ มาดูรายละเอียดที่นิลจดมากัน
+
+## Keynote: AI for Low Resource Languages: TYPHOON จากปัญญาประดิษฐ์เชี่ยวชาญภาษาไทยสู่ภาษาถิ่น
+
+ความเชื่อของทีม Typhoon คืออยากให้ AI เข้าใจภาษา แต่ไม่ใช่แค่ภาษากลาง แต่ควรมีทุกภาคเลย ในช่วงปีนี้ Typhoon ออก Model ใหม่เยอะมาก ซึ่งตัวที่เด่น ๆ เลยคือ Typhoon ASR (Automatic Speech Recognition) ซึ่งมีจุดเด่นเรื่องความเร็วโดยสามารถถอดความแบบ Real Time ได้ และมีราคาถูกกว่า Commercial Model กว่า 400 เท่า
+
+ทั้งนี้ตัว Typhoon ASR ยังมี Gap เรื่องภาษาที่รองรับเพราะยังรับได้แค่ไทยกลาง ทีมเลยมี Initiative ที่จะทำ Model ภาษาถิ่น ซึ่งในประเทศอื่นก็มีความคิดที่จะทำภาษาถิ่นของประเทศตัวเอง เช่น Africa, India, หรือ Middle American 
+
+ที่เลือกภาษาอีสานเพราะคนอีสานเป็น 1/3 ของประเทศไทยและมี GDP 1/10 ของประเทศ นอกจากนี้ยังมีความเด่นเรื่องการแพทย์และสุขภาพ
+
+สิ่งที่ Typhoon เปิดตัววันนี้มี 3 อย่างคือ
+- **Typhoon Isan ASR (Automatic Speech Recognition)**: Model ถอดเสียงภาษาอีสาน
+	- *Typhoon Isan ASR Real-Time*: เหมาะกับงานถอดเสียงสด Model เล็ก ใช้ทรัพยากรต่ำ
+	- *Typhoon Isan ASR Whisper*: เหมาะกับงานถอดเสียงสำหรับไฟล์ที่บันทึกมาก่อนแล้ว Model ใหญ่ ใช้ Resource เยอะ แต่แม่นยำขึ้น
+- **Typhoon Isan Speech Corpus**: Open-source คลังข้อมูลเสียงภาษาอีสาน
+	- Isan Speech Corpus: ชุดข้อลูเสียงพูดพร้อม Transcription
+	- Isan Spelling Standard: มาตรฐานการสะกดคำอีสานออกแบบโดยอิงหลักภาษาศาสตร์
+	- Isan Speech Transcriptipn Convention: แนวทางการถอดเสียงอีสานเชิงภาษาศาสตร์
+	- Phoenetic Dictionary: พจนานุกรมอักษรจับคู่คำอีสานกับการอ่าน
+- **Typhoon Isan TTS (Text to Speech)**: Model สังเคราะห์เสียงภาษาอีสาน
+
+
+---
+## Panel Discussion: Behind the Scene: เบื้องหลัง TYPHOON AI ภาษาอีสาน
+
+โปรเจคนี้ใช้เวลาประมาณ 1 ปีโดยมีความยากที่ภาษาอีสานเป็น Very Low Resource Language การเก็บข้อมูลยากมาก รวมถึงต้องดู Landscape ของภาษาอีสานและ Dataset ที่มีด้วย รวมถึงภาษาอีสานยังมี Gap เรื่อง Spelling Standard เพราะมีแต่ภาษาพูดแต่ไม่มีภาษาเขียนที่ตายตัว จึงต้องมี Linguist มากำหนด Process ของการทำงานของข้อมูลให้ชัด
+
+### กระบวนการการจัดการข้อมูลของนักภาษาศาสตร์
+
+1. **กำหนดนิยามของภาษาอีสาน** - หา Common Ground ของภาษา
+
+เราจะนับว่าใครพูดภาษาอีสาน? ใช้เกณฑ์ของภาษาศาสตร์ - ใครพูด 6 วรรณยุกต์ = เอามาเป็น Data
+
+2. **กำหนดระบบสะกดคำ** - ต่างคนต่างสะกดไม่เหมือนกัน
+
+หลัก ๆ แล้วจะสะกดตามเสียงที่ออก แต่อิงกับเสียงวรรณยุกต์อีสาน แล้วเราจะรู้จักวรรณยุกต์อีสานได้ยังไง ทีม Linguist เลยเอากล่องวรรณยุกต์ (Tone Box) ของภาษากลางกับภาษาอีสานมาเทียบ
+
+3. **วิธีการเก็บข้อมูล**
+
+ใช้หลายวิธี เช่น ให้ตอบคำถาม หรือให้คนอีสานเติมบทสนทนา หรือ ให้ดูภาพแล้วบรรยายภาพที่เห็น
+
+จากการเก็บข้อมูลเลยได้ Isan Corpus มี File เสียงที่คู่กับ File Transcription รวมทั้งมี Test Data และมี Metadata รวมถึงมีปฏิภาคของการภาษาไทยกลาง - อีสาน
+
+4. **สร้างกระบวนการการกำกับข้อมูล**
+
+มีการกำหนด Annotation Guidelines และให้ Internal Team ช่วยกันพัฒนาและนำไปให้ External Team ช่วย Labeling เพื่อช่วยกำกับข้อมูล รวมถึงมี Annotation Platform ที่ช่วยให้การ Filtering ว่าเป็นภาษาอีสาน Dialect ไหน เสียง Clean ไหมและการทำ Audio Transcription ง่ายขึ้น
+
+ในอนาคตอยากให้คนที่พูดภาษาอีสานมาช่วยกัน Contribute ที่ Annotation Platform นี้เพื่อช่วยกัน Train Model
+
+สามารถอ่านเพิ่มเติมได้ที่ https://github.com/scb-10x/typhoon-isan
+
+### แนวทางการพัฒนาและบทเรียนจาก Typhoon TTS
+
+1. ศึกษา TTS ในตลาดหลายตัว สุดท้ายทีมเลือก Orpheus เพราะเป็น Open-source และ LLM กำลังมาแรง
+2. ปรับให้เหมาะสมกับ Usage ถ้าเป็น Model TTS ต้อง
+3. ต้องใช้ข้อมูลเสียงแบบคุณภาพดี 2 ชั่วโมงให้ TTS ใช้งานได้จริง
+4. ต้องค่อย ๆ ปรับให้ออกเสียงให้ถูกต้องเป็นธรรมชาติและเหมือนคนอีสานจริง ๆ
+
+ซึ่งตัว Model TTS สามารถเอาไปต่อยอดเป็น Voice Agent ได้ ทีม Typhoon ได้ลองทำ Voice Agent และแสดง E2E Architecture ของเจ้า Agent ตัวนี้ให้ดู นอกจากการใช้งาน Model ตัว LLM, ARS, และ TTS ยังมีการทำ Turn Detection เพื่อ Detect ว่าคนพูดจบหรือยัง และก็ยังมี Interuption Detection เพื่อให้เราสามารถพูดแทรก Model ได้ทำให้เป็นธรรมชาติมากขึ้น
+
+นอกจากนี้การทำ Agent ระบบใหญ่ ๆ ก็จะต้องมีการทำ Context Management ที่ดีด้วย
+
+## แนวทางการพัฒนาและบทเรียนจาก Voice Agent
+
+1. ผู้ใช้งานต้องการการตอบกลับจาก Agent ในเวลา 236 milliseconds ซึ่งเป็น Standard ที่สูงมาก
+2. การใช้งาน ARS, LLM, และ TTS ไปด้วยกันมักเกิดคอขวดที่ LLM ซึ่งถ้าเรา Optimize LLM ได้ จะช่วย Performance ได้ดีมาก
+3. เริ่มสร้างบน [LiveKit](https://livekit.io/) ซึ่งเป็น Platform สำหรับการทำ Voice Agent ที่มีระบบกรอง Noise ที่ดี รวมถึงมี Edge Network ที่ Latency ต่ำมาก
+
+Typhoon เชื่อว่า AI ไทยจะได้มีที่ยืนในเวที AI โลก และ Thai AI Community จะเติบโตไปพร้อม ๆ กัน
+
+**Internal Team**: Guidelines Creation -> Pilot Annotation -> Guidelines Update
+**External Team**: Training -> Pilot Annotation -> Guidelines Update -> Production Annotation -> Reviewing Mechanism -> Guidelines Update and Re-annotation
+
+Annotation Platform
+1 -> Filtering: บอก่วาเสียง Clean/ไม่ Clean และเป็น Dialect ไหน
+2 -> Audio Transcription: เสียงนี้เป็นคำอะไรในภาษากลางและภาษาอีสาน
+
+---
+## Panel Discussion: Inspiration & Collaboration: AI บ้านเฮา กับอนาคตของอีสานดิจิทัล
+
+Panel นี้เขามาเสวนากันชิว ๆ กันครับ หลัก ๆ นิลไม่ได้จดมาครับ แต่มี Usecase ที่ Panelists เขาคุยกันประมาณนี้ครับ
+- ใช้ Train คนที่ต้องไปอีสาน เพื่อสื่อสารให้ได้
+- ใช้เพื่อสื่อสารแบบ Real-time กับลูกค้าเพื่อทำให้ลูกค้าเปิดใจเพราะใช้ภาษาเดียวกัน
+- หมอใช้ ARS เพื่อให้สามารถสื่อสารภาษาอีสานกับคนไข้ได้
+- ใช้ทวงหนี้สื่อสารด้วยภาษาอีสาน
+
+## จด ๆ จาก Q&A
+
+- ตอนนี้ยังไม่มีการประเมินว่า Model เข้าใจภาษาอีสานแค่ไหน
+- ตอนนี้ยังไม่มี Evals ภาษาอีสาน
+- ตอนนี้เป็นจุดตั้งต้น ยังอิงจาก Region ที่ใช้ 6 วรรณยุกต์ แล้วเดี๋ยวค่อยขยายผลไปยังพื้นที่อื่น ๆ
+- มองว่า Typhoon เป็น Hard Power, Soft Power ของประเทศไทย
+- มี Benchmark ที่เทียบใน Model Garden
+- มีความพยายามจะหาวิธีการสะกดคำภาษาอีสาน ทำให้ต้อง Re-invent the wheel ในการสะกดคำภาษาอีสาน
+
+
+
+
