@@ -78,13 +78,6 @@ status: published
 
 Typhoon เชื่อว่า AI ไทยจะได้มีที่ยืนในเวที AI โลก และ Thai AI Community จะเติบโตไปพร้อม ๆ กัน
 
-**Internal Team**: Guidelines Creation -> Pilot Annotation -> Guidelines Update
-**External Team**: Training -> Pilot Annotation -> Guidelines Update -> Production Annotation -> Reviewing Mechanism -> Guidelines Update and Re-annotation
-
-Annotation Platform
-1 -> Filtering: บอก่วาเสียง Clean/ไม่ Clean และเป็น Dialect ไหน
-2 -> Audio Transcription: เสียงนี้เป็นคำอะไรในภาษากลางและภาษาอีสาน
-
 ---
 ## Panel Discussion: Inspiration & Collaboration: AI บ้านเฮา กับอนาคตของอีสานดิจิทัล
 
