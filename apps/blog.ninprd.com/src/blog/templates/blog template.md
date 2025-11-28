@@ -1,8 +1,9 @@
 ---
-title: 
-excerpt: 
-tags: 
-featuredImage: 
-date: 
+title:
+excerpt:
+tags:
+featuredImage:
+date:
 status:
+withTableOfContent: true
 ---

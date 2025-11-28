@@ -10,6 +10,7 @@ import {
   BreadcrumbSeparator,
 } from '@ninprd/ui/components/breadcrumb'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
+import TableOfContent from '../../components/blog/TableOfContent.astro'
 import Layout from '../../layouts/Layout.astro'
 
 export const getStaticPaths = (async () => {
@@ -30,8 +31,9 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { post } = Astro.props
-const { title, featuredImage, excerpt, tags, date } = post.data
-const { Content } = await render(post)
+const { title, featuredImage, excerpt, tags, date, withTableOfContent } =
+  post.data
+const { Content, headings } = await render(post)
 
 const allPosts = await getCollection('blog')
 
@@ -73,6 +75,7 @@ const relatedPosts = allPosts
       class="aspect-[120/63] rounded-lg object-cover"
       loading="eager"
     />
+    {withTableOfContent ? <TableOfContent headings={headings} /> : null}
     <article class="article-content">
       <Content />
     </article>
