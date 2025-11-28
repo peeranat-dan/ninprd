@@ -7,6 +7,7 @@ tags:
 featuredImage: ./assets/typhoon-ai-isan.webp
 date: 2025-11-27
 status: published
+withTableOfContent: true
 ---
 สวัสดีครับ วันนี้นิลไปงาน Typhoon เฮ็ดให้ AI ใจอีสานมาครับ มาดูรายละเอียดที่นิลจดมากัน
 
