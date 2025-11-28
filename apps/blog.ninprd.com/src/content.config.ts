@@ -21,6 +21,7 @@ const blog = defineCollection({
       ),
       featuredImage: image(),
       status: z.enum(['draft', 'published']),
+      withTableOfContent: z.boolean().default(false),
     }),
 })
 
