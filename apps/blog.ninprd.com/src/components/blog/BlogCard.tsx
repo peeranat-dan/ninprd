@@ -14,8 +14,8 @@ export const BlogCard = forwardRef<HTMLDivElement, BlogCardProps>(
         className="story-card"
         style={{
           position: 'fixed',
-          top: '0',
-          left: '0',
+          top: '-10000px',
+          left: '-10000px',
           width: '1080px',
           height: '1920px',
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -26,11 +26,7 @@ export const BlogCard = forwardRef<HTMLDivElement, BlogCardProps>(
           padding: '80px 60px',
           color: 'white',
           fontFamily: 'system-ui, -apple-system, sans-serif',
-          opacity: '0',
           pointerEvents: 'none',
-          zIndex: '-1',
-          transform: 'scale(0.1)',
-          transformOrigin: 'top left',
         }}
       >
         <div
