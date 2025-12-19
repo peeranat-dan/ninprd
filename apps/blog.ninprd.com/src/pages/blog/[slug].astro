@@ -10,6 +10,7 @@ import {
   BreadcrumbSeparator,
 } from '@ninprd/ui/components/breadcrumb'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
+import { ContentShare } from '../../components/blog/ContentShare'
 import TableOfContent from '../../components/blog/TableOfContent.astro'
 import Layout from '../../layouts/Layout.astro'
 
@@ -95,6 +96,7 @@ const relatedPosts = allPosts
           ))
         }
       </div>
+      <ContentShare post={post.data} client:load />
       <div class="text-sm text-muted-foreground">
         Posted: {date}
       </div>
