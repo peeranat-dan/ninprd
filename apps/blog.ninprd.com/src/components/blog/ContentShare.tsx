@@ -1,6 +1,7 @@
 import type { CollectionEntry } from 'astro:content'
 import { toBlob } from 'html-to-image'
 import { useRef, useState } from 'react'
+import { BlogCard } from './BlogCard'
 
 interface ContentShareProps {
   post: CollectionEntry<'blog'>['data']
@@ -152,135 +153,7 @@ export function ContentShare({ post, url }: Readonly<ContentShareProps>) {
   return (
     <div className="content-share">
       {/* Hidden card for image generation */}
-      <div
-        ref={cardRef}
-        className="story-card"
-        style={{
-          position: 'fixed',
-          top: '0',
-          left: '0',
-          width: '1080px',
-          height: '1920px',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '80px 60px',
-          color: 'white',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          opacity: '0',
-          pointerEvents: 'none',
-          zIndex: '-1',
-          transform: 'scale(0.1)',
-          transformOrigin: 'top left',
-        }}
-      >
-        <div
-          style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-          }}
-        >
-          {/* Featured Image */}
-          {post.featuredImage && (
-            <div
-              style={{
-                width: '100%',
-                height: '600px',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                marginBottom: '40px',
-              }}
-            >
-              <img
-                src={getAbsoluteUrl(post.featuredImage.src)}
-                alt={post.title}
-                crossOrigin="anonymous"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
-              />
-            </div>
-          )}
-
-          {/* Content */}
-          <div
-            style={{
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-            }}
-          >
-            <h1
-              style={{
-                fontSize: '72px',
-                fontWeight: 'bold',
-                lineHeight: '1.2',
-                marginBottom: '40px',
-                textShadow: '0 2px 10px rgba(0,0,0,0.2)',
-              }}
-            >
-              {post.title}
-            </h1>
-            <p
-              style={{
-                fontSize: '36px',
-                lineHeight: '1.6',
-                opacity: 0.95,
-                marginBottom: '60px',
-              }}
-            >
-              {post.excerpt}
-            </p>
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '16px',
-                marginBottom: '40px',
-              }}
-            >
-              {post.tags.slice(0, 3).map((tag) => (
-                <span
-                  key={tag}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.2)',
-                    padding: '12px 24px',
-                    borderRadius: '999px',
-                    fontSize: '28px',
-                    backdropFilter: 'blur(10px)',
-                  }}
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div
-            style={{
-              borderTop: '2px solid rgba(255, 255, 255, 0.3)',
-              paddingTop: '30px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <div style={{ fontSize: '28px', opacity: 0.9 }}>{post.date}</div>
-            <div style={{ fontSize: '32px', fontWeight: 'bold' }}>
-              blog.ninprd.com
-            </div>
-          </div>
-        </div>
-      </div>
+      <BlogCard ref={cardRef} post={post} getAbsoluteUrl={getAbsoluteUrl} />
 
       {/* Visible UI */}
       <div className="share-buttons flex gap-3 items-center">
@@ -306,7 +179,7 @@ export function ContentShare({ post, url }: Readonly<ContentShareProps>) {
           type="button"
           onClick={shareToInstagram}
           disabled={isGenerating}
-          className="share-btn share-btn-instagram flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+          className="share-btn share-btn-instagram md:hidden flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
           aria-label="Share to Instagram Story"
         >
           <svg
