@@ -1,5 +1,5 @@
 {
-  "name": "@peeranat-dan/blog.ninprd.com",
+  "name": "blog",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -28,6 +28,7 @@
     "astro-expressive-code": "^0.40.2",
     "astro-robots-txt": "^1.0.0",
     "fuse.js": "^7.1.0",
+    "html-to-image": "^1.11.13",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rehype-external-links": "^3.0.0",
