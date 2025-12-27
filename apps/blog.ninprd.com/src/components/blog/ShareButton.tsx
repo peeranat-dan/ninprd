@@ -1,6 +1,6 @@
 import { Button } from '@ninprd/ui/components/button'
 import { Download, Loader2, Share2 } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import backgroundImage from '../../assets/blog-background.png'
 import { ShareImageGenerator } from '../../lib/shareImageGenerator'
 
@@ -12,12 +12,16 @@ interface ShareButtonProps {
 export function ShareButton({ title, url }: Readonly<ShareButtonProps>) {
   const [isGenerating, setIsGenerating] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [canShare, setCanShare] = useState(false)
 
-  // Check if Web Share API with file sharing is supported
-  const canShare =
-    typeof navigator !== 'undefined' &&
-    navigator.share !== undefined &&
-    navigator.canShare !== undefined
+  // Check if Web Share API with file sharing is supported (client-side only)
+  useEffect(() => {
+    setCanShare(
+      typeof navigator !== 'undefined' &&
+        navigator.share !== undefined &&
+        navigator.canShare !== undefined,
+    )
+  }, [])
 
   /**
    * Generate the share image blob
@@ -109,6 +113,33 @@ export function ShareButton({ title, url }: Readonly<ShareButtonProps>) {
     }
   }
 
+  const buttonContent = useMemo(() => {
+    if (isGenerating) {
+      return (
+        <>
+          <Loader2 className="mr-2 size-4 animate-spin" />
+          Generating...
+        </>
+      )
+    }
+
+    if (canShare) {
+      return (
+        <>
+          <Share2 className="mr-2 size-4" />
+          Share to Social
+        </>
+      )
+    }
+
+    return (
+      <>
+        <Download className="mr-2 size-4" />
+        Download Share Image
+      </>
+    )
+  }, [isGenerating, canShare])
+
   return (
     <div className="flex flex-col items-center gap-2">
       <Button
@@ -117,28 +148,13 @@ export function ShareButton({ title, url }: Readonly<ShareButtonProps>) {
         disabled={isGenerating}
         className="min-h-[44px] min-w-[44px]"
       >
-        {isGenerating ? (
-          <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Generating...
-          </>
-        ) : canShare ? (
-          <>
-            <Share2 className="mr-2 h-4 w-4" />
-            Share to Social
-          </>
-        ) : (
-          <>
-            <Download className="mr-2 h-4 w-4" />
-            Download Share Image
-          </>
-        )}
+        {buttonContent}
       </Button>
-      {error && (
+      {error ? (
         <p className="text-sm text-destructive" role="alert">
           {error}
         </p>
-      )}
+      ) : null}
     </div>
   )
 }

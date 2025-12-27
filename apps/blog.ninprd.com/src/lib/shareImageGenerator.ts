@@ -187,7 +187,10 @@ export class ShareImageGenerator {
       // Additionally, try to load specific fonts we need
       const fontFaces = [
         new FontFace('IBM Plex Sans Thai', 'local("IBM Plex Sans Thai")'),
-        new FontFace('IBM Plex Sans Thai Looped', 'local("IBM Plex Sans Thai Looped")'),
+        new FontFace(
+          'IBM Plex Sans Thai Looped',
+          'local("IBM Plex Sans Thai Looped")',
+        ),
         new FontFace('Sora', 'local("Sora")'),
       ]
 
