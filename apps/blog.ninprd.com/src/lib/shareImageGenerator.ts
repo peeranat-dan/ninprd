@@ -173,10 +173,47 @@ export class ShareImageGenerator {
   }
 
   /**
+   * Wait for fonts to be loaded
+   */
+  private async waitForFonts(): Promise<void> {
+    if (typeof document === 'undefined' || !document.fonts) {
+      return
+    }
+
+    try {
+      // Wait for fonts to be ready
+      await document.fonts.ready
+
+      // Additionally, try to load specific fonts we need
+      const fontFaces = [
+        new FontFace('IBM Plex Sans Thai', 'local("IBM Plex Sans Thai")'),
+        new FontFace('IBM Plex Sans Thai Looped', 'local("IBM Plex Sans Thai Looped")'),
+        new FontFace('Sora', 'local("Sora")'),
+      ]
+
+      await Promise.allSettled(
+        fontFaces.map(async (fontFace) => {
+          try {
+            await fontFace.load()
+          } catch {
+            // Ignore individual font load failures
+          }
+        }),
+      )
+    } catch {
+      // If font loading fails, continue anyway
+      // The system will fall back to default fonts
+    }
+  }
+
+  /**
    * Generate the share image
    */
   async generate(options: ShareImageOptions): Promise<Blob> {
     const { title, backgroundImageUrl } = options
+
+    // Wait for fonts to load
+    await this.waitForFonts()
 
     // Load background image if not already loaded
     await this.loadBackground(backgroundImageUrl)
