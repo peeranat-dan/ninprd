@@ -4,7 +4,7 @@ excerpt: เมื่อวันเสาร์ที่ผ่านมา น�
 tags:
   - knowledge-sharing
   - summary
-featuredImage: ./assets/blog-web-for-impact-summary.webp
+featuredImage: ./assets/blog-cover-web-for-impact-by-data-rockie.webp
 date: 2024-12-18
 status: published
 ---
