@@ -38,7 +38,9 @@ export function CookieConsentBanner() {
         'animate-in slide-in-from-bottom-4 fade-in duration-300',
       )}
     >
-      <h2 className="text-sm font-semibold">Cookie Preferences</h2>
+      <h2 className="text-sm font-semibold text-foreground">
+        Cookie Preferences
+      </h2>
       <p
         id="cookie-consent-description"
         className="mt-1 text-sm text-muted-foreground"
