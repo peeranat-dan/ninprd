@@ -6,6 +6,8 @@ import expressiveCode from 'astro-expressive-code'
 import robotsTxt from 'astro-robots-txt'
 import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
+import rehypeKatex from 'rehype-katex'
+import remarkMath from 'remark-math'
 
 import rehypeTrimMdLinks from './plugins/rehype-trim-md-links'
 
@@ -37,9 +39,11 @@ export default defineConfig({
   },
   markdown: {
     rehypePlugins: [
+      rehypeKatex,
       [rehypeExternalLinks, { target: '_blank' }],
       rehypeTrimMdLinks,
     ],
+    remarkPlugins: [remarkMath],
   },
   redirects: {
     '/blog/wordpress-basic-i':
