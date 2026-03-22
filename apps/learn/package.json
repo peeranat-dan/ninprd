@@ -10,22 +10,22 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.1",
-    "@astrojs/starlight": "^0.32.0",
-    "@astrojs/vercel": "^8.1.0",
-    "@fontsource-variable/jetbrains-mono": "^5.1.2",
-    "@fontsource-variable/sora": "^5.1.1",
-    "@fontsource/ibm-plex-sans-thai": "^5.1.1",
-    "@fontsource/ibm-plex-sans-thai-looped": "^5.1.1",
+    "@astrojs/react": "catalog:",
+    "@astrojs/starlight": "catalog:",
+    "@astrojs/vercel": "catalog:",
+    "@fontsource-variable/jetbrains-mono": "catalog:",
+    "@fontsource-variable/sora": "catalog:",
+    "@fontsource/ibm-plex-sans-thai": "catalog:",
+    "@fontsource/ibm-plex-sans-thai-looped": "catalog:",
     "@ninprd/ui": "workspace:*",
-    "@tailwindcss/vite": "^4.0.7",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "astro": "5.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "remark-custom-heading-id": "^2.0.0",
+    "@tailwindcss/vite": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "astro": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "remark-custom-heading-id": "catalog:",
     "sharp": "^0.32.5",
-    "tailwindcss": "^4.0.8"
+    "tailwindcss": "catalog:"
   }
 }
