@@ -1,7 +1,7 @@
 // @ts-check
 import react from '@astrojs/react'
 import starlight from '@astrojs/starlight'
-import vercelStatic from '@astrojs/vercel/static'
+import vercel from '@astrojs/vercel'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import { remarkHeadingId } from 'remark-custom-heading-id'
@@ -15,7 +15,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkHeadingId],
   },
-  adapter: vercelStatic({
+  adapter: vercel({
     webAnalytics: {
       enabled: true,
     },
@@ -23,9 +23,16 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Learn.ninprd.com',
-      social: {
-        github: 'https://github.com/peeranat-dan/ninprd',
-      },
+      // social: {
+      //   github: "https://github.com/peeranat-dan/ninprd",
+      // },
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/peeranat-dan/ninprd',
+        },
+      ],
       customCss: [
         './src/styles/globals.css',
         '@fontsource-variable/jetbrains-mono',

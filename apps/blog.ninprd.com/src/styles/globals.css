@@ -2,6 +2,8 @@
 
 @import "@ninprd/ui/globals.css";
 
+@source "../../../../packages/ui/src";
+
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
