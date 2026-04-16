@@ -18,39 +18,39 @@ withTableOfContent: true
 ---
 > "หยุดยาว 3 วันไม่รู้จะทำอะไรดี"
 
-ในช่วงสงกรานต์แต่ละปีนิลก็จะนั่งทำอะไรเล่น ๆ ไปเรื่อย ๆ ครับ เช่น ปีที่แล้วก็ทำตัว [Scrum Poker ที่ชื่อว่า E-Mate](https://e-mate.ninprd.com/) ขึ้นมา (แปะลิงก์เผื่อเพื่อน ๆ ไปลองใช้ดูนะค้าบ 555555) แต่ปีนี้งานแอบเข้ามาเยอะมากเลยจนนิลรู้สึกว่า ทำไรดีวะ ทีนี้นิลก็ย้อนตัวเองกลับไปถึงวีคที่นิลทำตัว [Weekend Hack รอบที่แล้วที่เป็น Code Review Workflow และทำ PR Label ครับ](weekend-hack-solving-medium-large-pull-request-review.md) ซึ่งนิลมองว่ามันยังมี Improvement ที่ทำได้อยู่ นิลเลยหยิบมาทำเลยล้ากัน
+ในช่วงสงกรานต์แต่ละปีนิลก็จะนั่งทำอะไรเล่น ๆ ไปเรื่อย ๆ ครับ เช่น ปีที่แล้วก็ทำตัว [Scrum poker ที่ชื่อว่า E-Mate](https://e-mate.ninprd.com/) ขึ้นมา (แปะลิงก์เผื่อเพื่อน ๆ ไปลองใช้ดูนะค้าบ 555555) แต่ปีนี้งานแอบเข้ามาเยอะมากเลยจนนิลรู้สึกว่า ทำไรดีวะ ทีนี้นิลก็ย้อนตัวเองกลับไปถึงวีคที่นิลทำตัว [Weekend Hack รอบที่แล้วที่เป็น Code Review Workflow และทำ PR Label ครับ](weekend-hack-solving-medium-large-pull-request-review.md) ซึ่งนิลมองว่ามันยังมี Improvement ที่ทำได้อยู่ นิลเลยหยิบมาทำเลยล้ากัน
 
-ซึ่งโจทย์ในตอนนั้นคือนิลอยากสามารถ Skim PR ไว ๆ โดยให้ AI ซักตัวนึงช่วย Review System Impact/Flaws ใช่ไหมครับ ทีนี้ผลลัพธ์ของนิลรอบที่แล้วคือมันไม่ work เนอะ ซึ่งใน Holiday Hack รอบนี้แหละ เราจะมาเจาะลึกมากขึ้น หาเหตุผลที่มันไม่ work แล้วเราจะทำให้มัน work ขึ้นกันครับ 5555555 ซึ่งในแต่ละ Step จะมาจากการที่นิล take notes และ iterate จริง ๆ เลยนะครับ รวมถึง Decision ของนิลในแต่ละ iteration ด้วยครับ
+ซึ่งโจทย์ในตอนนั้นคือนิลอยากสามารถ skim pull request (PR) ไว ๆ โดยให้ AI ซักตัวนึงช่วย review system impact/flaws ใช่ไหมครับ ทีนี้ผลลัพธ์ของนิลรอบที่แล้วคือมันไม่ work เนอะ ซึ่งใน Holiday Hack รอบนี้แหละ เราจะมาเจาะลึกมากขึ้น หาเหตุผลที่มันไม่ work แล้วเราจะทำให้มัน work ขึ้นกันครับ 5555555 ซึ่งในแต่ละ step จะมาจากการที่นิล take notes และ iterate จริง ๆ เลยนะครับ รวมถึง decision ของนิลในแต่ละ iteration ด้วยครับ
 
-สิ่งที่นิลกำลังจะเขียนต่อไปนี้นิลคาดหวังว่าจะใช้เวลาไม่เกิน 3 วันในช่วงสงกรานต์ครับ ซึ่ง Goal ของนิลคือ
+สิ่งที่นิลกำลังจะเขียนต่อไปนี้นิลคาดหวังว่าจะใช้เวลาไม่เกิน 3 วันในช่วงสงกรานต์ครับ ซึ่ง goal ของนิลคือ
 - อยากลองเล่น AI with TypeScript ดู
-- อยากเข้าใจ Agent Architecture มากขึ้น ว่าการวาง AI Agent 1 ตัวและคาดหวังให้มันทำทุกอย่างจะรอดไหม และถ้าไม่รอด เราจะ Scale มันไปท่าไหนดีเพื่อให้มันรอดตาม Task ที่เราคาดหวังไว้
-- อยากได้ Iteration ถัดไปของ Code Review Agent ว่ามันจะช่วยนิลได้มากน้อยแค่ไหน
+- อยากเข้าใจ agent architecture มากขึ้น ว่าการวาง AI agent 1 ตัวและคาดหวังให้มันทำทุกอย่างจะรอดไหม และถ้าไม่รอด เราจะ scale มันไปท่าไหนดีเพื่อให้มันรอดตาม Task ที่เราคาดหวังไว้
+- อยากได้ iteration ถัดไปของ code review agent ว่ามันจะช่วยนิลได้มากน้อยแค่ไหน
 
 ## มา Setup การทดลองกัน
 
-ซึ่งในรอบนี้นิลจะใช้ปัจจัยควบคุม 2 อย่างคือ git diff ของ PR ที่นิลทำใน Repo เจ้า Scrum Poker และ LLM Model เป็น [GLM 5.1](https://z.ai/) ครับ เพราะนิลได้ยินพี่ที่ออฟฟิศขายหนักมาก ประกอบกับช่วงนี้ก็เห็นกระแสค่อนข้างกลับมาอยู่ นิลเลยลองตัว Coding Plan Lite ดูครับ
+ซึ่งในรอบนี้นิลจะใช้ปัจจัยควบคุม 2 อย่างคือ git diff ของ PR ที่นิลทำใน repo เจ้า Scrum poker และ LLM Model เป็น [GLM 5.1](https://z.ai/) ครับ เพราะนิลได้ยินพี่ที่ออฟฟิศขายหนักมาก ประกอบกับช่วงนี้ก็เห็นกระแสค่อนข้างกลับมาอยู่ นิลเลยลองตัว z.ai Coding Plan Lite ดูครับ
 
-อีกเหตุผลนึงที่นิลเลือกตัว GLM คือนิลได้ยินชื่อเสียงจากพี่ [Katopz](https://www.facebook.com/katopz/) และพี่ [Piyalitt](https://www.facebook.com/piyalitt) มาครับ ว่า GLM นั้น เก่งเรื่อง Coding มาก ซึ่งในช่วงนี้ก็มี [GLM 5.1 ออกมาพอดี ซึ่งก็ Claim ว่าตัวเองเก่งเทียบเท่ากับ Claude Opus 4.6](https://z.ai/blog/glm-5.1) ในราคาที่ถูกกว่ากันเกือบ 3 เท่าอีก ทำให้นิลสนใจที่จะลองตัว GLM ครับ
+อีกเหตุผลนึงที่นิลเลือกตัว GLM คือนิลได้ยินชื่อเสียงจากพี่ [Katopz](https://www.facebook.com/katopz/) และพี่ [Piyalitt](https://www.facebook.com/piyalitt) มาครับ ว่า GLM นั้น เก่งเรื่อง coding มาก ซึ่งในช่วงนี้ก็มี [GLM 5.1 ออกมาพอดี ซึ่งก็ Claim ว่าตัวเองเก่งเทียบเท่ากับ Claude Opus 4.6](https://z.ai/blog/glm-5.1) ในราคาที่ถูกกว่ากันเกือบ 3 เท่าอีก ทำให้นิลสนใจที่จะลองตัว GLM ครับ
 
-ตัว PR ที่นิลจะเอามาใช้ประกอบบทความวันนี้คือ [PR นี้](https://github.com/peeranat-dan/scrum-poker/pull/290)ครับ เป็น PR ที่เพิ่ม Feature การ Export การ Vote ของทุกรอบใน Scrum Poker ของนิลครับ ซึ่งนิลก็ให้ AI Generate ออกมาแบบติด Bug นิดนึงนะครับ Potential Issue ที่ควรจับได้ของ PR นี้คือ
-- การ Query ข้อมูล: ตอนนี้นิลดึงข้อมูลด้วยการ Query Participant ทุกคนที่อยู่ใน Session นั้น ๆ อยู่ แล้วมา Filter หน้าบ้านให้เอา Spectator ออก ซึ่ง**เปลืองครับ** สู้ Query ออกตั้งแต่ตอนดึงข้อมูลดีกว่า
-- การ Handle ชื่อคนซ้ำ: ตอนนี้ตัว Function ที่ใช้ Map หัวตาราง ไม่ได้ Handle ไว้ว่าถ้าชื่อซ้ำแล้วจะแสดงผลยังไง ซึ่งมีโอกาสที่คนจะชื่อซ้ำในตารางแล้วเราไม่สามารถแยกออกได้ว่าคน ๆ นั้นคือใคร
-- การใช้ xlsx: xlsx เป็น Library ที่มี Dependency ที่สร้าง bundle size ที่ใหญ่ซึ่งแอบไม่เหมาะกับงาน Frontend มาก ๆ
-- เรื่องสิทธิ์: AI ควร Detect ว่ามีการเพิ่มสิทธิ์ admin ที่ Menu แล้วบอกคน Review ว่าลองเช็คตรงนี้ดูดี ๆ
-- Firestore Indexes: PR นี้มีการ Query ของที่มีการ Sorting อยู่ แต่ใน PR นี้ ไม่ได้มีการ Push File `firestore.indexes.json` มาด้วย ซึ่งนิล expect ให้ AI ช่วยเตือนส่วนนี้ได้จะดีมากครับ
+ตัว PR ที่นิลจะเอามาใช้ประกอบบทความวันนี้คือ [PR นี้](https://github.com/peeranat-dan/scrum-poker/pull/290)ครับ เป็น PR ที่เพิ่ม feature การ export การ vote ของทุกรอบใน Scrum poker ของนิลครับ ซึ่งนิลก็ให้ AI generate ออกมาแบบติด bug นิดนึงนะครับ potential issues ที่ควรจับได้ของ PR นี้คือ
+- การ query ข้อมูล: ตอนนี้นิลดึงข้อมูลด้วยการ query participant ทุกคนที่อยู่ใน session นั้น ๆ อยู่ แล้วมา filter หน้าบ้านให้เอา spectator ออก ซึ่ง**เปลืองครับ** สู้ query ออกตั้งแต่ตอนดึงข้อมูลดีกว่า
+- การ handle ชื่อคนซ้ำ: ตอนนี้ตัว function ที่ใช้ map หัวตาราง ไม่ได้ handle ไว้ว่าถ้าชื่อซ้ำแล้วจะแสดงผลยังไง ซึ่งมีโอกาสที่คนจะชื่อซ้ำในตารางแล้วเราไม่สามารถแยกออกได้ว่าคน ๆ นั้นคือใคร
+- การใช้ xlsx: xlsx เป็น library ที่มี dependency ที่สร้าง bundle size ที่ใหญ่ซึ่งแอบไม่เหมาะกับงาน frontend มาก ๆ
+- เรื่องสิทธิ์: AI ควร detect ว่ามีการเพิ่มสิทธิ์ admin ที่ menu แล้วบอกคน review ว่าลองเช็คตรงนี้ดูดี ๆ
+- Firestore indexes: PR นี้มีการ query ของที่มีการ sorting อยู่ แต่ใน PR นี้ ไม่ได้มีการ push file `firestore.indexes.json` มาด้วย ซึ่งนิล expect ให้ AI ช่วยเตือนส่วนนี้ได้จะดีมากครับ
 
-ซึ่ง Metric นึงที่นิลใช้วัดคือตัว AI สามารถ catch issue ได้เยอะแค่ไหน และสามารถแนะนำจุดที่มีโอกาสเป็น system impact ได้เยอะแค่ไหนครับ
+ซึ่ง metric นึงที่นิลใช้วัดคือตัว AI สามารถ catch issue ได้เยอะแค่ไหน และสามารถแนะนำจุดที่มีโอกาสเป็น system impact ได้เยอะแค่ไหนครับ
 
-ส่วนด้าน Code นิลก็สร้าง TypeScript Project อันนึงโล่ง ๆ มาครับแล้วก็ใช้ npm package [openai](https://github.com/openai/openai-node) มาครับ โดยนิลจะแยก file `prompt.md` กับ `diff.txt` ไว้ครับ เพื่อให้เราสามารถแก้ prompt ได้โดยแยกจากการทำงานหลักของ application function ครับ
+ส่วนด้าน code นิลก็สร้าง TypeScript Project อันนึงโล่ง ๆ มาครับแล้วก็ใช้ npm package [openai](https://github.com/openai/openai-node) มาครับ โดยนิลจะแยก file `prompt.md` กับ `diff.txt` ไว้ครับ เพื่อให้เราสามารถแก้ prompt ได้โดยแยกจากการทำงานหลักของ application function ครับ
 
-อะพอเราได้ละว่าเรา Setup ยังไงบ้าง เดี๋ยวเราไปลุยกันเลยครับ
+อะพอเราได้ละว่าเรา setup ยังไงบ้าง เดี๋ยวเราไปลุยกันเลยครับ
 
 > NOTE: นิลแปะ full response กับตัว reasoning content แยกออกมาไว้ใน accordion เพื่อให้บทความลื่นไหลขึ้นนะครับ เพื่อน ๆ สามารถกางตัว accordion เพื่ออ่านได้เลยครับ
 
 ## Iteration 0: Analyze git diff
 
-ใน Iteration 0 นิลเอา setup เดิมที่ไม่ work ใน n8n port มาลงที่ TypeScript แล้วมา run แบบ local ครับ ซึ่งใน iteration แรก นี่คือ 
+ใน iteration 0 นิลเอา setup เดิมที่ไม่ work ใน n8n port มาลงที่ TypeScript แล้วมา run แบบ local ครับ ซึ่งใน iteration แรก นี่คือ 
 
 ### Prompt used
 
@@ -143,7 +143,7 @@ Let me analyze this PR systematically.\n\nThe PR adds an Excel export feature fo
 
 ### Analysis
 
-หลัก ๆ แล้ว ตัว GLM สามารถที่จะ Detect ของที่มันเห็นครับ เช่น bundle size ของ lib xlsx, เรื่องสิทธิ์ admin, และ performance issue ที่มันดักได้เพิ่มเติม ทั้งนี้ทั้งนั้น ยังมี Issue เช่น เรื่อง Firestore Index ที่มันน่าจะไม่รู้ Context ของ repository และ Issue เช่น การ Query เปลือง และการ Handle ชื่อซ้ำที่มันยัง Identify ไม่ได้
+หลัก ๆ แล้ว ตัว GLM สามารถที่จะ detect ของที่มันเห็นครับ เช่น bundle size ของ lib xlsx, เรื่องสิทธิ์ admin, และ performance issue ที่มันดักได้เพิ่มเติม ทั้งนี้ทั้งนั้น ยังมี issue เช่น เรื่อง Firestore index ที่มันน่าจะไม่รู้ context ของ repository และ issue เช่น การ query เปลือง และการ handle ชื่อซ้ำที่มันยัง identify ไม่ได้
 
 นอกจากนี้นิลอยากรู้ว่ามันคิดอะไรบ้าง นิลเลยดู reasoning content ที่ได้มาจาก response ซึ่งนิลก็เจอสิ่งนี้ครับ
 
@@ -151,29 +151,29 @@ Let me analyze this PR systematically.\n\nThe PR adds an Excel export feature fo
 Let me analyze this PR systematically.\n\nThe PR adds an Excel export feature for session voting data. It introduces the `xlsx` library to generate `.xlsx` files containing vote data per round, with participants as columns.
 ```
 
-ซึ่งนิลมองว่ามันยังไม่ค่อยทำ reasoning อะไรเท่าไหร่เลย แล้วมันก็ตอบมาแล้ว ซึ่งอาจจะเป็นหนึ่งในสาเหตุที่มันยังตอบ Issue ได้ไม่ครบถ้วนครับ
+ซึ่งนิลมองว่ามันยังไม่ค่อยทำ reasoning อะไรเท่าไหร่เลย แล้วมันก็ตอบมาแล้ว ซึ่งอาจจะเป็นหนึ่งในสาเหตุที่มันยังตอบ issue ได้ไม่ครบถ้วนครับ
 
 #### Issue ที่นิลคาดหวังให้เจอ
 
 | Issue                           | จับได้ไหม? | Note                                           |
 | ------------------------------- | ---------- | ---------------------------------------------- |
-| Query เปลือง (spectator filter) | ⚠️         | เจอเรื่อง N+1 Query แทนเรื่อง Spectator Filter |
-| Handle ชื่อซ้ำ                  | ❌          | ไม่ได้พูดถึง                                   |
-| xlsx bundle size                | ✅          | จับได้และ Suggest ให้ Export เป็น csv พอ       |
-| สิทธิ์ admin เห็น sidebar เพิ่ม | ✅          | จับได้และให้นิล Reconfirm ตัวเอง               |
-| Firestore Indexes               | ❌          | ไม่ได้พูดถึง                                   |
+| query เปลือง (spectator filter) | ⚠️         | เจอเรื่อง N+1 Query แทนเรื่อง spectator filter |
+| handle ชื่อซ้ำ                  | ❌          | ไม่ได้พูดถึง                                   |
+| xlsx bundle size                | ✅          | จับได้และ suggest ให้ export เป็น csv พอ       |
+| สิทธิ์ admin เห็น sidebar เพิ่ม | ✅          | จับได้และให้นิล reconfirm ตัวเอง               |
+| Firestore indexes               | ❌          | ไม่ได้พูดถึง                                   |
 
 #### Issue ที่ GLM เจอเพิ่ม
 
 | Issue                            | Issue Type  | Additional Note                                  |
 | -------------------------------- | ----------- | ------------------------------------------------ |
 | N+1 query pattern                | Performance | น่าสนใจครับ                                      |
-| Display name → formula injection | Security    | อันนี้น่าสนใจมาก นิลไม่ได้ expect สิ่งนี้เลยครับ |
-| Sheet Name limit ที่ 31 ตัวอักษร | Edge Case   | แอบ Edge Case แต่ก็ดีที่เจอครับ                  |
+| display name → formula injection | Security    | อันนี้น่าสนใจมาก นิลไม่ได้ expect สิ่งนี้เลยครับ |
+| sheet name limit ที่ 31 ตัวอักษร | Edge Case   | แอบ edge case แต่ก็ดีที่เจอครับ                  |
 
 ### สิ่งที่จะลองใน iteration 1
 
-1. ให้ AI คืน Thinking ออกมาด้วย
+1. ให้ AI คืน thinking ออกมาด้วย
 2. พยายามให้ AI คืน reasoning content ออกมาเพิ่ม
 
 ถ้า reasoning content เพิ่มขึ้น นิลคาดว่าจะเห็นได้ว่า model หยุดคิดตรงไหน และนั่นจะบอกได้ว่าต้องเพิ่ม context อะไรใน Iteration ถัดไป โหยยยยย เขียนปุ๊ป รู้สึกเบียวปั๊ปปป 🥷🏼🔥
@@ -184,10 +184,11 @@ Let me analyze this PR systematically.\n\nThe PR adds an Excel export feature fo
 
 ## Iteration 1: Force AI to return thinking and reasoning more
 
-ใน iteration นี้นิลคิดว่าถ้าเราอยากได้เรื่อง Thinking จาก AI เพิ่ม นิลคิดว่าเราน่าจะต้องบอกมันเพิ่มใน prompt นิดนึงครับว่าช่วยคืน Thinking กับ Reasoning มาให้หน่อย จะได้รู้ว่าเรา model หยุดคิดที่ตรงไหน และเราจะ improve context ที่เราส่งไปต่อยังไงได้บ้าง
+ใน iteration นี้นิลคิดว่าถ้าเราอยากได้เรื่อง thinking จาก AI เพิ่ม นิลคิดว่าเราน่าจะต้องบอกมันเพิ่มใน prompt นิดนึงครับว่าช่วยคืน thinking กับ reasoning มาให้หน่อย จะได้รู้ว่าเรา model หยุดคิดที่ตรงไหน และเราจะ improve context ที่เราส่งไปต่อยังไงได้บ้าง
 
-### Prompt used
-ใน Iteration นี้นิลเพิ่ม Part Thinking เข้าไปใน Prompt เพิ่มครับ
+### Prompt Used
+
+ใน Iteration นี้นิลเพิ่ม part thinking เข้าไปใน prompt เพิ่มครับ
 
 ```diff lang="md" wrap
 You are a senior software engineer reviewing a PR for the engineering team.
@@ -388,9 +389,9 @@ One more thing: `XLSX.writeFile` triggers a download via `document.createElement
 
 ### Analysis
 
-อะ รอบนี้ reasoning ออกมายาวจริง ๆ ละ Content ก็ออกมายาวมากกกก ในมุม usability นิลว่ามันยาวเกินไปครับ ถ้าต้องเอาไปอ่านใน comment PR จริง ๆ นิลว่าแม้แต่นิลก็ไม่อ่านครับ 55555555 คิดว่าอาจจะต้องมี Code ที่ช่วยตัดส่วน Thinking ออกไปครับ
+อะ รอบนี้ reasoning ออกมายาวจริง ๆ ละ content ก็ออกมายาวมากกกก ในมุม usability นิลว่ามันยาวเกินไปครับ ถ้าต้องเอาไปอ่านใน comment PR จริง ๆ นิลว่าแม้แต่นิลก็ไม่อ่านครับ 55555555 คิดว่าอาจจะต้องมี code ที่ช่วยตัดส่วน thinking ออกไปครับ
 
-อะ แต่มาที่ส่วน content ครับ ตัว Thinking ที่ออกมาค่อนข้าง value มาก ๆ เลยครับ มันนั่งคิดทีละ file และทีละ change เลยว่าแต่ละ change แก้มาสมเหตุสมผลไหม เช่น
+อะ แต่มาที่ส่วน content ครับ ตัว thinking ที่ออกมาค่อนข้าง value มาก ๆ เลยครับ มันนั่งคิดทีละ file และทีละ change เลยว่าแต่ละ change แก้มาสมเหตุสมผลไหม เช่น
 
 ```md wrap
 **build-votes-workbook.ts** (new)
@@ -416,34 +417,34 @@ One more thing: `XLSX.writeFile` triggers a download via `document.createElement
 | Handle ชื่อซ้ำ                  | ❌          | ยังเงียบ แม้ reasoning จะยาวขึ้นมาก              |
 | xlsx bundle size                | ✅          | จับได้เหมือนเดิม เพิ่ม dynamic import suggestion |
 | สิทธิ์ admin เห็น sidebar เพิ่ม | ✅          | จับได้เหมือนเดิม                                 |
-| Firestore Indexes               | ❌          | ยังไม่รู้ project convention                     |
+| Firestore indexes               | ❌          | ยังไม่รู้ project convention                     |
 
 #### Issue ที่ GLM เจอเพิ่ม
 
-| Issue                            | Issue Type  | Additional Note                                  |
-| -------------------------------- | ----------- | ------------------------------------------------ |
-| N+1 query pattern                | Performance | ยังคงเจออยู่                                      |
-| Display name → formula injection | Security    | ยังคงเจออยู่ครับ |
-| Sheet Name limit ที่ 31 ตัวอักษร | Edge Case   | ยังพูดถึงอยู่ครับ                  |
-| 🚀 Non-Numeric Vote Value (อาจจะเจอ "?" หรือ "∞" ได้) | Functional  | อันนี้ไม่ valid ครับ เพราะ voting value ไม่มีทางเป็นค่าอื่นนอกจากตัวเลข อาจจะเป็นเพราะ context ไม่ครบ                 |
-| 🚀 มี Browser Side-effect ใน service | Code Pattern | อันนี้ดีมาก นิลไม่ได้ Expect ว่าจะเจอสิ่งนี้เลยครับ                 |
+| Issue                                                 | Issue Type   | Additional Note                                                                                       |
+| ----------------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------- |
+| N+1 query pattern                                     | Performance  | ยังคงเจออยู่                                                                                          |
+| Display name → formula injection                      | Security     | ยังคงเจออยู่ครับ                                                                                      |
+| Sheet name limit ที่ 31 ตัวอักษร                      | Edge Case    | ยังพูดถึงอยู่ครับ                                                                                     |
+| 🚀 Non-numeric vote value (อาจจะเจอ "?" หรือ "∞" ได้) | Functional   | อันนี้ไม่ valid ครับ เพราะ voting value ไม่มีทางเป็นค่าอื่นนอกจากตัวเลข อาจจะเป็นเพราะ context ไม่ครบ |
+| 🚀 มี browser side-effect ใน service                  | Code Pattern | อันนี้ดีมาก นิลไม่ได้ expect ว่าจะเจอสิ่งนี้เลยครับ                                                   |
 
 ### สิ่งที่จะลองใน iteration ที่ 2
 
 1. เพิ่ม `AGENTS.md`, `CONVENTION.md` และ Directory List แบบคร่าว ๆ เข้าไป
-2. เพิ่มข้อมูลของ Planning Poker Card เข้าไปโดยเอา function ที่ `getCardValue ส่งให้มันเพิ่ม`
-3. เพิ่ม Prompt ส่วนล่างสุดให้ถามคำถามที่ยัง Missing จากการไปคิดมา 1 ที
+2. เพิ่มข้อมูลของ Scrum poker card เข้าไปโดยเอา function ที่ `getCardValue ส่งให้มันเพิ่ม`
+3. เพิ่ม prompt ส่วนล่างสุดให้ถามคำถามที่ยัง missing จากการไปคิดมา 1 ที
 
-นิลคิดว่าการเพิ่ม `AGENTS.md`, `CONVENTION.md`, Directory List และค่าของ Planning Poker Card ที่เป็นไปได้ จะทำให้ตัว model เข้าใจมากขึ้นเกี่ยวกับ function การทำงานและ coding convention รวมถึง architecture ที่เขียนไว้ด้วยครับ ซึ่งจะสอดคล้องกับการที่นิลคิดว่ามันยังไม่รู้ Context ของ Project เช่น ค่าที่เป็นไปได้ในการ vote และ firestore indexes และการเพิ่มให้ AI ตั้งคำถามที่ model ยังไม่รู้ก็อาจจะรู้ได้มากขึ้น (มั้ง) ว่ามันต้องการอะไร
+นิลคิดว่าการเพิ่ม `AGENTS.md`, `CONVENTION.md`, directory list และค่าของ Scrum poker card ที่เป็นไปได้ จะทำให้ตัว model เข้าใจมากขึ้นเกี่ยวกับ function การทำงานและ coding convention รวมถึง architecture ที่เขียนไว้ด้วยครับ ซึ่งจะสอดคล้องกับการที่นิลคิดว่ามันยังไม่รู้ context ของ project เช่น ค่าที่เป็นไปได้ในการ vote และ Firestore indexes และการเพิ่มให้ AI ตั้งคำถามที่ model ยังไม่รู้ก็อาจจะรู้ได้มากขึ้น (มั้ง) ว่ามันต้องการอะไร
 
 -- จบ iteration 1 --
 ## Iteration 2: Add more project context files
 
-ในรอบนี้นิลลองเพิ่ม File พวก `AGENTS.md`, `CONVENTION.md` ละก็ File ที่กระทบ Business Rule ไปนะครับ นอกจากนี้นิลยังเพิ่มส่วนของการ Logging เวลามาว่าการ Run 1 ครั้งใช้เวลาเท่าไหร่ และนี่คือผลลัพธ์ของ iteration ที่ 2 คับ
+ในรอบนี้นิลลองเพิ่ม file พวก `AGENTS.md`, `CONVENTION.md` ละก็ file ที่กระทบ business rule ไปนะครับ นอกจากนี้นิลยังเพิ่มส่วนของการ logging เวลามาว่าการ run 1 ครั้งใช้เวลาเท่าไหร่ และนี่คือผลลัพธ์ของ iteration ที่ 2 คับ
 
-### Prompt used
+### Prompt Used
 
-ใน iteration นี้อย่างที่บอกว่านิลเพิ่ม `AGENTS.md` กับ CONVENTION.md รวมถึง Card Value ที่เป็นไปได้ทั้งหมดเข้าไปครับ ซึ่งก็จะเพิ่มคร่าว ๆ เข้าไปแบบนี้ครับ
+ใน iteration นี้อย่างที่บอกว่านิลเพิ่ม `AGENTS.md` กับ `CONVENTION.md` รวมถึง card value ที่เป็นไปได้ทั้งหมดเข้าไปครับ ซึ่งก็จะเพิ่มคร่าว ๆ เข้าไปแบบนี้ครับ
 
 ```diff lang="md" wrap
 ...existing prompt
@@ -468,7 +469,7 @@ One more thing: `XLSX.writeFile` triggers a download via `document.createElement
 
 ```
 
-> NOTE: สามารถ[ดู Prompt ของ iteration 2 เต็ม ๆ ได้ที่นี่](https://github.com/peeranat-dan/weekend-hack-code-review-agent-typescript/blob/main/outputs/iteration-2/system-prompt.md#)เลยคับ
+> NOTE: สามารถ[ดู prompt ของ iteration 2 เต็ม ๆ ได้ที่นี่](https://github.com/peeranat-dan/weekend-hack-code-review-agent-typescript/blob/main/outputs/iteration-2/system-prompt.md#)เลยคับ
 ### Output
 
 #### Token Usage
@@ -669,13 +670,13 @@ Concerns:
 
 ซึ่งนิลก็ลองไปดูตัว `AGENTS.md` กับ `CONVENTION.md` ของนิลครับ ชัดเลย ไม่มีเรื่อง Firestore อยู่ในนั้นเลยครับ นิลว่านี่เป็นหนึ่งในสาเหตุที่มันไม่ได้พูดเรื่อง Firestore index (อีกแล้ว) รวมถึงตัวการ filter นี่นิลคิดว่าเพราะมันไม่รู้ว่า function ที่นิลใช้ fetch Firestore มันเป็นยังไง กับมันอาจจะไม่รู้ business logic ของตัว scrum poker มันเลยไม่รู้ว่าเราต้องเอา spectator ออกจากการคิดค่าเฉลี่ยด้วย
 
-ความน่าสนใจของรอบนี้คือพอให้มันถามคำถามกลับมาก็จะเห็นว่ามันถามเรื่อง function `searchVotes` ว่ามี filter by `sessionId` ไหม เพื่อให้เราสามารถ avoid N+1 query ได้ แปลว่ามันไม่เห็นหน้าตาหรือ contract ของ function นั้น ๆ หรือการที่มันถามมาว่าเราควรเอา `/libs/xlsx` ไปวางใน `/shared` ไหม ซึ่งก็เหมือนเป็นการบอกกลาย ๆ ว่า "ถ้ามันเห็นหน้าตาข้อมูลมันก็ suggest ให้เราออกมาได้"
+ความน่าสนใจของรอบนี้คือพอให้มันถามคำถามกลับมาก็จะเห็นว่ามันถามเรื่อง function `searchVotes` ว่ามี filter by `sessionId` ไหม เพื่อให้เราสามารถ avoid N+1 Query ได้ แปลว่ามันไม่เห็นหน้าตาหรือ contract ของ function นั้น ๆ หรือการที่มันถามมาว่าเราควรเอา `/libs/xlsx` ไปวางใน `/shared` ไหม ซึ่งก็เหมือนเป็นการบอกกลาย ๆ ว่า "ถ้ามันเห็นหน้าตาข้อมูลมันก็ suggest ให้เราออกมาได้"
 
 อีกอย่างที่น่าสนใจคือ token พุ่งเลยครับ 5555555 จากตอนแรก total token ที่ใช้มัน 9,702 แต่พอเพิ่มพวก `AGENTS.md`, `CONVENTION.md` และ Context อื่น ๆ ไป รอบนี้กระโดดไป 11,649 แหนะ แปลว่าถ้าเราส่ง context เข้าไปเพิ่มอีก มันน่าจะรู้เรื่องเพิ่มแหละ แต่ค่า token ก็จะโดดขึ้นไปเรื่อย ๆ เลย อันนี้เป็นจุดที่ต้องระวังครับ
 
-ซึ่งนิลเลยได้ข้อสรุปนึงมาว่า Context มากขึ้น ≠ ผลลัพธ์ดีขึ้นเสมอไปครับ อาจจะต้องเป็น Context ที่เกี่ยวกับ change นั้นด้วย มันถึงจะ suggest ได้ว่าควรแก้หรือควร improve อะไร
+ซึ่งนิลเลยได้ข้อสรุปนึงมาว่า context มากขึ้น ≠ ผลลัพธ์ดีขึ้นเสมอไปครับ อาจจะต้องเป็น context ที่เกี่ยวกับ change นั้นด้วย มันถึงจะ suggest ได้ว่าควรแก้หรือควร improve อะไร
 
-พอมี 3 รอบแล้วเจอ Regression นิดนึง นิลขอทำเป็นตารางสรุปดี ๆ 1 ทีนะครับ
+พอมี 3 รอบแล้วเจอ regression นิดนึง นิลขอทำเป็นตารางสรุปดี ๆ 1 ทีนะครับ
 
 #### Issue ที่นิลคาดหวังให้เจอ
 
@@ -700,7 +701,7 @@ Concerns:
 
 ### สิ่งที่จะทำใน iteration 3
 
-1. เพิ่ม Business Logic ของ Scrum Poker ของนิลเข้าไป
+1. เพิ่ม business logic ของ Scrum poker ของนิลเข้าไป
 2. เพิ่ม Firestore context พวก fetching function, การใช้ data layer ในการ fetch
 
 ในมุมนิล การไปต่อใน iteration 3 มันแอบตันนิดนึง แต่นิลก็อาจจะต้องไปต่อด้วยการเพิ่มข้อมูลเกี่ยวกับ business logic ของ scrum poker กับการเพิ่ม function ในการ fetch ของ firestore รวมถึงการเพิ่มข้อมูล Firestore เข้า `AGENTS.md` เพื่อให้มันคิดเพิ่มว่าถ้ามีการเรียกพวก search แบบมี order มันควรที่จะทักเรื่อง change ควรมี file `firestore.indexes.json` commit มาด้วยนะ หรือถ้ามีการ access data ใหม่ที่ไม่เคยมีการ access มาก่อน ควรมี file `firestore.rules` commit มาด้วยแหละ ไปลองกันต่อเลยครับ
@@ -709,11 +710,11 @@ Concerns:
 
 ## Iteration 3: Add business context and Firestore context
 
-นิลให้เจ้า Claude Code เข้าไปอ่าน repo แล้วก็ช่วยสรุปตัว business logic ของ Scrum Poker ของนิลออกมานะครับ แล้วนิลก็ validate แล้วก็แก้อีก 1 ที ซึ่งนิลก็เอาสิ่งนี้มาเพิ่มในส่วนแรกของ `AGENTS.md` เลยครับ แล้วอีกอย่างนึง ตัว Firestore context นี่ นิลมานั่งเขียนเองครับ ซึ่งนี่คือสิ่ง System Prompt ที่นิลใช้รอบนี้ครับ
+นิลให้เจ้า Claude Code เข้าไปอ่าน repo แล้วก็ช่วยสรุปตัว business logic ของ Scrum poker ของนิลออกมานะครับ แล้วนิลก็ validate แล้วก็แก้อีก 1 ที ซึ่งนิลก็เอาสิ่งนี้มาเพิ่มในส่วนแรกของ `AGENTS.md` เลยครับ แล้วอีกอย่างนึง ตัว Firestore context นี่ นิลมานั่งเขียนเองครับ ซึ่งนี่คือสิ่ง system prompt ที่นิลใช้รอบนี้ครับ
 
 ### Prompt used
 
-1. ในรอบนี้นิลเพิ่มส่วนของ Business Logic เข้ามาครับ
+1. ในรอบนี้นิลเพิ่มส่วนของ business logic เข้ามาครับ
 
 ```diff lang="md" wrap
 + ## Core Business Logic
@@ -727,7 +728,7 @@ Concerns:
 + ...
 ```
 
-2. และก็มีการเพิ่ม Prompt เกี่ยวกับ Firestore เข้ามาประมาณนี้ครับ
+2. และก็มีการเพิ่ม prompt เกี่ยวกับ Firestore เข้ามาประมาณนี้ครับ
 
 ```diff lang="md" wrap
 + ## Firestore
@@ -740,7 +741,7 @@ Concerns:
 + ...
 ```
 
-> NOTE: สามารถ[ดู Prompt ของ iteration 3 เต็ม ๆ ได้ที่นี่](https://github.com/peeranat-dan/weekend-hack-code-review-agent-typescript/blob/main/outputs/iteration-3/system-prompt.md#)เลยคับ
+> NOTE: สามารถ[ดู prompt ของ iteration 3 เต็ม ๆ ได้ที่นี่](https://github.com/peeranat-dan/weekend-hack-code-review-agent-typescript/blob/main/outputs/iteration-3/system-prompt.md#)เลยคับ
 ### Output
 
 #### Token Usage
@@ -762,7 +763,7 @@ total_tokens: 13309
 ```md wrap
 ## Thinking
 
-### package.json & pnpm-lock.yaml
+### package.json and pnpm-lock.yaml
 - Adds `xlsx@^0.18.5` (SheetJS community edition). This is the standard library for generating Excel files in the browser. The 0.18.5 version is Apache-2.0 licensed, which is fine. Lockfile updates are just the transitive deps (adler-32, cfb, codepage, crc-32, frac, ssf, wmf, word) — all normal SheetJS internals.
 
 ### `src/containers/game-settings-modal.tsx`
@@ -966,42 +967,42 @@ Let me structure my review.
 
 ### Analysis
 
-ในรอบนี้หลังจากใส่ context ของ Firestore เข้าไปใน `AGENTS.md` เพิ่มก็ค้นพบว่าใน Risk Areas ของ Code Review มีการเพิ่มว่าให้ไป verfiy ว่า `firestore.indexes.json`  ถูกอัปเดตนะ และมีการเจอ potential double session fetch ด้วยจากการที่เราโยนตัว query builder function เข้าไปให้
+ในรอบนี้หลังจากใส่ context ของ Firestore เข้าไปใน `AGENTS.md` เพิ่มก็ค้นพบว่าใน Risk Areas ของ code review มีการเพิ่มว่าให้ไป verfiy ว่า `firestore.indexes.json`  ถูกอัปเดตนะ และมีการเจอ potential double session fetch ด้วยจากการที่เราโยนตัว query builder function เข้าไปให้
 
 นอกจากนี้จากการโยน context ของ project มันยังเจอพวกการที่ค่า vote value มีโอกาสเป็น -1 หรือ -2 แล้วเอาไปแสดงใน sheet ด้วย บอกเลยว่าของจริงงง รอบนี้นิลว่าจากการให้ business logic context + Firestore context ทำให้มัน catch issue ได้มากขึ้นจาก business context และ project convention ที่ให้ไปเรื่อย ๆ แปลว่าถ้าเราให้ context ได้ถูกจุด ตัว model ก็น่าจะตอบเราได้มากขึ้นเรื่อย ๆ ครับ แปลว่าสมมติฐานที่บอกว่าเพราะมันยังขาด context มันเลยจับ issue ไม่ได้ก็ดูทรงจะจริงขึ้นมาครับ
 
-กลับมาที่ downside มันยัง diagnosis ไม่เจอตัว query ที่ filter ซักทีเลยครับ มันยังมองเรื่อง N+1 Query อยู่มากกว่าครับ ซึ่งถ้าดู thinking มันนี่ไม่มีเรื่อง Query ที่ service layer เยอะเกินแล้วไปเอาออกที่ xlsx utility เลยครับ 😭 นิลแอบจนปัญญาแล้วแฮะ 555555 ไม่งั้นนิลอาจจะต้องส่งไปเพิ่มว่าให้มันพยายาม fetch ของที่ data layer เท่าที่จำเป็นแหละ ซึ่งไว้ iteration หน้าแล้วกัน 55555555
+กลับมาที่ downside มันยัง diagnosis ไม่เจอตัว query ที่ filter ซักทีเลยครับ มันยังมองเรื่อง N+1 Query อยู่มากกว่าครับ ซึ่งถ้าดู thinking มันนี่ไม่มีเรื่อง query ที่ service layer เยอะเกินแล้วไปเอาออกที่ xlsx utility เลยครับ 😭 นิลแอบจนปัญญาแล้วแฮะ 555555 ไม่งั้นนิลอาจจะต้องส่งไปเพิ่มว่าให้มันพยายาม fetch ของที่ data layer เท่าที่จำเป็นแหละ ซึ่งไว้ iteration หน้าแล้วกัน 55555555
 
 ซึ่ง ๆๆๆ สิ่งที่ตามมาจากการส่ง context ไปเยอะขึ้นคืออออ ใช้ token มากขึ้น 55555555 ไอ่บ้าเอ้ยยย และก็ใช้เวลาเหมือนจะเพิ่มขึ้นด้วย 🥶 สั่นกลัววว ถ้าต้องจ่าย token จริง หรือใช้ model ที่แพงกว่านี้ (เช่น ใช้ Claude Opus 4.6 หรือ Gemini 3.1 Pro) นี่น่าจะขนหน้าแข้งร่วงจริง ๆ เลยครับ
 
 #### Issue ที่นิลคาดหวังให้เจอ
 
-| Issue                           | Iter 0 | Iter 1 | Iter 2 | Iter 3 | Note                                                                                         |
-| ------------------------------- | ------ | ------ | ------ | ------ | -------------------------------------------------------------------------------------------- |
-| Query เปลือง (spectator filter) | ⚠️     | ⚠️     | ⚠️     | ⚠️     | ยังเจอแค่ N+1 🥹                                                                             |
-| Handle ชื่อซ้ำ                  | ❌      | ❌      | ❌      | ❌      | ยังเงียบ คิดว่าไม่รู้ business logic ของ feature นี้                                         |
-| xlsx bundle size                | ✅      | ✅      | ✅      | ✅      | จับได้เหมือนเดิม แต่รอบนี้ไม่ได้ suggest มา แค่บอกว่าเราไม่ได้ dynamic import/lazy loading   |
+| Issue                           | Iter 0 | Iter 1 | Iter 2 | Iter 3 | Note                                                                                           |
+| ------------------------------- | ------ | ------ | ------ | ------ | ---------------------------------------------------------------------------------------------- |
+| query เปลือง (spectator filter) | ⚠️     | ⚠️     | ⚠️     | ⚠️     | ยังเจอแค่ N+1 🥹                                                                               |
+| handle ชื่อซ้ำ                  | ❌      | ❌      | ❌      | ❌      | ยังเงียบ คิดว่าไม่รู้ business logic ของ feature นี้                                           |
+| xlsx bundle size                | ✅      | ✅      | ✅      | ✅      | จับได้เหมือนเดิม แต่รอบนี้ไม่ได้ suggest มา แค่บอกว่าเราไม่ได้ dynamic import/lazy loading     |
 | สิทธิ์ admin เห็น sidebar เพิ่ม | ✅      | ✅      | ❌      | ❌      | รอบนี้ไม่เจอออ คิดว่าจาก `AGENTS.md` บอกถึง structure มันเลยคิดว่าสิ่งนี้ intend อยู่แล้วก็ได้ |
-| Firestore Indexes               | ❌      | ❌      | ❌      | ✅      | รอบนี้เจอออ                                                                                  |
+| Firestore Indexes               | ❌      | ❌      | ❌      | ✅      | รอบนี้เจอออ                                                                                    |
 
 #### Issue ที่ GLM เจอเพิ่ม
 
 | Issue                                                    | Issue Type   | Iter 0 | Iter 1 | Iter 2 | Iter 3 | Additional Note                                    |
 | -------------------------------------------------------- | ------------ | ------ | ------ | ------ | ------ | -------------------------------------------------- |
 | N+1 query pattern                                        | Performance  | ✅      | ✅      | ✅      | ✅      | ยังคงเจออยู่                                       |
-| Display name → formula injection                         | Security     | ✅      | ✅      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้                            |
-| Sheet Name limit ที่ 31 ตัวอักษร                         | Edge Case    | ✅      | ✅      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้                            |
-| Non-Numeric Vote Value (อาจจะเจอ "?" หรือ "∞" ได้)       | Functional   | ❌      | ✅      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้ <- ซึ่งถูกแล้วที่ไม่พูดถึง |
-| มี Browser Side-effect ใน service                        | Code Pattern | ❌      | ✅      | ❌      | ✅      | ยังคงเจออยู่                                       |
-| Filename sanitization for cross OS compatibility         | Edge Case    | ❌      | ❌      | ✅      | ✅      | ยังคงเจออยู่                                       |
-| 🚀 Handle Vote Value (พวก Vote Value ที่เป็น -1 หรือ -2) | Functional   | ❌      | ❌      | ❌      | ✅      | อันนี้ดีมาก นิลก็เพิ่งเจอเหมือนกันครับ 💀          |
+| display name → formula injection                         | Security     | ✅      | ✅      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้                            |
+| sheet Name limit ที่ 31 ตัวอักษร                         | Edge Case    | ✅      | ✅      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้                            |
+| non-numeric vote value (อาจจะเจอ "?" หรือ "∞" ได้)       | Functional   | ❌      | ✅      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้ <- ซึ่งถูกแล้วที่ไม่พูดถึง |
+| มี browser side-effect ใน service                        | Code Pattern | ❌      | ✅      | ❌      | ✅      | ยังคงเจออยู่                                       |
+| filename sanitization for cross OS compatibility         | Edge Case    | ❌      | ❌      | ✅      | ✅      | ยังคงเจออยู่                                       |
+| 🚀 handle vote value (พวก vote value ที่เป็น -1 หรือ -2) | Functional   | ❌      | ❌      | ❌      | ✅      | อันนี้ดีมาก นิลก็เพิ่งเจอเหมือนกันครับ 💀          |
 
 
 ### สิ่งที่นิลจะทำใน iteration 4
 
-1. ส่ง PR Issue Title, Description ไปด้วย
-2. ส่ง Linear Issue ไปด้วย
-3. ส่ง Domain Entity Schema ไปด้วย เอาไปให้หมด
+1. ส่ง PR issue title, description ไปด้วย
+2. ส่ง Linear issue ไปด้วย
+3. ส่ง domain entity schema ไปด้วย เอาไปให้หมด
 4. เพิ่มใน `AGENTS.md` ให้บอกว่าช่วยลด fetching จาก Firestore หน่อย
 5. ส่ง `firestore.indexes.json` ไปเพิ่ม -> นิลคิดว่าสิ่งนี้จะช่วยบอกได้ว่า change ที่ทำไป ต้องสร้าง index เพิ่มไหม
 
@@ -1011,7 +1012,7 @@ Let me structure my review.
 ในรอบนี้ นิลส่งข้อมูลที่คิดว่า missing ทั้งหมดไปเลย เช่น Linear issue details, GitHub PR content, ส่งเรื่องการลดการ fetch จาก Firestore และส่ง Firestore Indexes ที่มีให้มันไปด้วย คิดว่าถ้าส่งหมดน่าจะติ๊กเขียวหมดละ ซึ่งมาลองดูกันว่าเขียวหมดจริงไหม
 ### Prompt used
 
-1. นิลเพิ่มส่วน Business Domain Entities เข้าไปครับ
+1. นิลเพิ่มส่วน business domain entities เข้าไปครับ
 
 ```diff lang="md" wrap
 ...existing prompt
@@ -1020,7 +1021,7 @@ Let me structure my review.
 + ... Domain entities ...
 ```
 
-2. นิลเพิ่มในส่วนของ Requirement จาก Project management tool เข้าไปอีกครับ
+2. นิลเพิ่มในส่วนของ Requirement จาก project management tool เข้าไปอีกครับ
 ```diff lang="md" wrap
 + ### Issue Details:
 + #### As an session owner, I want to export current session vote as xlsx
@@ -1034,7 +1035,7 @@ Let me structure my review.
 + ... PR Description ...
 ```
 
-> NOTE: สามารถ[ดู Prompt ของ iteration 4 เต็ม ๆ ได้ที่นี่](https://github.com/peeranat-dan/weekend-hack-code-review-agent-typescript/blob/main/outputs/iteration-4/system-prompt.md#)เลยคับ
+> NOTE: สามารถ[ดู prompt ของ iteration 4 เต็ม ๆ ได้ที่นี่](https://github.com/peeranat-dan/weekend-hack-code-review-agent-typescript/blob/main/outputs/iteration-4/system-prompt.md#)เลยคับ
 
 ### Output
 #### Token Usage
@@ -1261,9 +1262,9 @@ Summary of my concerns:
 
 ### Analysis
 
-ในรอบนี้นิลคิดว่ามันจะติ๊กถูกหมดนะะ แต่ตัว filter นี่ยังไงก็ไม่เจออะะ ซึ่งนิลก็ยังตอบไม่ได้นะครับ ว่าทำยังไงถึงให้มันเจอ แต่ขอยอมแพ้ที่ iteration นี้ล้า โฮฮฮฮฮ 😭 ไว้ว่ากันใน summary ส่วนอันที่เหลือพอให้ Context ไปครบ ๆ มันก็เจอครับ แปลว่านอกจาก context ทั่วไปเกี่ยวกับ repository แล้วเนี่ย มันต้องการ requirement ของ feature นั้น ๆ รวมถึงการให้พวก Business Domain Entity เนี่ย ก็ค่อนข้างช่วยมันให้ค้นพบ missing implementation ได้อีกด้วย
+ในรอบนี้นิลคิดว่ามันจะติ๊กถูกหมดนะะ แต่ตัว filter นี่ยังไงก็ไม่เจออะะ ซึ่งนิลก็ยังตอบไม่ได้นะครับ ว่าทำยังไงถึงให้มันเจอ แต่ขอยอมแพ้ที่ iteration นี้ล้า โฮฮฮฮฮ 😭 ไว้ว่ากันใน summary ส่วนอันที่เหลือพอให้ context ไปครบ ๆ มันก็เจอครับ แปลว่านอกจาก context ทั่วไปเกี่ยวกับ repository แล้วเนี่ย มันต้องการ requirement ของ feature นั้น ๆ รวมถึงการให้พวก business domain entity เนี่ย ก็ค่อนข้างช่วยมันให้ค้นพบ missing implementation ได้อีกด้วย
 
-ส่วนเรื่อง Business Context เนี่ย พอโยนเข้าไปเพิ่ม มันก็จะเจอ issue เพิ่มจริง ๆ ครับ จากตอนแรกที่นิลคิดว่าโยนแค่ `AGENTS.md`, `CONVENTION.md` หรือ พวก basic function ไปน่าจะพอ สรุป ไม่พอ มันก็ต้องการ Context ครบ ๆ แบบคนนั้นแหละ ถ้า Context ไม่ครบ มันก็มั่ว ๆ มา (เหมือนปรัชญายังไงก็ไม่รู้)
+ส่วนเรื่อง business context เนี่ย พอโยนเข้าไปเพิ่ม มันก็จะเจอ issue เพิ่มจริง ๆ ครับ จากตอนแรกที่นิลคิดว่าโยนแค่ `AGENTS.md`, `CONVENTION.md` หรือ พวก basic function ไปน่าจะพอ สรุป ไม่พอ มันก็ต้องการ context ครบ ๆ แบบคนนั้นแหละ ถ้า context ไม่ครบ มันก็มั่ว ๆ มา (เหมือนปรัชญายังไงก็ไม่รู้)
 
 ทีนี้เรื่องการ handle vote value ทีเป็น -1 กับ -2 ที่หายไปน่าจะเพราะว่ามันเจอตัว vote ที่เป็น T-Shirt แทนครับ คิดว่ามันอาจจะมอง 2 issues นี้ใกล้ ๆ กันจน report ตัว issue T-Shirt Vote มาก่อน
 
@@ -1273,8 +1274,8 @@ Summary of my concerns:
 
 | Issue                           | Iter 0 | Iter 1 | Iter 2 | Iter 3 | Iter 4 | Note                                                      |
 | ------------------------------- | ------ | ------ | ------ | ------ | ------ | --------------------------------------------------------- |
-| Query เปลือง (spectator filter) | ⚠️     | ⚠️     | ⚠️     | ⚠️     | ⚠️     | ยังเจอแค่ N+1 🥹                                          |
-| Handle ชื่อซ้ำ                  | ❌      | ❌      | ❌      | ❌      | ✅      | เจอแล้ววว คิดว่าเพราะ requirement ที่ให้ไปเพิ่ม           |
+| query เปลือง (spectator filter) | ⚠️     | ⚠️     | ⚠️     | ⚠️     | ⚠️     | ยังเจอแค่ N+1 🥹                                          |
+| handle ชื่อซ้ำ                  | ❌      | ❌      | ❌      | ❌      | ✅      | เจอแล้ววว คิดว่าเพราะ requirement ที่ให้ไปเพิ่ม           |
 | xlsx bundle size                | ✅      | ✅      | ✅      | ✅      | ✅      | รอบนี้ยังเตือนเรื่อง static import เหมือนเดิม             |
 | สิทธิ์ admin เห็น sidebar เพิ่ม | ✅      | ✅      | ❌      | ❌      | ✅      | รอบนี้กลับมาเจอแล้ว                                       |
 | Firestore Indexes               | ❌      | ❌      | ❌      | ✅      | ✅      | รอบนี้เจอออ คิดว่าเพราะให้ firestore.indexes.json ไปเพิ่ม |
@@ -1284,22 +1285,22 @@ Summary of my concerns:
 | Issue                                                                           | Issue Type   | Iter 0 | Iter 1 | Iter 2 | Iter 3 | Iter 4 | Additional Note                                                             |
 | ------------------------------------------------------------------------------- | ------------ | ------ | ------ | ------ | ------ | ------ | --------------------------------------------------------------------------- |
 | N+1 query pattern                                                               | Performance  | ✅      | ✅      | ✅      | ✅      | ✅      | ยังคงเจออยู่                                                                |
-| Display name → formula injection                                                | Security     | ✅      | ✅      | ❌      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้                                                     |
-| Sheet Name limit ที่ 31 ตัวอักษร                                                | Edge Case    | ✅      | ✅      | ❌      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้                                                     |
-| Non-Numeric Vote Value (อาจจะเจอ "?" หรือ "∞" ได้)                              | Functional   | ❌      | ✅      | ❌      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้ <- ซึ่งถูกแล้วที่ไม่พูดถึง                          |
-| มี Browser Side-effect ใน service                                               | Code Pattern | ❌      | ✅      | ❌      | ✅      | ✅      | รอบนี้อยู่ใน Reasoning แต่ไม่ได้อยู่ใน Risk Areas                           |
-| Filename sanitization for cross OS compatibility                                | Edge Case    | ❌      | ❌      | ✅      | ✅      | ❌      | รอบนี้ไม่ได้พูดถึง น่าจะเพราะ Requirement เรื่อง Filename ที่ไม่มีเรื่องนี้ |
-| Handle Vote Value (พวก Vote Value ที่เป็น -1 หรือ -2)                           | Functional   | ❌      | ❌      | ❌      | ✅      | ❌      | ไม่เจอแล้ว ฮือออ ทำไมกันนะะ                                                 |
-| 🚀 ถ้า Session ใช้ Vote แบบ T-Shirt จะแสดงในตารางเป็นตัวเลขแทนที่จะเป็น S, M, L | Functional   | ❌      | ❌      | ❌      | ❌      | ✅      | อันนี้ดีมาก เพราะนิลเองก็ลืมไปแล้วว่ามันมี Feature นี้ในเว็บด้วย            |
-| 🚀 Disable ปุ่มเมื่อไม่มี session ที่ Finished                                  | Edge Case    | ❌      | ❌      | ❌      | ❌      | ✅      | อันนี้ค่อนข้าง edge case ครับ นิลไม่ได้นึกถึงสิ่งนี้เลย                     |
+| display name → formula injection                                                | Security     | ✅      | ✅      | ❌      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้                                                     |
+| sheet name limit ที่ 31 ตัวอักษร                                                | Edge Case    | ✅      | ✅      | ❌      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้                                                     |
+| non-numeric vote value (อาจจะเจอ "?" หรือ "∞" ได้)                              | Functional   | ❌      | ✅      | ❌      | ❌      | ❌      | ❌ ไม่พูดถึงแล้วในรอบนี้ <- ซึ่งถูกแล้วที่ไม่พูดถึง                          |
+| มี browser side-effect ใน service                                               | Code Pattern | ❌      | ✅      | ❌      | ✅      | ✅      | รอบนี้อยู่ใน reasoning แต่ไม่ได้อยู่ใน risk areas                           |
+| filename sanitization for cross OS compatibility                                | Edge Case    | ❌      | ❌      | ✅      | ✅      | ❌      | รอบนี้ไม่ได้พูดถึง น่าจะเพราะ Requirement เรื่อง filename ที่ไม่มีเรื่องนี้ |
+| handle vote value (พวก vote value ที่เป็น -1 หรือ -2)                           | Functional   | ❌      | ❌      | ❌      | ✅      | ❌      | ไม่เจอแล้ว ฮือออ ทำไมกันนะะ                                                 |
+| 🚀 ถ้า session ใช้ vote แบบ T-Shirt จะแสดงในตารางเป็นตัวเลขแทนที่จะเป็น S, M, L | Functional   | ❌      | ❌      | ❌      | ❌      | ✅      | อันนี้ดีมาก เพราะนิลเองก็ลืมไปแล้วว่ามันมี feature นี้ในเว็บด้วย            |
+| 🚀 disable ปุ่มเมื่อไม่มี session ที่ finished                                  | Edge Case    | ❌      | ❌      | ❌      | ❌      | ✅      | อันนี้ค่อนข้าง edge case ครับ นิลไม่ได้นึกถึงสิ่งนี้เลย                     |
 
 -- จบ iteration 4 --
 
 ## ช่วงพักชม AI Code Reviewer เจ้าอื่น
 
-ก่อนที่จะปิดจบ นิลอยากรู้ว่าสิ่งที่ทำมาทั้งหมดนี้มันสู้กับ tool ที่ทำเรื่องนี้โดยเฉพาะได้ไหม นิลเลยลองส่ง PR เดิมให้ 2 เจ้าครับครับคือ Claude Code Review ที่เป็น GitHub App นะ ไม่ใช่เจ้า service ใหม่ที่ออกมาแล้วแพง ๆ นะ กับ GitHub Copilot Code Review ครับ
+ก่อนที่จะปิดจบ นิลอยากรู้ว่าสิ่งที่ทำมาทั้งหมดนี้มันสู้กับ tool ที่ทำเรื่องนี้โดยเฉพาะได้ไหม นิลเลยลองส่ง PR เดิมให้ 2 เจ้าครับครับคือ [Claude Code Review](https://github.com/anthropics/claude-code-action) ที่เป็น GitHub App นะ ไม่ใช่เจ้า service ใหม่ที่ออกมาแล้วแพง ๆ นะ กับ [GitHub Copilot Code Review](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review) ครับ
 
-ซึ่งอันนี้คือผลที่ Claude Review มานะ ขอเอามาแค่ part ที่มันอยากให้ปรับนะ
+ซึ่งอันนี้คือผลที่ Claude review มานะ ขอเอามาแค่ part ที่มันอยากให้ปรับนะ
 
 ```md wrap
 ## ✅ Overall Assessment
@@ -1321,16 +1322,16 @@ This is a **well-implemented feature** that follows the project's conventions 
 
 ส่วนของ GitHub Copilot ก็จะให้แก้พวกนี้มาครับ
 1. N+1 Query
-2. Sheet name sanitization
-3. File name sanitization
+2. sheet name sanitization
+3. file name sanitization
 4. 🚀 function `checkIfUserCanManageSession` ไม่ throw error ออกมา
 
-ตัว Claude Review นี่นิลแอบรู้สึกว่ามัน comment ออกมาน้อยมากเลยครับ ส่วนตัว GitHub Copilot ก็ยัง catch issue หลัก ๆ ที่นิลตั้งธงไว้ไม่ได้เนอะ แต่ก็เจอ issue น่าสนใจ เช่น เรื่อง function `checkIfUserCanManageSession` ที่ไม่คืน error กลับมาด้วย สิ่งที่นิลยังไม่รู้คือ tool พวกนี้มันวาง prompt/context ยังไง ใช้ agent architecture แบบไหน ซึ่งอันนี้แหละที่นิลอยากไปขุดต่อใน iteration ถัด ๆ ไป
+ตัว Claude review นี่นิลแอบรู้สึกว่ามัน comment ออกมาน้อยมากเลยครับ ส่วนตัว GitHub Copilot ก็ยัง catch issue หลัก ๆ ที่นิลตั้งธงไว้ไม่ได้เนอะ แต่ก็เจอ issue น่าสนใจ เช่น เรื่อง function `checkIfUserCanManageSession` ที่ไม่คืน error กลับมาด้วย สิ่งที่นิลยังไม่รู้คือ tool พวกนี้มันวาง prompt/context ยังไง ใช้ agent architecture แบบไหน ซึ่งอันนี้แหละที่นิลอยากไปขุดต่อใน iteration ถัด ๆ ไป
 ## สรุปผลการทดลอง
 
-อย่างแรกขอเริ่มที่ผลการ iterate ไปเรื่อย ๆ ก็เจอว่า ด้วยการให้ Project Context, Business Context, Issue Context ไปเรื่อย ๆ ตัว AI ก็จะสามารถที่จะค้นหา Potential Issues ที่เราวางไว้ได้เรื่อย ๆ นะครับ แต่ก็จะมีบางจุดที่ complex จริง ๆ เช่นตัว filter ที่มันอาจจะยังจับไม่ได้ สิ่งนี้ก็ต้องหากันต่อไปว่าทำไมมันถึงไม่เจอจุดนี้นะ
+อย่างแรกขอเริ่มที่ผลการ iterate ไปเรื่อย ๆ ก็เจอว่า ด้วยการให้ project context, business context, issue context ไปเรื่อย ๆ ตัว AI ก็จะสามารถที่จะค้นหา potential issues ที่เราวางไว้ได้เรื่อย ๆ นะครับ แต่ก็จะมีบางจุดที่ complex จริง ๆ เช่นตัว filter ที่มันอาจจะยังจับไม่ได้ สิ่งนี้ก็ต้องหากันต่อไปว่าทำไมมันถึงไม่เจอจุดนี้นะ
 
-ทีนี้หลาย ๆ คนก็สร้าง `AGENTS.md` หรือ `CLAUDE.md` ขึ้นมา 1 File แล้วก็คาดหวังให้ LLM อ่านสิ่งนี้แล้วเข้าใจทุกอย่าง แต่ในความเป็นจริงคือ Review ด้วยว่ามันมีของครบถ้วนที่ LLM ต้องการหรือเปล่า project ของคุณมีอะไรที่พิเศษกว่าแค่ Vite React App ทั่วไปไหม ต้องส่งอะไรเพิ่มไปอีกไหม เช่นอย่างของนิลก็ต้องส่ง Firestore เข้าไป section ใหญ่ ๆ 1 อันเลยมันถึงจะเริ่ม detect เรื่อง query index นะ
+ทีนี้หลาย ๆ คนก็สร้าง `AGENTS.md` หรือ `CLAUDE.md` ขึ้นมา 1 file แล้วก็คาดหวังให้ LLM อ่านสิ่งนี้แล้วเข้าใจทุกอย่าง แต่ในความเป็นจริงคือ Review ด้วยว่ามันมีของครบถ้วนที่ LLM ต้องการหรือเปล่า project ของคุณมีอะไรที่พิเศษกว่าแค่ Vite React App ทั่วไปไหม ต้องส่งอะไรเพิ่มไปอีกไหม เช่นอย่างของนิลก็ต้องส่ง Firestore เข้าไป section ใหญ่ ๆ 1 อันเลยมันถึงจะเริ่ม detect เรื่อง query index นะ
 
 มาต่อในส่วนต่อไปคือปริมาณของที่ส่งไปครับ ยิ่งส่งของไปเยอะ ยิ่งใช้ token เยอะ ซึ่งจะเห็นแนวโน้มการใช้ token ที่เพิ่มขึ้นจากการให้ context เพิ่มขึ้นเรื่อย ๆ รวมถึง reasoning token ที่เพิ่มขึ้นเรื่อย ๆ ด้วยครับ แปลว่ายิ่งเรา prompt ไปเยอะเท่าไหร่ และบอกให้ตัว model มันคืน thinking ออกมา มันจะยิ่งคิดเยอะขึ้น และก็จะมีแนวโน้มที่จะได้ผลลัพธ์ที่ดีตามไปด้วยครับ ถ้าสรุป token & time usage ก็จะเป็นไปตามตารางนี้ครับ
 
@@ -1354,8 +1355,8 @@ This is a **well-implemented feature** that follows the project's conventions 
 
 | Issue                           | Iter 0 | Iter 1 | Iter 2 | Iter 3 | Iter 4 |
 | ------------------------------- | ------ | ------ | ------ | ------ | ------ |
-| Query เปลือง (spectator filter) | ⚠️     | ⚠️     | ⚠️     | ⚠️     | ⚠️     |
-| Handle ชื่อซ้ำ                  | ❌      | ❌      | ❌      | ❌      | ✅      |
+| query เปลือง (spectator filter) | ⚠️     | ⚠️     | ⚠️     | ⚠️     | ⚠️     |
+| handle ชื่อซ้ำ                  | ❌      | ❌      | ❌      | ❌      | ✅      |
 | xlsx bundle size                | ✅      | ✅      | ✅      | ✅      | ✅      |
 | สิทธิ์ admin เห็น sidebar เพิ่ม | ✅      | ✅      | ❌      | ❌      | ✅      |
 | Firestore Indexes               | ❌      | ❌      | ❌      | ✅      | ✅      |
@@ -1365,29 +1366,29 @@ This is a **well-implemented feature** that follows the project's conventions 
 | Issue                                                                        | Issue Type   | Iter 0 | Iter 1 | Iter 2 | Iter 3 | Iter 4 |
 | ---------------------------------------------------------------------------- | ------------ | ------ | ------ | ------ | ------ | ------ |
 | N+1 query pattern                                                            | Performance  | ✅      | ✅      | ✅      | ✅      | ✅      |
-| Display name → formula injection                                             | Security     | ✅      | ✅      | ❌      | ❌      | ❌      |
-| Sheet Name limit ที่ 31 ตัวอักษร                                             | Edge Case    | ✅      | ✅      | ❌      | ❌      | ❌      |
-| Non-Numeric Vote Value (อาจจะเจอ "?" หรือ "∞" ได้) (อันนี้ไม่ควรเจอ)         | Functional   | ❌      | ✅      | ❌      | ❌      | ❌      |
-| มี Browser Side-effect ใน service                                            | Code Pattern | ❌      | ✅      | ❌      | ✅      | ✅      |
-| Filename sanitization for cross OS compatibility                             | Edge Case    | ❌      | ❌      | ✅      | ✅      | ❌      |
-| Handle Vote Value (พวก Vote Value ที่เป็น -1 หรือ -2)                        | Functional   | ❌      | ❌      | ❌      | ✅      | ❌      |
-| ถ้า Session ใช้ Vote แบบ T-Shirt จะแสดงในตารางเป็นตัวเลขแทนที่จะเป็น S, M, L | Functional   | ❌      | ❌      | ❌      | ❌      | ✅      |
-| Disable ปุ่มเมื่อไม่มี session ที่ Finished                                  | Edge Case    | ❌      | ❌      | ❌      | ❌      | ✅      |
+| display name → formula injection                                             | Security     | ✅      | ✅      | ❌      | ❌      | ❌      |
+| sheet Name limit ที่ 31 ตัวอักษร                                             | Edge Case    | ✅      | ✅      | ❌      | ❌      | ❌      |
+| non-numeric vote value (อาจจะเจอ "?" หรือ "∞" ได้) (อันนี้ไม่ควรเจอ)         | Functional   | ❌      | ✅      | ❌      | ❌      | ❌      |
+| มี browser side-effect ใน service                                            | Code Pattern | ❌      | ✅      | ❌      | ✅      | ✅      |
+| filename sanitization for cross OS compatibility                             | Edge Case    | ❌      | ❌      | ✅      | ✅      | ❌      |
+| handle vote value (พวก vote value ที่เป็น -1 หรือ -2)                        | Functional   | ❌      | ❌      | ❌      | ✅      | ❌      |
+| ถ้า session ใช้ Vote แบบ T-Shirt จะแสดงในตารางเป็นตัวเลขแทนที่จะเป็น S, M, L | Functional   | ❌      | ❌      | ❌      | ❌      | ✅      |
+| disable ปุ่มเมื่อไม่มี session ที่ finished                                  | Edge Case    | ❌      | ❌      | ❌      | ❌      | ✅      |
 
 
 อะ งั้นกลับมาที่ goal ของนิล 3 ข้อกัน 
-- ✅ อยากลองเล่น AI with TypeScript ดู - อันนี้อาจจะได้ลอง openai sdk ครับ แล้วก็พอเข้าใจแล้วว่าทำไมเขาถึงมีพวก vercel ai sdk, Mastra.ai หรือ VoltAgent ครับ การขึ้นเองจาก 0 น่าจะยาก แถมถ้าต้อง orchestrate agent อีกน่าจะไม่รอดแน่ ๆ
-- ❌ อยากเข้าใจ Agent Architecture มากขึ้น - อันนี้ไม่ได้ทำเลยครับ แค่ Prompting กับ Context Engineering ก็หมดเวลาแล้ว ฮืออออ
-- ✅ อยากได้ Iteration ถัดไปของ Code Review Agent - อันนี้เห็นภาพมากขึ้นนะ เริ่มเข้าใจละว่าทำไมรอบแรกมันถึงไม่ work แล้วเราจะเริ่มทำให้มัน work ขึ้นได้ยังไง รวมถึงใน iteration นี้ นิลสามารถทำให้มัน catch known potential issue ได้ 4 จาก 5 อัน (80%) และได้ unknown issues มาอีกเพียบเลย (4 อันใน iteration สุดท้าย) นิลว่ามัน work เลยนะ
+- ✅ อยากลองเล่น AI with TypeScript ดู - อันนี้อาจจะได้ลอง openai sdk ครับ แล้วก็พอเข้าใจแล้วว่าทำไมเขาถึงมีพวก [vercel ai sdk](https://ai-sdk.dev/docs/introduction), [Mastra.ai](https://mastra.ai/) หรือ [VoltAgent](https://voltagent.dev/) ครับ การขึ้นเองจาก 0 น่าจะยาก แถมถ้าต้อง orchestrate agent อีกน่าจะไม่รอดแน่ ๆ
+- ❌ อยากเข้าใจ agent architecture มากขึ้น - อันนี้ไม่ได้ทำเลยครับ แค่ prompting กับ context engineering ก็หมดเวลาแล้ว ฮืออออ
+- ✅ อยากได้ tteration ถัดไปของ code review agent - อันนี้เห็นภาพมากขึ้นนะ เริ่มเข้าใจละว่าทำไมรอบแรกมันถึงไม่ work แล้วเราจะเริ่มทำให้มัน work ขึ้นได้ยังไง รวมถึงใน iteration นี้ นิลสามารถทำให้มัน catch known potential issue ได้ 4 จาก 5 อัน (80%) และได้ unknown issues มาอีกเพียบเลย (4 อันใน iteration สุดท้าย) นิลว่ามัน work เลยนะ
 
 ทีนี้จาก goal ข้อ 3 เนี่ย ทำให้นิลกลับมาคิดครับว่าจริง ๆ ที่นิลทำตอนนี้มันคือการส่ง context ให้ AI แบบทีละ file ซึ่งตอนนี้เป็นนิลเองที่ตัดสินใจว่าจะส่ง context อะไรบ้าง แต่ในความเป็นจริง ลองคิดดูสิครับว่าถ้านิลจะ reivew PR ไหนแล้วต้องส่งไปเองว่าต้องใช้ file ไหนบ้าง สู้ review เองแล้วประหยัด token ไปไม่ดีกว่าหรอ 🤔
 
-แต่เกมส์อาจจะเปลี่ยนเล็กน้อยครับ ถ้าใน iteration หน้า นิลสามารถทำให้ AI มันช่วย list file ที่เกี่ยวข้องเพื่อส่งไป review ด้วย ตัว AI ก็จะได้ context ที่เกี่ยวข้องอย่างครบถ้วน ซึ่งถ้าเราทำได้จริง มันน่าจะช่วยลดแรงนิลในการ catch potential issue ได้ดีเลยครับ
+แต่เกมส์อาจจะเปลี่ยนเล็กน้อยครับ ถ้าใน iteration หน้า นิลสามารถทำให้ AI มันช่วย list file ที่เกี่ยวข้องเพื่อส่งไป review ด้วย ตัว AI ก็จะได้ context ที่เกี่ยวข้องอย่างครบถ้วน ซึ่งถ้าเราทำได้จริง มันน่าจะช่วยลดแรงนิลในการ catch potential issues ได้ดีเลยครับ
 
 สิ่งที่ได้ Learning เลยคือสุดท้ายตัว AI มันมีความฉลาดส่วนตัวของมันประมาณนึงแหละ ดูจาก iteration แรกที่เราแทบไม่ให้อะไรเลย มันก็เจอ unknown issue อีกเพียบ แต่ในขณะเดียวกัน มันก็ยังต้องการ basic context ที่เกี่ยวกับ project เราอยู่นะครับ อันนี้แอบมองว่าเหมือนเราต้อง train น้อง junior คนนึงเลย อย่าลืมใจดีและให้ context project กับน้อง ๆ เหมือนที่เราทำกับ AI กันนะครับ 🥹
 
 ---
-จบไปแล้วกับ ~~Weekend~~ Holiday Hack ช่วงสงกรานต์คร้าบ เป็น Blog ที่ใช้พลังสูงที่สุดเท่าที่เคยเขียนมาเลยครับเพราะใช้ 3 วันในการทำสิ่งนี้ครับ แต่บอกเลยว่าอย่างมันส์เพราะตอนแรกนิลคิดว่าแปปเดียวก็เสร็จเดี๋ยวเอาเวลาที่เหลือไปนั่งเล่นเกมส์ ทำ side project อื่น สรุปกิน 3 วันเต็ม (ฮา) รอบนี้ไม่ได้ celebrate small win ด้วยการกินแหละครับ แต่เดี๋ยวไปนั่งเล่นเกมส์ชิว ๆ เอา ทุกคนอย่าลืมพักผ่อนกันด้วยน้า รอบหน้าเดี๋ยวนิลจะทำไรหนุก ๆ อีกเดี๋ยวมาแชร์กับทุกคนนะครับ 😎
+จบไปแล้วกับ ~~Weekend~~ Holiday Hack ช่วงสงกรานต์คร้าบ เป็น blog ที่ใช้พลังสูงที่สุดเท่าที่เคยเขียนมาเลยครับเพราะใช้ 3 วันในการทำสิ่งนี้ครับ แต่บอกเลยว่าอย่างมันส์เพราะตอนแรกนิลคิดว่าแปปเดียวก็เสร็จเดี๋ยวเอาเวลาที่เหลือไปนั่งเล่นเกมส์ ทำ side project อื่น สรุปกิน 3 วันเต็ม (ฮา) รอบนี้ไม่ได้ celebrate small win ด้วยการกินแหละครับ แต่เดี๋ยวไปนั่งเล่นเกมส์ชิว ๆ เอา ทุกคนอย่าลืมพักผ่อนกันด้วยน้า รอบหน้าเดี๋ยวนิลจะทำไรหนุก ๆ อีกเดี๋ยวมาแชร์กับทุกคนนะครับ 😎
 
 ขอให้สนุกกับการทดลอง
 นิล
