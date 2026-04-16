@@ -99,7 +99,7 @@
     [&_a]:text-primary [&_a]:underline [&_a]:decoration-2 [&_a]:decoration-primary [&_a]:underline-offset-4 
     [&_img]:rounded-lg [&_img]:w-full
     [&_figcaption]:font-sans [&_figcaption]:text-muted-foreground [&_figcaption]:text-center
-    [&_table]:w-full [&_table]:border-collapse [&_table]:my-6
+    [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:block [&_table]:overflow-x-auto
     [&_th]:border [&_th]:border-border [&_th]:bg-muted [&_th]:px-4 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold
     [&_td]:border [&_td]:border-border [&_td]:px-4 [&_td]:py-2;
   }
