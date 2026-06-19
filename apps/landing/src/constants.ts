@@ -9,10 +9,18 @@ type Experience = {
 
 export const EXPERIENCE: Experience[] = [
   {
+    company: 'LINE MAN Wongnai',
+    position: 'Software Engineer (Frontend)',
+    startDate: '2026-06-15',
+    endDate: null,
+    description: 'Being a part of the Advertising Technology team.',
+    companyUrl: 'https://lineman.line.me/',
+  },
+  {
     company: 'Skooldio Tech',
     position: 'Software Engineer',
-    startDate: '2022-06-01',
-    endDate: null,
+    startDate: '2022-06-16',
+    endDate: '2026-06-12',
     description:
       'Being a part of Research and Development (R&D) team, responsible for developing and quickly shipping new features for newly created products.',
     companyUrl: 'https://www.skooldio.tech/',
@@ -30,5 +38,4 @@ export const EXPERIENCE: Experience[] = [
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/peeranatd/'
 export const GITHUB_URL = 'https://github.com/peeranat-dan'
-export const RESUME_URL =
-  'https://drive.google.com/file/d/19rnOZWjy4Y5icT7jbdAGaADzhl-L8nGq/view'
+export const RESUME_URL = '/Resume_Peeranat_Danaidusadeekul.pdf'
