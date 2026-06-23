@@ -52,7 +52,14 @@ export default defineConfig({
           items: [
             {
               label: 'WordPress Basics',
-              autogenerate: { directory: 'wordpress-series/wordpress-basic' },
+              items: [
+                // @ts-ignore
+                {
+                  autogenerate: {
+                    directory: 'wordpress-series/wordpress-basic',
+                  },
+                },
+              ],
             },
           ],
         },
