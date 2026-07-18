@@ -58,3 +58,12 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl)
 <meta property="twitter:image" content={new URL(image, siteUrl)} />
 
 <link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- AI / LLM discovery -->
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+<link
+  rel="alternate"
+  type="text/plain"
+  href="/llms-full.txt"
+  title="llms-full.txt"
+/>
