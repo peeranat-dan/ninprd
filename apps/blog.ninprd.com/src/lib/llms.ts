@@ -1,9 +1,5 @@
 import { getCollection } from 'astro:content'
 
-export const SITE_TITLE = 'blog.ninprd'
-export const SITE_DESCRIPTION =
-  'Read about experience sharing and technology on blog.ninprd, a dynamic blog by Peeranat Danaidusadeekul, a full-time Software Engineer and part-time blogger.'
-
 export async function getPublishedPosts() {
   const posts = await getCollection(
     'blog',

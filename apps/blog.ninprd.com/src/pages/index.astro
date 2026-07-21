@@ -4,7 +4,9 @@ import { getCollection } from 'astro:content'
 import { GridPattern } from '@ninprd/ui/components/magicui/grid-pattern'
 import { cn } from '@ninprd/ui/lib/utils'
 
+import JsonLd from '../components/JsonLd.astro'
 import Layout from '../layouts/Layout.astro'
+import { AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from '../lib/site'
 
 const posts = await getCollection(
   'blog',
@@ -14,9 +16,37 @@ const posts = await getCollection(
 const latestPosts = posts
   .map((post) => ({ ...post.data, id: post.id }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+const siteUrl = Astro.site ?? new URL('https://blog.ninprd.com')
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: SITE_TITLE,
+      description: SITE_DESCRIPTION,
+      url: siteUrl.href,
+      author: {
+        '@type': 'Person',
+        name: AUTHOR.name,
+        url: AUTHOR.url,
+        sameAs: AUTHOR.sameAs,
+      },
+    },
+    {
+      '@type': 'Person',
+      name: AUTHOR.name,
+      url: AUTHOR.url,
+      sameAs: AUTHOR.sameAs,
+      jobTitle: 'Software Engineer',
+    },
+  ],
+}
 ---
 
 <Layout>
+  <JsonLd slot="head" data={jsonLd} />
   <section class="container pt-4">
     <div
       class="relative flex h-[200px] w-full gap-4 flex-col items-center justify-center overflow-hidden bg-background"

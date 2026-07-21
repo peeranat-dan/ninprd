@@ -1,11 +1,6 @@
 import type { APIRoute } from 'astro'
-import {
-  SITE_DESCRIPTION,
-  SITE_TITLE,
-  getPublishedPosts,
-  postUrl,
-  singleLine,
-} from '../lib/llms'
+import { getPublishedPosts, postUrl, singleLine } from '../lib/llms'
+import { SITE_DESCRIPTION, SITE_TITLE } from '../lib/site'
 
 function isoDate(date: string): string {
   return new Date(date).toISOString().slice(0, 10)

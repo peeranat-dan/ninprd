@@ -25,6 +25,10 @@ interface Props {
   image?: string
   noindex?: boolean
   withAnalytics?: boolean
+  article?: {
+    publishedTime: string
+    tags: string[]
+  }
 }
 
 const {
@@ -33,6 +37,7 @@ const {
   image,
   noindex = false,
   withAnalytics = true,
+  article,
 } = Astro.props
 ---
 
@@ -43,7 +48,9 @@ const {
       description={description}
       image={image}
       noindex={noindex}
+      article={article}
     />
+    <slot name="head" />
     <ThemeProvider />
     {withAnalytics ? <Analytics /> : null}
     {withAnalytics ? <Posthog /> : null}
