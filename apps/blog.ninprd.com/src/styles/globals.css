@@ -29,6 +29,11 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-info: var(--info);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-caution: var(--caution);
+  --color-error: var(--error);
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -40,6 +45,29 @@
 @utility container {
   margin-inline: auto;
   padding-inline: 2rem;
+}
+
+/* Semantic status colours (info / success / warning / caution / error).
+   Blog-local for now - the only consumer is the article callouts. The base
+   palette lives in @ninprd/ui; these are kept here, not promoted to the shared
+   package, until a second app needs them. --chart-* stays reserved for data
+   viz, so callout severity never breaks when charts are re-themed.
+   Dark values are lighter / less saturated to hold contrast on the dark ground. */
+:root {
+  --info: hsl(211 92% 43%);
+  --success: hsl(158 64% 34%);
+  --warning: hsl(35 92% 42%);
+  --caution: hsl(22 90% 48%);
+  --error: hsl(0 72% 48%);
+}
+
+.dark,
+:root[data-theme="dark"] {
+  --info: hsl(211 90% 66%);
+  --success: hsl(158 58% 55%);
+  --warning: hsl(38 90% 60%);
+  --caution: hsl(24 88% 62%);
+  --error: hsl(0 75% 66%);
 }
 
 @layer base {
@@ -106,6 +134,103 @@
 
   .article-content .blog-reference {
     @apply [&_a]:no-underline [&_img]:rounded-sm [&_*]:no-underline [&_*]:mt-0 p-4 flex flex-col sm:flex-row gap-4 items-center border rounded-lg;
+  }
+
+  /* --- Callouts (:::note, :::info, :::tip, :::warning, :::caution, :::danger) ---
+     Style: accent-colored border on a rounded-xl box; the header (icon + title)
+     sits on an accent underline rule, the body reads as plain prose. No box tint
+     and no heavy left bar, so it stays distinct from the usual docs-site callout. */
+  .article-content .callout {
+    /* Per-type accent, overridden below. Defaults to `note`. */
+    --callout-accent: var(--muted-foreground);
+
+    border: 2.5px solid
+      color-mix(in oklab, var(--callout-accent) 65%, transparent);
+    border-radius: 0.75rem;
+    background: var(--background);
+    padding: 1.15rem 1.35rem;
+    margin-block: 1.75rem;
+  }
+
+  /* The .article-content `[&_*]:mt-4` wildcard hits every descendant of the
+     callout - the header, the icon span, and the icon <svg> included. Reset
+     the top margin on all of them, then re-apply only the spacing we want. */
+  .article-content .callout .callout-header,
+  .article-content .callout .callout-header *,
+  .article-content .callout .callout-icon,
+  .article-content .callout .callout-icon * {
+    margin-top: 0;
+  }
+
+  .article-content .callout .callout-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--callout-accent);
+    color: var(--callout-accent);
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+
+  .article-content .callout .callout-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  /* Scale the 20px source SVG down so it sits proportionate to the title. */
+  .article-content .callout .callout-icon svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .article-content .callout .callout-title {
+    line-height: 1.2;
+  }
+
+  /* First body element sits flush under the header; last has no trailing gap. */
+  .article-content .callout .callout-body > :first-child {
+    margin-top: 0;
+  }
+  .article-content .callout .callout-body > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* Keep body text neutral; only inline code / links pick up their own color. */
+  .article-content .callout .callout-body {
+    color: var(--foreground);
+  }
+
+  .article-content .callout .callout-body > :is(ol, ul) {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding-inline-start: 24px;
+    overflow-wrap: anywhere;
+  }
+
+  /* Map each callout type onto a semantic status colour, not a --chart-* token
+     (those are reserved for data viz). `note` stays neutral. */
+  .article-content .callout-note {
+    --callout-accent: var(--muted-foreground);
+  }
+  .article-content .callout-info {
+    --callout-accent: var(--info);
+  }
+  .article-content .callout-tip {
+    --callout-accent: var(--success);
+  }
+  .article-content .callout-warning {
+    --callout-accent: var(--warning);
+  }
+  .article-content .callout-caution {
+    --callout-accent: var(--caution);
+  }
+  .article-content .callout-danger {
+    --callout-accent: var(--error);
+  }
+  .article-content .callout-disclaimer {
+    --callout-accent: var(--error);
   }
 
   pre::-webkit-scrollbar-track {

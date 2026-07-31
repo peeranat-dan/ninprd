@@ -10,6 +10,7 @@ import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 
 import rehypeTrimMdLinks from './plugins/rehype-trim-md-links'
+import remarkCallouts from './plugins/remark-callouts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -43,7 +44,7 @@ export default defineConfig({
       [rehypeExternalLinks, { target: '_blank' }],
       rehypeTrimMdLinks,
     ],
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkMath, remarkCallouts],
   },
   redirects: {
     '/blog/wordpress-basic-i':
