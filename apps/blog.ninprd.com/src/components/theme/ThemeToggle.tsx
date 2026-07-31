@@ -1,5 +1,5 @@
 import { Check, Laptop, Moon, Sun } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Button } from '@ninprd/ui/components/button'
 import {
@@ -28,7 +28,11 @@ const OPTIONS: { value: ThemeChoice; label: string }[] = [
 ]
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<ThemeChoice>(getStoredChoice)
+  const [theme, setTheme] = useState<ThemeChoice>('system')
+
+  useEffect(() => {
+    setTheme(getStoredChoice())
+  }, [])
 
   const setThemeChoice = (choice: ThemeChoice) => {
     localStorage.setItem('theme', choice)
