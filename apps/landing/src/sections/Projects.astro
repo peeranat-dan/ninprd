@@ -12,58 +12,71 @@ const PROJECTS = projects
   .sort((a, b) => a.order - b.order)
 ---
 
-<section id="projects" class="px-4 lg:px-0 py-8">
-  <h1 class="text-2xl font-medium">Projects</h1>
-  <p class="text-muted-foreground text-sm">
-    A list of projects I've worked on.
-  </p>
-  <ul>
+<section id="projects" class="pt-16 pb-20">
+  <h2
+    class="reveal text-xs font-medium uppercase tracking-widest text-muted-foreground"
+  >
+    Projects
+  </h2>
+  <ul class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
     {
-      PROJECTS.map(({ name, description, stacks, url, imageUrl }) => (
-        <li class="group relative grid grid-cols-4 gap-0 mt-2">
-          <div class="col-span-4 sm:col-span-1 p-2">
-            {imageUrl ? (
-              <Image
-                src={imageUrl}
-                alt={`screenshot of ${name}`}
-                class="rounded-lg h-full w-full"
-                loading="lazy"
-                width={600}
-                height={450}
-              />
-            ) : (
-              <div class="bg-foreground/20 text-foreground select-none dark:bg-foreground/80 dark:text-background h-16 rounded-lg grid place-items-center w-full sm:h-full">
-                {name}
-              </div>
-            )}
-          </div>
-          <div class="col-span-4 sm:col-span-3 p-2">
-            <div class="flex gap-1 items-center">
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class:list={[
-                  'duration-200 group/link text-xl font-semibold',
-                  url ? 'hover:text-primary' : 'cursor-not-allowed',
-                ]}
-                aria-label={`Visit ${name} website`}
-              >
-                {name}
-              </a>
+      PROJECTS.map(({ name, description, stacks, url, imageUrl }, i) => (
+        <li class="reveal" style={`--reveal-delay: ${80 + i * 50}ms`}>
+          <a
+            href={url || undefined}
+            target={url ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            aria-label={url ? `Visit ${name} website` : name}
+            class:list={[
+              'group block overflow-hidden rounded-xl border border-border bg-card',
+              url ? 'project-card hover:border-foreground/20' : 'cursor-default',
+            ]}
+          >
+            <div class="overflow-hidden">
+              {imageUrl ? (
+                <Image
+                  src={imageUrl}
+                  alt={`screenshot of ${name}`}
+                  class="project-thumb aspect-video w-full object-cover"
+                  loading="lazy"
+                  width={1280}
+                  height={720}
+                />
+              ) : (
+                <div class="project-thumb grid aspect-video w-full select-none place-items-center bg-muted text-sm text-muted-foreground">
+                  {name}
+                </div>
+              )}
             </div>
-            <p class="text-muted-foreground text-sm mt-1">{description}</p>
-            <ul
-              class="flex w-full flex-wrap mt-2 gap-2"
-              aria-label="Tech stacks used"
-            >
-              {stacks.map((stack) => (
-                <li>
-                  <Badge variant="secondary">{stack}</Badge>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div class="p-4">
+              <div class="flex items-center gap-1">
+                <span class="text-base font-medium transition-colors duration-200 group-hover:text-primary">
+                  {name}
+                </span>
+                {url && (
+                  <span
+                    aria-hidden="true"
+                    class="translate-y-px opacity-0 transition-[transform,opacity] duration-200 ease-out group-hover:translate-x-0.5 group-hover:opacity-60"
+                  >
+                    ↗
+                  </span>
+                )}
+              </div>
+              <p class="mt-1 text-sm leading-relaxed text-muted-foreground text-pretty">
+                {description}
+              </p>
+              <ul
+                class="mt-3 flex w-full flex-wrap gap-1.5"
+                aria-label="Tech stacks used"
+              >
+                {stacks.map((stack) => (
+                  <li>
+                    <Badge variant="secondary">{stack}</Badge>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </a>
         </li>
       ))
     }

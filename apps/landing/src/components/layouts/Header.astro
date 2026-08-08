@@ -6,25 +6,40 @@ import { ModeToggle } from '../theme/mode-toggle'
 ---
 
 <header
-  class="sticky top-0 z-40 px-4 lg:px-0 w-full bg-background/95 backdrop-blur"
+  id="site-header"
+  class="sticky top-0 z-40 w-full border-b border-transparent bg-background/80 backdrop-blur transition-colors duration-200 data-[scrolled]:border-border"
 >
-  <div class="max-w-3xl mx-auto flex h-14 items-center justify-between">
-    <div class="mr-4 flex">
-      <a href="#" class="mr-6 flex items-center space-x-2">
-        <span class="font-bold sm:inline-block text-primary">PD</span>
-      </a>
-    </div>
+  <div
+    class="mx-auto flex h-14 max-w-2xl items-center justify-between px-6 lg:px-0"
+  >
+    <a
+      href="#"
+      class="press text-sm font-semibold tracking-tight text-primary"
+      aria-label="Back to top"
+    >
+      PD
+    </a>
     <div class="flex items-center gap-2">
       <a
-        class={buttonVariants()}
+        class={`${buttonVariants({ size: 'sm' })} press`}
         href={RESUME_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Get my resume url"
       >
-        Get my resume
+        Resume
       </a>
       <ModeToggle client:load />
     </div>
   </div>
 </header>
+
+<script is:inline>
+  const header = document.getElementById('site-header')
+  const onScroll = () => {
+    if (window.scrollY > 8) header.setAttribute('data-scrolled', '')
+    else header.removeAttribute('data-scrolled')
+  }
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+</script>

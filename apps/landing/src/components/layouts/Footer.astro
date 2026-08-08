@@ -4,35 +4,31 @@ import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons'
 import { GITHUB_URL, LINKEDIN_URL } from '../../constants'
 ---
 
-<footer class="mx-auto w-full max-w-3xl">
+<footer class="mx-auto w-full max-w-2xl px-6 lg:px-0">
   <div
-    class="flex flex-1 items-center justify-between gap-8 border-t px-6 py-8"
+    class="flex items-center justify-between gap-8 border-t py-8"
   >
-    <p class="text-sm text-muted-foreground">
-      &copy; {new Date().getFullYear()} - Peeranat Danaidusadeekul
+    <p class="text-xs text-muted-foreground">
+      &copy; {new Date().getFullYear()} Peeranat Danaidusadeekul
     </p>
-    <div class="flex gap-4">
+    <div class="flex gap-1">
       <a
         href={LINKEDIN_URL}
         target="_blank"
         rel="noreferrer"
         aria-label="Linkedin profile of Peeranat Danaidusadeekul"
+        class="press grid size-9 place-items-center rounded-md text-muted-foreground transition-colors duration-200 hover:bg-muted hover:text-foreground"
       >
-        <LinkedInLogoIcon
-          strokeWidth={1}
-          className="h-6 w-6 text-muted-foreground"
-        />
+        <LinkedInLogoIcon className="size-[18px]" />
       </a>
       <a
         href={GITHUB_URL}
         target="_blank"
         rel="noreferrer"
         aria-label="Github profile of Peeranat Danaidusadeekul"
+        class="press grid size-9 place-items-center rounded-md text-muted-foreground transition-colors duration-200 hover:bg-muted hover:text-foreground"
       >
-        <GitHubLogoIcon
-          strokeWidth={1}
-          className="h-6 w-6 text-muted-foreground"
-        />
+        <GitHubLogoIcon className="size-[18px]" />
       </a>
     </div>
   </div>

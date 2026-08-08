@@ -29,8 +29,152 @@
   --radius-sm: calc(var(--radius) - 4px);
 }
 
+@theme {
+  /* Emil-style strong easing curves */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Entrance: barely-there fade-up. CSS-only, runs off the main thread.
+   Elements start hidden and reveal via .reveal; stagger with inline delay. */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: reveal-up 560ms var(--ease-out) forwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  @keyframes reveal-up {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Pressable feedback for any element that opts in */
+  .press {
+    transition: transform 160ms var(--ease-out);
+  }
+  .press:active {
+    transform: scale(0.97);
+  }
+
+  /* Project card: hover lift + soft shadow, gated to real pointers so
+     touch taps don't stick in a hover state. Named properties only. */
+  .project-card {
+    transition: border-color 200ms var(--ease-out), background-color 200ms
+      var(--ease-out), transform 200ms var(--ease-out), box-shadow 200ms
+      var(--ease-out);
+  }
+  .project-card:active {
+    transform: scale(0.98);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -12px rgb(0 0 0 / 0.18);
+    }
+    .project-card:active {
+      transform: translateY(-2px) scale(0.985);
+    }
+  }
+
+  /* Experience card: full-area hover target that shares the project card's
+     physical model (lift + soft shadow) so both hovers read as one system.
+     Its "glass" is a faint foreground film in a ::before we fade in — a
+     gradient can't be interpolated, so we ease its opacity instead. The whole
+     <li> is hoverable; the anchor's ::before... (the anchor's own stretched
+     ::before lives on .experience-link) makes every part clickable. Gated to
+     real pointers so touch taps don't stick. */
+  .experience-card {
+    position: relative;
+    border: 1px solid transparent;
+    transition: border-color 200ms var(--ease-out), box-shadow 200ms
+      var(--ease-out), transform 200ms var(--ease-out);
+  }
+  /* Glassy film — static gradient, revealed by fading opacity. */
+  .experience-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms var(--ease-out);
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--foreground) 9%, transparent) 0%,
+      color-mix(in oklab, var(--foreground) 4%, transparent) 100%
+    );
+  }
+  .experience-card:active {
+    transform: scale(0.985);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .experience-card:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in oklab, var(--foreground) 10%, transparent);
+      box-shadow: 0 8px 24px -12px rgb(0 0 0 / 0.18);
+    }
+    .experience-card:hover::before {
+      opacity: 1;
+    }
+    .experience-card:active {
+      transform: translateY(-2px) scale(0.985);
+    }
+  }
+  /* Keep the anchor's focus ring usable without a visible box on the text. */
+  .experience-link:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Thumbnail zooms subtly with the card; frame clips the overflow. */
+  .project-thumb {
+    transition: transform 320ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .project-card:hover .project-thumb {
+      transform: scale(1.04);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .press {
+    transition: none;
+  }
+  .project-card,
+  .project-thumb,
+  .experience-card {
+    transition: none;
+  }
+  .project-card:hover,
+  .experience-card:hover {
+    transform: none;
+  }
+  .project-card:hover .project-thumb {
+    transform: none;
   }
 }

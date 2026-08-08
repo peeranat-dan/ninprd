@@ -1,46 +1,50 @@
 ---
-import { Separator } from '@ninprd/ui/components/separator'
 import { EXPERIENCE } from '../constants'
 import { formatWorkExperience } from '../utils/date-format'
 ---
 
-<section id="projects" class="px-4 lg:px-0 pt-8">
-  <h1 class="text-2xl font-medium">Experience</h1>
-  <div>
-    <ol>
-      {
-        EXPERIENCE.map(
-          ({ company, position, startDate, endDate, description, companyUrl }) => (
-            <li class="mt-4">
-              <div class="group transition-all grid mt-4 grid-cols-4 gap-0 sm:gap-4">
-                <div class="col-span-4 sm:col-span-1">
-                  <p
-                    class="text-muted-foreground text-sm font-medium"
-                    aria-label={formatWorkExperience(startDate, endDate)}
-                  >
-                    {formatWorkExperience(startDate, endDate)}
-                  </p>
-                </div>
-                <div class="col-span-4 sm:col-span-3">
-                  <div>
-                    <a
-                      class="text-xl font-medium hover:text-primary transition-all duration-200"
-                      href={companyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${position} at ${company}`}
-                    >
-                      {position} · {company}
-                    </a>
-                    <p class="text-muted-foreground text-sm">{description} </p>
-                  </div>
-                </div>
-              </div>
-            </li>
-          ),
-        )
-      }
-    </ol>
-  </div>
-  <Separator className="mt-8" />
+<section id="experience" class="pt-16">
+  <h2
+    class="text-xs font-medium uppercase tracking-widest text-muted-foreground"
+  >
+    Experience
+  </h2>
+  <ol class="mt-6 flex flex-col gap-2">
+    {
+      EXPERIENCE.map(
+        ({ company, position, startDate, endDate, description, companyUrl }) => (
+          <li class="experience-card group relative grid grid-cols-4 gap-1 rounded-xl p-3 sm:gap-6 sm:p-4">
+            <p
+              class="col-span-4 text-xs font-medium text-muted-foreground tabular-nums sm:col-span-1 sm:pt-1"
+              aria-label={formatWorkExperience(startDate, endDate)}
+            >
+              {formatWorkExperience(startDate, endDate)}
+            </p>
+            <div class="col-span-4 sm:col-span-3">
+              <span class="inline-flex items-center gap-1 text-base font-medium transition-colors duration-200 group-hover:text-primary">
+                <a
+                  class="experience-link before:absolute before:inset-0 before:content-['']"
+                  href={companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${position} at ${company}`}
+                >
+                  {position} · {company}
+                </a>
+                <span
+                  aria-hidden="true"
+                  class="translate-y-px opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-60"
+                >
+                  ↗
+                </span>
+              </span>
+              <p class="mt-1 text-sm leading-relaxed text-muted-foreground text-pretty">
+                {description}
+              </p>
+            </div>
+          </li>
+        ),
+      )
+    }
+  </ol>
 </section>
