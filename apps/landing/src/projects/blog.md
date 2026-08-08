@@ -1,6 +1,6 @@
 ---
 name: "Blog"
-description: "A blog website using Astro, React, and Tailwind CSS with @shadcn/ui to express about my thoughts, experiences, and technology. WordPress is used as a headless CMS."
+description: "A blog website using Astro, React, and Tailwind CSS with @shadcn/ui to express about my thoughts, experiences, and technology."
 stacks: ["Astro", "React", "Tailwind"]
 url: "https://blog.ninprd.com"
 imageUrl: "./assets/blog-screenshot.webp"
