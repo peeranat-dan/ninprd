@@ -13,7 +13,8 @@ export const EXPERIENCE: Experience[] = [
     position: 'Software Engineer (Frontend)',
     startDate: '2026-06-15',
     endDate: null,
-    description: 'Being a part of the Advertising Technology team.',
+    description:
+      'Being a part of the Advertising Technology (AdTech) team. Designed and implemented the end-to-end affiliate application experience, enabling users to register directly through the LINE MAN platform.',
     companyUrl: 'https://lineman.line.me/',
   },
   {
@@ -22,7 +23,7 @@ export const EXPERIENCE: Experience[] = [
     startDate: '2022-06-16',
     endDate: '2026-06-12',
     description:
-      'Being a part of Research and Development (R&D) team, responsible for developing and quickly shipping new features for newly created products.',
+      'Led the technical design and feature development for a learning platform with 5,200 active students improving their reading literacy and critical thinking skills. ',
     companyUrl: 'https://www.skooldio.tech/',
   },
   {
