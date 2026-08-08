@@ -5,7 +5,7 @@
 //   1. opens the site in a dark-scheme 1280x800 Chromium viewport,
 //   2. screenshots it,
 //   3. composites the shot centered with X/Y padding on a muted random color,
-//   4. writes a 16:9 .webp to the file's `imageUrl` path.
+//   4. writes a 16:9 (1280x720) .webp to the file's `imageUrl` path.
 //
 // If a site fails to load, that project is skipped so its committed screenshot
 // stays in place as a fallback.
@@ -21,8 +21,11 @@ import sharp from 'sharp'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const PROJECTS_DIR = resolve(__dirname, '../src/projects')
 
-// Capture viewport. The final image keeps this 16:9 aspect ratio.
+// Capture viewport used for the browser screenshot.
 const VIEWPORT = { width: 1280, height: 800 }
+// Final output canvas. 16:9 to match the `aspect-video` project card box, so
+// the committed image is not stretched when displayed.
+const OUTPUT = { width: 1280, height: 720 }
 // Fraction of each axis the colored pad takes. The screenshot fills the rest.
 // Split evenly between the two sides of that axis.
 const PAD_X = 0.1
@@ -58,7 +61,7 @@ function hslToRgb(h, s, l) {
 
 /** Composite the screenshot centered on a random muted canvas, output webp. */
 async function padOnRandomColor(screenshotBuffer, outPath) {
-  const { width, height } = VIEWPORT
+  const { width, height } = OUTPUT
   const innerW = Math.round(width * (1 - PAD_X))
   const innerH = Math.round(height * (1 - PAD_Y))
 
@@ -67,8 +70,10 @@ async function padOnRandomColor(screenshotBuffer, outPath) {
     `<svg width="${innerW}" height="${innerH}"><rect width="${innerW}" height="${innerH}" rx="${CORNER_RADIUS}" ry="${CORNER_RADIUS}"/></svg>`,
   )
 
+  // `cover` scales the capture to fill the inner box and center-crops the
+  // overflow, so the screenshot keeps its true proportions (no stretching).
   const inner = await sharp(screenshotBuffer)
-    .resize(innerW, innerH, { fit: 'fill' })
+    .resize(innerW, innerH, { fit: 'cover', position: 'top' })
     .composite([{ input: mask, blend: 'dest-in' }])
     .png()
     .toBuffer()
