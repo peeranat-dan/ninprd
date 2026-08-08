@@ -1,0 +1,55 @@
+---
+import { buttonVariants } from '@ninprd/ui/components/button'
+
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout>
+  <main
+    class="mx-auto flex min-h-[75vh] max-w-2xl flex-col items-center justify-center gap-6 px-6 py-16 text-center lg:px-0"
+  >
+    <p
+      class="reveal text-8xl sm:text-9xl font-semibold tracking-tighter tabular-nums leading-none text-primary"
+    >
+      404
+    </p>
+    <p
+      class="reveal text-xs font-medium uppercase tracking-widest text-muted-foreground"
+      style="--reveal-delay: 60ms"
+    >
+      Page not found
+    </p>
+    <h1
+      class="reveal text-3xl sm:text-4xl font-semibold tracking-tight text-balance"
+      style="--reveal-delay: 120ms"
+    >
+      This page took a wrong turn
+    </h1>
+    <p
+      class="reveal max-w-md text-sm sm:text-base text-muted-foreground leading-relaxed text-pretty"
+      style="--reveal-delay: 180ms"
+    >
+      The page you're looking for moved, changed its name, or never existed.
+      Let's get you back to something real.
+    </p>
+    <div
+      class="reveal flex w-full flex-col justify-center gap-2 pt-2 sm:w-auto sm:flex-row"
+      style="--reveal-delay: 240ms"
+    >
+      <a
+        href="/"
+        class={`${buttonVariants()} press`}
+        aria-label="Back to home page"
+      >
+        ← Back home
+      </a>
+      <a
+        href="/#projects"
+        class={`${buttonVariants({ variant: "outline" })} press`}
+        aria-label="View projects"
+      >
+        See my projects
+      </a>
+    </div>
+  </main>
+</Layout>
