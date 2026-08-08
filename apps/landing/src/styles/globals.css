@@ -135,11 +135,17 @@
       transform: translateY(-2px) scale(0.985);
     }
   }
-  /* Keep the anchor's focus ring usable without a visible box on the text. */
+  /* Keyboard focus: draw the ring around the whole card, not the text.
+     The link's ::before is stretched over the card (inset-0), so we outline
+     that box. A11y-only — pointer users never see it (:focus-visible). Uses
+     the foreground token for a ring that clears 3:1 in both themes. */
   .experience-link:focus-visible {
-    outline: 2px solid var(--ring);
-    outline-offset: 4px;
-    border-radius: var(--radius-sm);
+    outline: none;
+  }
+  .experience-link:focus-visible::before {
+    outline: 2px solid var(--foreground);
+    outline-offset: 2px;
+    border-radius: var(--radius);
   }
 
   /* Thumbnail zooms subtly with the card; frame clips the overflow. */
