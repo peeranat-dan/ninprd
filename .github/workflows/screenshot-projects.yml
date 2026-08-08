@@ -1,0 +1,53 @@
+name: Screenshot projects
+
+on:
+  push:
+    branches: [main]
+    paths:
+      # Refresh screenshots when the landing app changes, but ignore the
+      # generated assets themselves so the bot commit does not retrigger this.
+      - 'apps/landing/**'
+      - '!apps/landing/src/projects/assets/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# One run at a time; newer pushes cancel an in-flight run.
+concurrency:
+  group: screenshot-projects
+  cancel-in-progress: true
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Chromium
+        run: pnpm --filter landing exec playwright install --with-deps chromium
+
+      - name: Capture screenshots
+        run: pnpm --filter landing run screenshot
+
+      - name: Commit refreshed screenshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/landing/src/projects/assets
+          if git diff --cached --quiet; then
+            echo "No screenshot changes."
+          else
+            git commit -m "chore(landing): refresh project screenshots [skip ci]"
+            git push
+          fi

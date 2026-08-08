@@ -21,7 +21,8 @@
       "scripts/*.js",
       "*/public/*",
       "*/.obsidian/*",
-      "*/blog/assets/*"
+      "*/blog/assets/*",
+      "./apps/landing/scripts/screenshot-projects.mjs"
     ]
   },
   "formatter": {
