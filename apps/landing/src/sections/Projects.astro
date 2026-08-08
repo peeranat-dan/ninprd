@@ -24,12 +24,14 @@ const PROJECTS = projects
         <li class="reveal" style={`--reveal-delay: ${80 + i * 50}ms`}>
           <a
             href={url || undefined}
-            target={url ? '_blank' : undefined}
+            target={url ? "_blank" : undefined}
             rel="noopener noreferrer"
             aria-label={url ? `Visit ${name} website` : name}
             class:list={[
-              'group block overflow-hidden rounded-xl border border-border bg-card',
-              url ? 'project-card hover:border-foreground/20' : 'cursor-default',
+              "group block overflow-hidden rounded-xl border border-border bg-card",
+              url
+                ? "project-card hover:border-foreground/20"
+                : "cursor-default",
             ]}
           >
             <div class="overflow-hidden">
@@ -37,7 +39,7 @@ const PROJECTS = projects
                 <Image
                   src={imageUrl}
                   alt={`screenshot of ${name}`}
-                  class="project-thumb aspect-video w-full object-cover"
+                  class="project-thumb aspect-video w-full object-cover grayscale-100 group-hover:grayscale-0 transition-[filter] duration-200"
                   loading="lazy"
                   width={1280}
                   height={720}
