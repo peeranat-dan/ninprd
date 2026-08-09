@@ -4,6 +4,7 @@ description: "I developed this planning poker website for internal use and later
 stacks: ["React", "Tailwind", "Firebase"]
 url: "https://e-mate.ninprd.com"
 imageUrl: "./assets/e-mate-screenshot.webp"
+darkImageUrl: "./assets/e-mate-screenshot-dark.webp"
 order: 1
 ---
 

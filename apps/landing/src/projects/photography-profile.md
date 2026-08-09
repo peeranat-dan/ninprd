@@ -4,5 +4,6 @@ description: "A photographer profile website using Astro, React, and Tailwind CS
 stacks: ["Astro", "React", "Tailwind"]
 url: "https://nprdphoto.ninprd.com"
 imageUrl: "./assets/nprdphoto-screenshot.webp"
+darkImageUrl: "./assets/nprdphoto-screenshot-dark.webp"
 order: 4
 ---

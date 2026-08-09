@@ -1,15 +1,15 @@
 ---
-import { Image } from 'astro:assets'
-import { getCollection } from 'astro:content'
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
-import { Badge } from '@ninprd/ui/components/badge'
+import { Badge } from "@ninprd/ui/components/badge";
 
-const projects = await getCollection('projects')
+const projects = await getCollection("projects");
 const PROJECTS = projects
   .map((project) => ({
     ...project.data,
   }))
-  .sort((a, b) => a.order - b.order)
+  .sort((a, b) => a.order - b.order);
 ---
 
 <section id="projects" class="pt-16 pb-20">
@@ -20,67 +20,84 @@ const PROJECTS = projects
   </h2>
   <ul class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
     {
-      PROJECTS.map(({ name, description, stacks, url, imageUrl }, i) => (
-        <li class="reveal flex" style={`--reveal-delay: ${80 + i * 50}ms`}>
-          <a
-            href={url || undefined}
-            target={url ? "_blank" : undefined}
-            rel="noopener noreferrer"
-            aria-label={url ? `Visit ${name} website` : name}
-            class:list={[
-              "group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card",
-              url
-                ? "project-card hover:border-foreground/20"
-                : "cursor-default",
-            ]}
-          >
-            <div class="overflow-hidden">
-              {imageUrl ? (
-                <Image
-                  src={imageUrl}
-                  alt={`screenshot of ${name}`}
-                  class="project-thumb aspect-video w-full object-cover grayscale-0 lg:grayscale-100 group-hover:grayscale-0 transition-[filter] duration-200"
-                  loading="lazy"
-                  width={1280}
-                  height={720}
-                />
-              ) : (
-                <div class="project-thumb grid aspect-video w-full select-none place-items-center bg-muted text-sm text-muted-foreground">
-                  {name}
-                </div>
-              )}
-            </div>
-            <div class="flex flex-1 flex-col p-4">
-              <div class="flex items-center gap-1">
-                <span class="text-base font-medium transition-colors duration-200 group-hover:text-primary">
-                  {name}
-                </span>
-                {url && (
-                  <span
-                    aria-hidden="true"
-                    class="translate-y-px opacity-0 transition-[transform,opacity] duration-200 ease-out group-hover:translate-x-0.5 group-hover:opacity-60"
-                  >
-                    ↗
-                  </span>
+      PROJECTS.map(
+        ({ name, description, stacks, url, imageUrl, darkImageUrl }, i) => (
+          <li class="reveal flex" style={`--reveal-delay: ${80 + i * 50}ms`}>
+            <a
+              href={url || undefined}
+              target={url ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              aria-label={url ? `Visit ${name} website` : name}
+              class:list={[
+                "group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card",
+                url
+                  ? "project-card hover:border-foreground/20"
+                  : "cursor-default",
+              ]}
+            >
+              <div class="overflow-hidden">
+                {imageUrl ? (
+                  <>
+                    <Image
+                      src={imageUrl}
+                      alt={`screenshot of ${name} in light theme`}
+                      class:list={[
+                        "project-thumb aspect-video w-full object-cover grayscale-0 lg:grayscale-100 group-hover:grayscale-0 transition-[filter] duration-200",
+                        darkImageUrl && "dark:hidden",
+                      ]}
+                      loading="eager"
+                      width={1280}
+                      height={720}
+                    />
+                    {darkImageUrl ? (
+                      <Image
+                        src={darkImageUrl}
+                        alt={`screenshot of ${name} in dark theme`}
+                        class="project-thumb hidden aspect-video w-full object-cover grayscale-0 lg:grayscale-100 group-hover:grayscale-0 transition-[filter] duration-200 dark:block"
+                        loading="eager"
+                        width={1280}
+                        height={720}
+                      />
+                    ) : null}
+                  </>
+                ) : (
+                  <div class="project-thumb grid aspect-video w-full select-none place-items-center bg-muted text-sm text-muted-foreground">
+                    {name}
+                  </div>
                 )}
               </div>
-              <p class="mt-1 text-sm leading-relaxed text-muted-foreground text-pretty">
-                {description}
-              </p>
-              <ul
-                class="mt-auto flex w-full flex-wrap gap-1.5 pt-3"
-                aria-label="Tech stacks used"
-              >
-                {stacks.map((stack) => (
-                  <li>
-                    <Badge variant="secondary">{stack}</Badge>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </a>
-        </li>
-      ))
+              <div class="flex flex-1 flex-col p-4">
+                <div class="flex items-center gap-1">
+                  <span class="text-base font-medium transition-colors duration-200 group-hover:text-primary">
+                    {name}
+                  </span>
+                  {url && (
+                    <span
+                      aria-hidden="true"
+                      class="translate-y-px opacity-0 transition-[transform,opacity] duration-200 ease-out group-hover:translate-x-0.5 group-hover:opacity-60"
+                    >
+                      ↗
+                    </span>
+                  )}
+                </div>
+                <p class="mt-1 text-sm leading-relaxed text-muted-foreground text-pretty">
+                  {description}
+                </p>
+                <ul
+                  class="mt-auto flex w-full flex-wrap gap-1.5 pt-3"
+                  aria-label="Tech stacks used"
+                >
+                  {stacks.map((stack) => (
+                    <li>
+                      <Badge variant="secondary">{stack}</Badge>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </a>
+          </li>
+        ),
+      )
     }
   </ul>
 </section>

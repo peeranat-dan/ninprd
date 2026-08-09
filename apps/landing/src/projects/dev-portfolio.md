@@ -4,6 +4,7 @@ description: "A portfolio website using Astro, React, and Tailwind CSS with New 
 stacks: ["Astro", "React", "Tailwind"]
 url: "https://ninprd.com"
 imageUrl: "./assets/portfolio-screenshot.webp"
+darkImageUrl: "./assets/portfolio-screenshot-dark.webp"
 order: 3
 ---
 
