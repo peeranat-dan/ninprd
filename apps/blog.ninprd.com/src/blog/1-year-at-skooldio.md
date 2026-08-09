@@ -4,7 +4,7 @@ excerpt: รู้สึกแปลก ๆ กับการมาเล่า
 tags:
   - experience-sharing
 date: 2023-06-17
-featuredImage: assets/1-year-at-skooldio.jpg
+featuredImage: ./assets/1-year-at-skooldio.webp
 status: published
 ---
 รู้สึกแปลก ๆ กับการมาเล่าเรื่องแบบนี้แฮะ ก่อนอื่นขอแนะนำตัวก่อนนะ ชื่อนิลนะครับ ตอนนี้เป็น Software Engineer ที่ Skooldio และก็อย่างที่ชื่อบทความเขียนไว้เลย ผมเพิ่งทำงานครบ 1 ปีพอดีเลยอยากมาแชร์ประสบการณ์การทำงานของตัวเอง แต่อาจจะเกริ่น Background ตัวเองซักนิดนึงนะครับ
