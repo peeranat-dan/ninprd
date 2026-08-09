@@ -14,50 +14,137 @@ const posts = await getCollection(
 const latestPosts = posts
   .map((post) => ({ ...post.data, id: post.id }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+const [featured, ...rest] = latestPosts
+
+const postCount = latestPosts.length
+const startYear = latestPosts.length
+  ? new Date(
+      Math.min(...latestPosts.map((p) => new Date(p.date).getTime())),
+    ).getFullYear()
+  : new Date().getFullYear()
+
+const cardClass =
+  'glass-card group relative block rounded-xl p-3 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background'
 ---
 
 <Layout>
-  <section class="container pt-4">
+  <section class="mx-auto w-full max-w-5xl px-4 pt-10 sm:pt-16">
     <div
-      class="relative flex h-[200px] w-full gap-4 flex-col items-center justify-center overflow-hidden bg-background"
+      class="relative isolate flex min-h-64 w-full flex-col justify-center gap-5 overflow-hidden rounded-2xl bg-background py-10 sm:min-h-72 sm:py-14"
     >
-      <h1
-        class="z-10 text-center font-medium tracking-tighter text-foreground dark:text-foreground uppercase"
+      <p
+        class="hero-reveal z-10 font-mono text-xs tracking-wide text-primary uppercase"
       >
         blog.ninprd
-      </h1>
-      <p class="text-center italic text-sm text-foreground/60">
-        Building blocks, writing blogs
       </p>
+
+      <h1
+        style="--hero-delay: 60ms"
+        class="hero-reveal z-10 max-w-3xl text-4xl leading-[0.98] font-semibold tracking-tighter text-foreground wrap-anywhere sm:text-6xl lg:text-7xl"
+      >
+        Building blocks,
+        <br class="hidden sm:block" />
+        <span class="hero-gradient">writing blogs.</span>
+      </h1>
+
+      <dl
+        style="--hero-delay: 120ms"
+        class="hero-reveal z-10 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-muted-foreground"
+      >
+        <div class="flex items-baseline gap-1.5">
+          <dt class="sr-only">Published posts</dt>
+          <dd class="text-sm font-semibold text-foreground">{postCount}</dd>
+          <span>blogs</span>
+        </div>
+        <span aria-hidden="true" class="text-foreground/20">/</span>
+        <div class="flex items-baseline gap-1.5">
+          <dt class="sr-only">Writing since</dt>
+          <span>since</span>
+          <dd class="text-sm font-semibold text-foreground">{startYear}</dd>
+        </div>
+      </dl>
+
       <GridPattern
+        width={38}
+        height={38}
         squares={[
-          // TODO: Add more square here
+          [3, 1],
+          [5, 2],
+          [8, 0],
+          [10, 3],
+          [12, 1],
+          [6, 4],
+          [14, 2],
         ]}
         className={cn(
-          "[mask-image:radial-gradient(250px_circle_at_center,white,transparent)]",
-          "inset-x-0 inset-y-[-30%] h-[150%] skew-y-12",
+          "hero-grid",
+          "text-primary/40",
+          "mask-[radial-gradient(520px_circle_at_top_right,white,transparent)]",
+          "inset-x-0 inset-y-[-30%] h-[160%] skew-y-12",
         )}
       />
     </div>
   </section>
-  <section class="container pt-4 pb-8 space-y-8">
-    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+  {
+    featured ? (
+      <section class="mx-auto w-full max-w-5xl px-4 pt-6 sm:pt-8">
+        <a href={`/blog/${featured.id}`} class={cardClass}>
+          <article class="grid gap-5 sm:grid-cols-2 sm:gap-8 sm:items-center">
+            <div class="overflow-hidden rounded-md">
+              <Image
+                src={featured.featuredImage}
+                alt={`Cover of ${featured.title}`}
+                width={featured.featuredImage.width}
+                height={featured.featuredImage.height}
+                class="aspect-120/63 w-full rounded-md object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+                loading="eager"
+              />
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-medium uppercase tracking-wide text-primary">
+                Latest post
+              </p>
+              <h2
+                class="text-2xl font-medium tracking-tight sm:text-3xl wrap-anywhere"
+                set:html={featured.title}
+              />
+              <p
+                class="text-sm text-foreground/70 line-clamp-3"
+                set:html={featured.excerpt}
+              />
+              <p class="text-xs text-muted-foreground">{featured.date}</p>
+            </div>
+          </article>
+        </a>
+      </section>
+    ) : null
+  }
+
+  <section class="mx-auto w-full max-w-5xl px-4 pt-10 pb-12">
+    <div class="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
       {
-        latestPosts.map((post, index) => {
-          const { id,  featuredImage, title, excerpt, date } = post;
+        rest.map((post, index) => {
+          const { id, featuredImage, title, excerpt, date } = post;
           return (
-            <a href={`/blog/${id}`}>
+            <a href={`/blog/${id}`} class={cardClass}>
               <div class="flex flex-col gap-4">
-                <Image
-                  src={featuredImage}
-                  alt={`Cover of ${title}`}
-                  width={featuredImage.width}
-                  height={featuredImage.height}
-                  class="rounded-md aspect-[120/63] object-cover"
-                  loading={index < 6 ? "eager" : "lazy"}
-                />
+                <div class="overflow-hidden rounded-md">
+                  <Image
+                    src={featuredImage}
+                    alt={`Cover of ${title}`}
+                    width={featuredImage.width}
+                    height={featuredImage.height}
+                    class="aspect-[120/63] w-full rounded-md object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+                    loading={index < 5 ? "eager" : "lazy"}
+                  />
+                </div>
                 <div class="space-y-2">
-                  <h2 class="text-2xl font-medium" set:html={title} />
+                  <h2
+                    class="text-2xl font-medium [overflow-wrap:anywhere]"
+                    set:html={title}
+                  />
                   <p
                     class="text-sm text-foreground/70 line-clamp-3"
                     set:html={excerpt}
