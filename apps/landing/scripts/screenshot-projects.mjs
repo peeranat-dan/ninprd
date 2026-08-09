@@ -120,6 +120,17 @@ async function main() {
     deviceScaleFactor: 2,
   });
 
+  // Pre-seed the cookie-consent choice so the consent banner (which renders
+  // only when the key is unset, e.g. blog.ninprd.com's CookieConsentBanner)
+  // never appears in the screenshot. Runs before any page script on load.
+  await context.addInitScript(() => {
+    try {
+      localStorage.setItem("cookie-consent", "rejected");
+    } catch {
+      // Ignore storage access errors (e.g. sandboxed pages).
+    }
+  });
+
   let ok = 0;
   for (const target of targets) {
     const page = await context.newPage();
