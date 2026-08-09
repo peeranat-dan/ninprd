@@ -1,15 +1,15 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
 
-import { Badge } from "@ninprd/ui/components/badge";
+import { Badge } from '@ninprd/ui/components/badge'
 
-const projects = await getCollection("projects");
+const projects = await getCollection('projects')
 const PROJECTS = projects
   .map((project) => ({
     ...project.data,
   }))
-  .sort((a, b) => a.order - b.order);
+  .sort((a, b) => a.order - b.order)
 ---
 
 <section id="projects" class="pt-16 pb-20">
@@ -36,34 +36,33 @@ const PROJECTS = projects
               ]}
             >
               <div class="overflow-hidden">
-                {imageUrl ? (
-                  <>
-                    <Image
-                      src={imageUrl}
-                      alt={`screenshot of ${name} in light theme`}
-                      class:list={[
-                        "project-thumb aspect-video w-full object-cover grayscale-0 lg:grayscale-100 group-hover:grayscale-0 transition-[filter] duration-200",
-                        darkImageUrl && "dark:hidden",
-                      ]}
-                      loading="eager"
-                      width={1280}
-                      height={720}
-                    />
-                    {darkImageUrl ? (
-                      <Image
-                        src={darkImageUrl}
-                        alt={`screenshot of ${name} in dark theme`}
-                        class="project-thumb hidden aspect-video w-full object-cover grayscale-0 lg:grayscale-100 group-hover:grayscale-0 transition-[filter] duration-200 dark:block"
-                        loading="eager"
-                        width={1280}
-                        height={720}
-                      />
-                    ) : null}
-                  </>
-                ) : (
+                {!imageUrl && (
                   <div class="project-thumb grid aspect-video w-full select-none place-items-center bg-muted text-sm text-muted-foreground">
                     {name}
                   </div>
+                )}
+                {imageUrl && (
+                  <Image
+                    src={imageUrl}
+                    alt={`screenshot of ${name} in light theme`}
+                    class:list={[
+                      "project-thumb aspect-video w-full object-cover grayscale-0 lg:grayscale-100 group-hover:grayscale-0 transition-[filter] duration-200",
+                      darkImageUrl && "dark:hidden",
+                    ]}
+                    loading="eager"
+                    width={1280}
+                    height={720}
+                  />
+                )}
+                {darkImageUrl && (
+                  <Image
+                    src={darkImageUrl}
+                    alt={`screenshot of ${name} in dark theme`}
+                    class="project-thumb hidden aspect-video w-full object-cover grayscale-0 lg:grayscale-100 group-hover:grayscale-0 transition-[filter] duration-200 dark:block"
+                    loading="eager"
+                    width={1280}
+                    height={720}
+                  />
                 )}
               </div>
               <div class="flex flex-1 flex-col p-4">
