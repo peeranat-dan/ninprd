@@ -321,6 +321,125 @@
     --callout-accent: var(--error);
   }
 
+  /* Carousel (:::carousel remark plugin). Baseline is a zero-JS scroll-snap
+     strip; arrows + dots are injected by the client script and gated behind
+     `.carousel--js`, so no-JS visitors get a swipeable strip and no dead
+     buttons. prefers-reduced-motion is handled in the script (scroll
+     behavior `auto` instead of `smooth`). */
+  .article-content .carousel {
+    position: relative;
+    margin-block: 1.75rem;
+  }
+
+  /* Reset the article-wide `[&_*]:mt-4` first, else every slide/image/dot
+     gets mystery spacing (same reset the callout applies). */
+  .article-content .carousel .carousel-track,
+  .article-content .carousel .carousel-slide,
+  .article-content .carousel .carousel-slide *,
+  .article-content .carousel .carousel-arrow,
+  .article-content .carousel .carousel-arrow *,
+  .article-content .carousel .carousel-dot {
+    margin-top: 0;
+  }
+
+  .article-content .carousel .carousel-track {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    border-radius: 0.5rem;
+    /* Hide the scrollbar: arrows + dots are the affordance. */
+    scrollbar-width: none;
+    outline-offset: 4px;
+  }
+  .article-content .carousel .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* One image per viewport on mobile; three from `sm` up (below). The
+     desktop basis subtracts the two inter-slide gaps so exactly three fit.
+     Arrows/dots/keyboard step one page at a time; the script derives the
+     page size from this layout, so breakpoints live here only. */
+  .article-content .carousel .carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 640px) {
+    .article-content .carousel .carousel-track {
+      gap: 0.75rem;
+    }
+    .article-content .carousel .carousel-slide {
+      flex-basis: calc((100% - 1.5rem) / 3);
+    }
+  }
+
+  .article-content .carousel .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--muted-foreground);
+    cursor: pointer;
+    z-index: 1;
+  }
+  .article-content .carousel--js .carousel-arrow {
+    display: inline-flex;
+  }
+  .article-content .carousel .carousel-arrow--prev {
+    left: 0.75rem;
+  }
+  .article-content .carousel .carousel-arrow--next {
+    right: 0.75rem;
+  }
+  .article-content .carousel .carousel-arrow:hover:not(:disabled) {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+  /* Disable (not hide) at the ends so the layout never shifts. */
+  .article-content .carousel .carousel-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+    pointer-events: none;
+  }
+  .article-content .carousel .carousel-arrow svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .article-content .carousel .carousel-dots {
+    display: none;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .article-content .carousel--js .carousel-dots {
+    display: flex;
+  }
+  .article-content .carousel .carousel-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    cursor: pointer;
+  }
+  .article-content .carousel .carousel-dot:hover {
+    background: var(--muted);
+  }
+  .article-content .carousel .carousel-dot[aria-current="true"] {
+    background: var(--muted-foreground);
+    border-color: var(--muted-foreground);
+  }
+
   pre::-webkit-scrollbar-track {
     background: transparent; /* Background color of the scrollbar track */
   }

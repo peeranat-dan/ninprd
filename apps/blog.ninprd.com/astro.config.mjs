@@ -11,6 +11,7 @@ import remarkMath from 'remark-math'
 
 import rehypeTrimMdLinks from './plugins/rehype-trim-md-links'
 import remarkCallouts from './plugins/remark-callouts'
+import remarkCarousel from './plugins/remark-carousel'
 
 // https://astro.build/config
 export default defineConfig({
@@ -44,7 +45,7 @@ export default defineConfig({
       [rehypeExternalLinks, { target: '_blank' }],
       rehypeTrimMdLinks,
     ],
-    remarkPlugins: [remarkMath, remarkCallouts],
+    remarkPlugins: [remarkMath, remarkCarousel, remarkCallouts],
   },
   redirects: {
     '/blog/wordpress-basic-i':
