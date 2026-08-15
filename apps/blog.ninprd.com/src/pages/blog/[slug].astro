@@ -35,6 +35,8 @@ const { title, featuredImage, excerpt, tags, date, withTableOfContent } =
   post.data
 const { Content, headings } = await render(post)
 
+const hasCarousel = post.body?.includes(':::carousel') ?? false
+
 const allPosts = await getCollection('blog')
 
 const relatedPosts = allPosts
@@ -79,7 +81,7 @@ const relatedPosts = allPosts
     <article class="article-content">
       <Content />
     </article>
-    <script src="../../scripts/carousel.ts"></script>
+    {hasCarousel && <script src="../../scripts/carousel.ts" />}
     <div class="flex flex-col gap-2">
       <div
         class="flex items-center gap-2 text-sm flex-wrap text-muted-foreground"
