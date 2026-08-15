@@ -1,4 +1,7 @@
 pre-commit:
   parallel: true
-  jobs:
-    - run: pnpm format-and-lint:fix
+  commands:
+    format-and-lint:
+      glob: "*.{js,jsx,mjs,cjs,ts,tsx,astro,css,json,jsonc,md,mdx}"
+      run: pnpm exec biome check --write {staged_files}
+      stage_fixed: true
