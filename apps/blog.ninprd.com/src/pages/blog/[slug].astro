@@ -10,6 +10,7 @@ import {
   BreadcrumbSeparator,
 } from '@ninprd/ui/components/breadcrumb'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
+import BlogCard from '../../components/BlogCard.astro'
 import TableOfContent from '../../components/blog/TableOfContent.astro'
 import Layout from '../../layouts/Layout.astro'
 
@@ -43,7 +44,7 @@ const relatedPosts = allPosts
   .filter(
     (p) => p.id !== post.id && p.data.tags.some((tag) => tags.includes(tag)),
   )
-  .slice(0, 3)
+  .slice(0, 4)
   .map((p) => {
     return { id: p.id, ...p.data }
   })
@@ -74,7 +75,7 @@ const relatedPosts = allPosts
       alt={`Cover of ${title}`}
       width={featuredImage.width}
       height={featuredImage.height}
-      class="aspect-[120/63] rounded-lg object-cover"
+      class="aspect-120/63 rounded-lg object-cover"
       loading="eager"
     />
     {withTableOfContent ? <TableOfContent headings={headings} /> : null}
@@ -108,52 +109,16 @@ const relatedPosts = allPosts
           <h3 class="text-xl font-semibold mb-6 text-foreground">
             Related Posts
           </h3>
-          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {relatedPosts.map((post) => {
-              const {
-                id,
-                featuredImage,
-                title,
-                excerpt,
-                date,
-                tags: postTags,
-              } = post;
-              const matchingTags = postTags.filter((tag) => tags.includes(tag));
-
-              return (
-                <article class="group">
-                  <a href={`/blog/${id}/`} class="block">
-                    <div class="flex flex-col gap-4 rounded-lg">
-                      <Image
-                        src={featuredImage}
-                        alt={`Cover of ${title}`}
-                        width={featuredImage.width}
-                        height={featuredImage.height}
-                        class="rounded-md aspect-[120/63] object-cover"
-                      />
-                      <div class="space-y-2">
-                        <h4
-                          class="text-lg font-medium group-hover:text-primary transition-colors line-clamp-2"
-                          set:html={title}
-                        />
-                        <p
-                          class="text-sm text-foreground/70 line-clamp-2"
-                          set:html={excerpt}
-                        />
-                        <div class="flex flex-wrap gap-1 mt-2">
-                          {matchingTags.slice(0, 2).map((tag) => (
-                            <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-muted/50 text-muted-foreground group-hover:bg-muted transition-colors">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        <p class="text-xs text-muted-foreground">{date}</p>
-                      </div>
-                    </div>
-                  </a>
-                </article>
-              );
-            })}
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {relatedPosts.map((post) => (
+              <BlogCard
+                id={post.id}
+                title={post.title}
+                excerpt={post.excerpt}
+                date={post.date}
+                featuredImage={post.featuredImage}
+              />
+            ))}
           </div>
         </section>
       ) : null

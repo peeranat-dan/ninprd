@@ -1,9 +1,9 @@
 ---
-import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import { GridPattern } from '@ninprd/ui/components/magicui/grid-pattern'
 import { cn } from '@ninprd/ui/lib/utils'
 
+import BlogCard from '../components/BlogCard.astro'
 import Layout from '../layouts/Layout.astro'
 
 const posts = await getCollection(
@@ -23,9 +23,6 @@ const startYear = latestPosts.length
       Math.min(...latestPosts.map((p) => new Date(p.date).getTime())),
     ).getFullYear()
   : new Date().getFullYear()
-
-const cardClass =
-  'glass-card group relative block rounded-xl p-3 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background'
 ---
 
 <Layout>
@@ -90,34 +87,16 @@ const cardClass =
   {
     featured ? (
       <section class="mx-auto w-full max-w-5xl px-4 pt-6 sm:pt-8">
-        <a href={`/blog/${featured.id}`} class={cardClass}>
-          <article class="grid gap-5 sm:grid-cols-2 sm:gap-8 sm:items-center">
-            <div class="overflow-hidden rounded-md">
-              <Image
-                src={featured.featuredImage}
-                alt={`Cover of ${featured.title}`}
-                width={featured.featuredImage.width}
-                height={featured.featuredImage.height}
-                class="aspect-120/63 w-full rounded-md object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02]"
-                loading="eager"
-              />
-            </div>
-            <div class="space-y-3">
-              <p class="text-xs font-medium uppercase tracking-wide text-primary">
-                Latest post
-              </p>
-              <h2
-                class="text-2xl font-medium tracking-tight sm:text-3xl wrap-anywhere"
-                set:html={featured.title}
-              />
-              <p
-                class="text-sm text-foreground/70 line-clamp-3"
-                set:html={featured.excerpt}
-              />
-              <p class="text-xs text-muted-foreground">{featured.date}</p>
-            </div>
-          </article>
-        </a>
+        <BlogCard
+          id={featured.id}
+          title={featured.title}
+          excerpt={featured.excerpt}
+          date={featured.date}
+          featuredImage={featured.featuredImage}
+          featured
+          eyebrow="Latest post"
+          loading="eager"
+        />
       </section>
     ) : null
   }
@@ -125,36 +104,16 @@ const cardClass =
   <section class="mx-auto w-full max-w-5xl px-4 pt-10 pb-12">
     <div class="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
       {
-        rest.map((post, index) => {
-          const { id, featuredImage, title, excerpt, date } = post;
-          return (
-            <a href={`/blog/${id}`} class={cardClass}>
-              <div class="flex flex-col gap-4">
-                <div class="overflow-hidden rounded-md">
-                  <Image
-                    src={featuredImage}
-                    alt={`Cover of ${title}`}
-                    width={featuredImage.width}
-                    height={featuredImage.height}
-                    class="aspect-[120/63] w-full rounded-md object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02]"
-                    loading={index < 5 ? "eager" : "lazy"}
-                  />
-                </div>
-                <div class="space-y-2">
-                  <h2
-                    class="text-2xl font-medium [overflow-wrap:anywhere]"
-                    set:html={title}
-                  />
-                  <p
-                    class="text-sm text-foreground/70 line-clamp-3"
-                    set:html={excerpt}
-                  />
-                  <p class="text-xs text-muted-foreground">{date}</p>
-                </div>
-              </div>
-            </a>
-          );
-        })
+        rest.map((post, index) => (
+          <BlogCard
+            id={post.id}
+            title={post.title}
+            excerpt={post.excerpt}
+            date={post.date}
+            featuredImage={post.featuredImage}
+            loading={index < 5 ? "eager" : "lazy"}
+          />
+        ))
       }
     </div>
   </section>

@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+
+interface Props {
+  id: string
+  /**
+   * The title of the blog post. Can contain HTML markup, e.g. for highlighting.
+   */
+  title: string
+  excerpt: string
+  date: string
+  featuredImage: ImageMetadata
+  /** Horizontal two-column layout for the latest post. */
+  featured?: boolean
+  /** Small label above the title, e.g. "Latest post". */
+  eyebrow?: string
+  loading?: 'eager' | 'lazy'
+}
+
+const {
+  id,
+  title,
+  excerpt,
+  date,
+  featuredImage,
+  featured = false,
+  eyebrow,
+  loading = 'lazy',
+} = Astro.props
+---
+
+<a
+  href={`/blog/${id}`}
+  class="glass-card group relative block rounded-xl p-3 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+>
+  <article
+    class:list={[
+      featured
+        ? "grid gap-5 sm:grid-cols-2 sm:gap-8 sm:items-center"
+        : "flex flex-col gap-4",
+    ]}
+  >
+    <div class="overflow-hidden rounded-md">
+      <Image
+        src={featuredImage}
+        alt={`Cover of ${title}`}
+        width={featuredImage.width}
+        height={featuredImage.height}
+        class="aspect-120/63 w-full rounded-md object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+        loading={loading}
+      />
+    </div>
+    <div class:list={[featured ? "space-y-3" : "space-y-2"]}>
+      {
+        eyebrow ? (
+          <p class="text-xs font-medium uppercase tracking-wide text-primary">
+            {eyebrow}
+          </p>
+        ) : null
+      }
+      {
+        featured ? (
+          <h2
+            class="text-2xl font-medium tracking-tight sm:text-3xl wrap-anywhere"
+            set:html={title}
+          />
+        ) : (
+          <h2
+            class="text-2xl font-medium wrap-anywhere group-hover:text-primary transition-colors"
+            set:html={title}
+          />
+        )
+      }
+      <p class="text-sm text-foreground/70 line-clamp-3" set:html={excerpt} />
+      <p class="text-xs text-muted-foreground">{date}</p>
+    </div>
+  </article>
+</a>
