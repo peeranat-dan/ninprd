@@ -1,23 +1,14 @@
 ---
+import { Font } from 'astro:assets'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro'
+import Posthog from '../components/Posthog.astro'
 import SEO from '../components/SEO.astro'
+import { CookieConsentBanner } from '../components/cookie-consent/CookieConsentBanner'
 import Footer from '../components/layout/Footer.astro'
 import Header from '../components/layout/Header.astro'
 import ThemeProvider from '../components/theme/ThemeProvider.astro'
-// Font imports
 import '../styles/globals.css'
-import '@fontsource-variable/jetbrains-mono'
-import '@fontsource/ibm-plex-sans-thai-looped/400.css'
-import '@fontsource/ibm-plex-sans-thai-looped/600.css'
-import '@fontsource/ibm-plex-sans-thai-looped/700.css'
-import '@fontsource/ibm-plex-sans-thai/400.css'
-import '@fontsource/ibm-plex-sans-thai/500.css'
-import '@fontsource/ibm-plex-sans-thai/600.css'
-import '@fontsource/ibm-plex-sans-thai/700.css'
-import '@fontsource-variable/sora'
-import Posthog from '../components/Posthog.astro'
-import { CookieConsentBanner } from '../components/cookie-consent/CookieConsentBanner'
 
 interface Props {
   title?: string
@@ -52,6 +43,10 @@ const {
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
     />
+    <Font cssVariable="--font-sora" preload />
+    <Font cssVariable="--font-jetbrains-mono" preload />
+    <Font cssVariable="--font-ibm-plex-sans-thai-looped" preload />
+    <Font cssVariable="--font-ibm-plex-sans-thai" preload />
   </head>
   <body class="min-h-screen bg-background font-sans antialiased">
     <div class="relative flex min-h-screen flex-col">

@@ -37,9 +37,12 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-  --font-sans: "Sora Variable", "IBM Plex Sans Thai", sans-serif;
-  --font-paragraph: "IBM Plex Sans Thai Looped", sans-serif;
-  --font-mono: "JetBrains Mono Variable", monospace;
+}
+
+@theme inline {
+  --font-sans: var(--font-sora), var(--font-ibm-plex-sans-thai), sans-serif;
+  --font-paragraph: var(--font-ibm-plex-sans-thai-looped), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
 @utility container {

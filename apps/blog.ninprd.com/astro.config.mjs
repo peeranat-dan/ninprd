@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import expressiveCode from 'astro-expressive-code'
 import robotsTxt from 'astro-robots-txt'
-import { defineConfig } from 'astro/config'
+import { defineConfig, fontProviders } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
@@ -39,6 +39,34 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Sora',
+      cssVariable: '--font-sora',
+      weights: ['300 700'],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'JetBrains Mono',
+      cssVariable: '--font-jetbrains-mono',
+      weights: ['200 800'],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'IBM Plex Sans Thai Looped',
+      cssVariable: '--font-ibm-plex-sans-thai-looped',
+      weights: ['400', '500', '600', '700'],
+      subsets: ['latin', 'thai'],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'IBM Plex Sans Thai',
+      cssVariable: '--font-ibm-plex-sans-thai',
+      weights: ['400', '500', '600', '700'],
+      subsets: ['latin', 'thai'],
+    },
+  ],
   markdown: {
     rehypePlugins: [
       rehypeKatex,
