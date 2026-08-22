@@ -443,6 +443,171 @@
     border-color: var(--muted-foreground);
   }
 
+  /* Slides advertise the lightbox once the script is live (`--lightbox` is
+     set unconditionally, unlike `--js` which needs multiple pages). The
+     press feedback shrinks rather than grows so nothing clips against the
+     scroll container. */
+  .article-content .carousel--lightbox .carousel-slide {
+    cursor: zoom-in;
+  }
+  .article-content .carousel--lightbox .carousel-slide img {
+    display: block;
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .article-content .carousel--lightbox .carousel-slide:active img {
+    transform: scale(0.98);
+  }
+
+  /* Lightbox. Built into <body> by the carousel script (hence outside
+     `.article-content`). Enter is a 200ms fade + scale(0.95) with the
+     project's ease-out curve; exit replays it in reverse; `--loading`
+     crossfades image swaps. Hover states are fine-pointer only;
+     prefers-reduced-motion keeps the fades and drops the movement. */
+  .carousel-lightbox[hidden] {
+    display: none;
+  }
+  .carousel-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100; /* above the sticky header (z-50) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgb(0 0 0 / 0.88);
+    opacity: 0;
+    transition: opacity 200ms cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: zoom-out;
+  }
+  .carousel-lightbox--open {
+    opacity: 1;
+  }
+
+  .carousel-lightbox-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    transform: scale(0.95);
+    transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .carousel-lightbox--open .carousel-lightbox-figure {
+    transform: scale(1);
+  }
+
+  .carousel-lightbox-image {
+    max-width: 100%;
+    /* Leave breathing room for the caption; dvh tracks mobile URL bars. */
+    max-height: calc(100vh - 6rem);
+    max-height: calc(100dvh - 6rem);
+    border-radius: 0.5rem;
+    object-fit: contain;
+    transition: opacity 150ms ease;
+  }
+  .carousel-lightbox--loading .carousel-lightbox-image {
+    opacity: 0;
+  }
+
+  .carousel-lightbox-caption {
+    max-width: 48rem;
+    color: rgb(255 255 255 / 0.72);
+    font-size: 0.875rem;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .carousel-lightbox-counter {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    z-index: 1; /* above the figure: its transform puts it in this layer */
+    color: rgb(255 255 255 / 0.72);
+    font-size: 0.875rem;
+  }
+
+  /* Positioned without transforms (top: calc(50% - half height)) so the
+     :active press feedback can own `transform` freely. z-index is required:
+     the figure's scale() transform puts it in the same paint layer, and being
+     later in the DOM it would otherwise paint over (and block) the controls —
+     exactly what happens on mobile where the image spans the full width. */
+  .carousel-lightbox-button {
+    position: absolute;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / 0.24);
+    background: rgb(0 0 0 / 0.4);
+    color: rgb(255 255 255 / 0.9);
+    cursor: pointer;
+    transition: background-color 160ms cubic-bezier(0.23, 1, 0.32, 1), transform
+      160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .carousel-lightbox-button:active {
+    transform: scale(0.94);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .carousel-lightbox-button:hover:not(:disabled) {
+      background: rgb(0 0 0 / 0.6);
+    }
+  }
+  .carousel-lightbox-button:disabled {
+    opacity: 0.35;
+    cursor: default;
+    pointer-events: none;
+  }
+  .carousel-lightbox-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .carousel-lightbox-button--close {
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+  .carousel-lightbox-button--prev {
+    top: calc(50% - 1.25rem);
+    left: 1.25rem;
+  }
+  .carousel-lightbox-button--next {
+    top: calc(50% - 1.25rem);
+    right: 1.25rem;
+  }
+
+  /* Phones: the photo spans the full width, so mid-height arrows would sit
+     on top of it. Park prev/next in the bottom corners (free space below a
+     portrait photo, thumb-reachable) and give every control a 44px target. */
+  @media (max-width: 640px) {
+    .carousel-lightbox-button {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+    .carousel-lightbox-button--prev,
+    .carousel-lightbox-button--next {
+      top: auto;
+      bottom: 1.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-lightbox {
+      transition-duration: 150ms;
+    }
+    .carousel-lightbox-image {
+      transition-duration: 120ms;
+    }
+    .carousel-lightbox-figure,
+    .carousel-lightbox-button,
+    .article-content .carousel--lightbox .carousel-slide img {
+      transform: none;
+      transition: none;
+    }
+  }
+
   pre::-webkit-scrollbar-track {
     background: transparent; /* Background color of the scrollbar track */
   }
