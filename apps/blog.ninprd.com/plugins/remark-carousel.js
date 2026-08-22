@@ -20,9 +20,9 @@ const CLOSE_RE = /^:::\s*$/
  * else inside the fence throws a build error naming the offending file, so
  * mistakes fail loud instead of being silently dropped.
  *
- * Arrows and dots are injected by a client script (src/scripts/carousel.ts), not
- * emitted statically — without JS the carousel degrades to a swipeable
- * scroll-snap strip with no dead buttons.
+ * Arrows, dots, and a click-to-open lightbox are injected by a client
+ * script (src/scripts/carousel.ts), not emitted statically — without JS the
+ * carousel degrades to a swipeable scroll-snap strip with no dead buttons.
  */
 export default function remarkCarousel() {
   return (tree, file) => {
