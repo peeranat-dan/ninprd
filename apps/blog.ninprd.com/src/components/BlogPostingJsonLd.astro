@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string
+  description: string
+  image: string
+  /** Human-readable date from the collection schema, e.g. "August 22, 2026". */
+  date: string
+  tags: string[]
+  lang?: string
+}
+
+const { title, description, image, date, tags, lang = 'th' } = Astro.props
+
+const siteUrl = import.meta.env.SITE_URL ?? 'https://blog.ninprd.com/'
+const canonicalURL = new URL(Astro.url.pathname, siteUrl)
+
+// The blog collection transforms `date` into an en-US display string, so parse
+// it back and emit a date-only value. Re-serialising via toISOString() would
+// shift the day backwards for UTC+7 dates, which are parsed as local midnight.
+function toIsoDate(value: string): string | undefined {
+  const parsed = new Date(value)
+  if (Number.isNaN(parsed.getTime())) return undefined
+  const month = String(parsed.getMonth() + 1).padStart(2, '0')
+  const day = String(parsed.getDate()).padStart(2, '0')
+  return `${parsed.getFullYear()}-${month}-${day}`
+}
+
+const datePublished = toIsoDate(date)
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  image: new URL(image, siteUrl).href,
+  url: canonicalURL.href,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalURL.href,
+  },
+  ...(datePublished ? { datePublished, dateModified: datePublished } : {}),
+  inLanguage: lang,
+  keywords: tags.join(', '),
+  author: {
+    '@type': 'Person',
+    name: 'Peeranat Danaidusadeekul',
+    url: 'https://blog.ninprd.com/',
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Peeranat Danaidusadeekul',
+    url: 'https://blog.ninprd.com/',
+  },
+}
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(jsonLd)}
+/>

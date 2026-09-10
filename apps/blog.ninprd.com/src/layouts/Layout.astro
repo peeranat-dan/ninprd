@@ -16,6 +16,7 @@ interface Props {
   image?: string
   noindex?: boolean
   withAnalytics?: boolean
+  lang?: string
 }
 
 const {
@@ -24,10 +25,11 @@ const {
   image,
   noindex = false,
   withAnalytics = true,
+  lang = 'th',
 } = Astro.props
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <SEO
       title={title}
