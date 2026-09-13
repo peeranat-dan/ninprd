@@ -4,27 +4,29 @@ import { BookOpen } from 'lucide-react'
 import WebringLogo from '../WebringLogo.astro'
 import { Search } from '../search/Search'
 import { ThemeToggle } from '../theme/ThemeToggle'
+import SocialLinks from './SocialLinks.astro'
 ---
 
-<header class="border-grid sticky top-0 z-50 w-full px-4 lg:px-0 py-2">
+<header class="border-grid sticky top-0 z-50 w-full px-3 sm:px-4 lg:px-0 py-2">
   <div
-    class="max-w-5xl px-4 mx-auto border rounded-full bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 flex h-14 items-center justify-between"
+    class="mx-auto flex h-14 w-full max-w-5xl items-center justify-between gap-2 rounded-full border bg-background/95 px-3 backdrop-blur supports-backdrop-filter:bg-background/60 sm:gap-4 sm:px-4"
   >
-    <div class="flex h-14 items-center justify-between w-full">
-      <div class="mr-4 flex">
-        <a href="/" class="flex items-center space-x-2">
-          <BookOpen className="w-4 h-4" />
-          <span class="font-bold sm:inline-block text-primary">BLOG.NINPRD</span
-          >
-        </a>
+    <a
+      href="/"
+      class="flex min-w-0 shrink items-center gap-2 text-primary"
+    >
+      <BookOpen className="size-4 shrink-0" />
+      <span class="truncate text-sm font-bold sm:text-base">BLOG.NINPRD</span>
+    </a>
+
+    <nav class="flex shrink-0 items-center gap-1 sm:gap-2">
+      <Search client:load />
+      <SocialLinks class="hidden sm:flex" />
+      <div class="hidden h-5 w-px bg-border sm:block"></div>
+      <div class="inline-flex size-9 items-center justify-center">
+        <WebringLogo />
       </div>
-      <div class="flex items-center justify-between gap-2 md:justify-end">
-        <nav class="flex items-center gap-2">
-          <Search client:load />
-          <WebringLogo />
-          <ThemeToggle client:load />
-        </nav>
-      </div>
-    </div>
+      <ThemeToggle client:load />
+    </nav>
   </div>
 </header>

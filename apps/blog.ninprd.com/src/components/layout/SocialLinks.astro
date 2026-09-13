@@ -1,0 +1,31 @@
+---
+import { Facebook, Github } from 'lucide-react'
+
+interface Props {
+  class?: string
+  iconClass?: string
+}
+
+const { class: className = '', iconClass = 'h-5 w-5' } = Astro.props
+---
+
+<div class:list={["flex items-center gap-1", className]}>
+  <a
+    href="https://www.facebook.com/profile.php?id=61555700437640"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Facebook page of ตากล้องที่เขียนโค้ดได้นิดหน่อย"
+    class="inline-flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+  >
+    <Facebook strokeWidth={1.5} className={iconClass} />
+  </a>
+  <a
+    href="https://github.com/peeranat-dan"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Github profile of Peeranat Danaidusadeekul"
+    class="inline-flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+  >
+    <Github strokeWidth={1.5} className={iconClass} />
+  </a>
+</div>
