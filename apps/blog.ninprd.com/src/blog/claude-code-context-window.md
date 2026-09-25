@@ -1,15 +1,17 @@
 ---
 title: Claude Code ติด Limit เร็ว? มาประหยัด Context Window กันเถอะ
-excerpt: จะจบปี 2025 แล้ว นิลทำอะไรไปมั่ง มาดูกัน
+excerpt: ใช้ Claude Code แป๊บเดียวก็ติดลิมิต? นิลพามาดูว่า context window เกี่ยวกับลิมิตยังไง เช็คด้วย /context แล้วประหยัดด้วย /clear, handoff และการลด CLAUDE.md, Skills, MCP
 tags:
   - ai
   - claude-code
+  - dev
+  - Y2026
+  - context-engineering
 featuredImage: ./assets/blog-cover-claude-code-context-window.webp
 date: 2026-09-25
 status: published
 withTableOfContent: true
 ---
-
 สวัสดีครับ วันนี้นิลมาในหัวข้อเกี่ยวกับ tool ที่มาแรงในช่วงก่อนหน้านี้มาก ๆ และก็มีหลาย ๆ คนใช้แล้วติดลิมิตกันเยอะมาก ซึ่ง tool ตัวนั้นก็คือ Claude Code นั่นเองครับ เจ้า Claude Code เนี่ย หลาย ๆ คนเวลาใช้จะบอกว่าติดลิมิตเร็วมาก ซึ่งนิลในฐานะคนที่ใช้งานไม่ติดลิมิตเลย (เพราะใช้น้อย 5555555) จะมาเล่าเกี่ยวกับ context window กับการประหยัด context window เพื่อให้เรา~~ไม่ติดลิมิต~~ติดลิมิตกันช้าลงอะนะ 5555
 
 ## อย่างแรกคือ Context Window คืออะไรนะ
