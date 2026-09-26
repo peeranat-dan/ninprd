@@ -5,6 +5,9 @@ const CONFIRMATION_MS = 2000
 
 type ShareNetwork = 'facebook' | 'x' | 'copy' | 'native'
 
+// Matches the data-share-state values in ShareSection.astro.
+type CopyState = 'idle' | 'copied' | 'failed'
+
 // PostHog may be blocked, so every call is optional. Consent is handled in Posthog.astro.
 function captureShare(network: ShareNetwork, postId: string) {
   window.posthog?.capture?.('post_shared', { network, post_id: postId })
@@ -34,19 +37,29 @@ function initCopy(
   context: { postId: string; url: string; status: HTMLElement | null },
 ) {
   const button = section.querySelector<HTMLButtonElement>('[data-share-copy]')
-  const label = button?.querySelector<HTMLElement>('[data-share-label]')
-  if (!button || !label) return
+  if (!button) return
 
-  const idleLabel = label.textContent ?? 'Copy link'
+  const parts = [
+    ...button.querySelectorAll<HTMLElement | SVGElement>('[data-share-state]'),
+  ]
   let restoreTimer: number | undefined
 
-  const announce = (message: string) => {
-    label.textContent = message
-    if (context.status) context.status.textContent = message
+  const show = (state: CopyState) => {
+    for (const part of parts) {
+      part.toggleAttribute('data-active', part.dataset.shareState === state)
+    }
+  }
+
+  const announce = (state: Exclude<CopyState, 'idle'>) => {
+    show(state)
+    const message = button.querySelector(
+      `[data-share-label][data-share-state="${state}"]`,
+    )?.textContent
+    if (context.status) context.status.textContent = message?.trim() ?? ''
 
     window.clearTimeout(restoreTimer)
     restoreTimer = window.setTimeout(() => {
-      label.textContent = idleLabel
+      show('idle')
       if (context.status) context.status.textContent = ''
     }, CONFIRMATION_MS)
   }
@@ -55,9 +68,9 @@ function initCopy(
     try {
       // navigator.clipboard is undefined over plain HTTP; the catch shows "Copy failed".
       await navigator.clipboard.writeText(context.url)
-      announce('Link copied')
+      announce('copied')
     } catch {
-      announce('Copy failed')
+      announce('failed')
       return
     }
 
@@ -76,6 +89,8 @@ function initNative(
   if (typeof navigator.share !== 'function') return
 
   button.hidden = false
+  // ShareSection.astro hides Facebook and X on small screens when this is set.
+  section.dataset.nativeShare = ''
 
   button.addEventListener('click', async () => {
     try {
