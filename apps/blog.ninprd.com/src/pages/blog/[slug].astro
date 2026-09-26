@@ -13,7 +13,9 @@ import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 import BlogCard from '../../components/BlogCard.astro'
 import BlogPostingJsonLd from '../../components/BlogPostingJsonLd.astro'
 import TableOfContent from '../../components/blog/TableOfContent.astro'
+import ShareSection from '../../components/share/ShareSection.astro'
 import Layout from '../../layouts/Layout.astro'
+import { canonicalUrl, siteUrl } from '../../lib/canonical'
 
 export const getStaticPaths = (async () => {
   const collection = await getCollection('blog')
@@ -38,6 +40,9 @@ const { title, featuredImage, excerpt, tags, date, withTableOfContent } =
 const { Content, headings } = await render(post)
 
 const hasCarousel = post.body?.includes(':::carousel') ?? false
+
+// Same canonical URL as SEO.astro, so shares match the og:url.
+const shareUrl = canonicalUrl(Astro.url.pathname, Astro.site ?? siteUrl())
 
 const allPosts = await getCollection('blog')
 
@@ -91,6 +96,7 @@ const relatedPosts = allPosts
       <Content />
     </article>
     {hasCarousel && <script src="../../scripts/carousel.ts" />}
+    <ShareSection title={title} url={shareUrl} postId={post.id} />
     <div class="flex flex-col gap-2">
       <div
         class="flex items-center gap-2 text-sm flex-wrap text-muted-foreground"
