@@ -39,6 +39,7 @@ const posts = collection
       ...p.data,
     }
   })
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 ---
 
 <Layout
@@ -67,7 +68,7 @@ const posts = collection
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {
         posts.map((post) => {
-          const { id, featuredImage, date, title, excerpt } = post
+          const { id, featuredImage, date, title, excerpt } = post;
           return (
             <a href={`/blog/${id}`}>
               <div class="flex flex-col gap-4">
@@ -76,7 +77,7 @@ const posts = collection
                   alt={`Cover of ${title}`}
                   width={featuredImage.width}
                   height={featuredImage.height}
-                  class="rounded-md aspect-[120/63] object-cover"
+                  class="rounded-md aspect-120/63 object-cover"
                 />
                 <div class="space-y-2">
                   <h2
@@ -91,7 +92,7 @@ const posts = collection
                 </div>
               </div>
             </a>
-          )
+          );
         })
       }
     </div>
