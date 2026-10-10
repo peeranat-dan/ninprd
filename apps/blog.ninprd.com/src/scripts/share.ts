@@ -1,9 +1,9 @@
-// Copy link, native share, and share tracking. Reads data-share-* attributes
+// Copy link, native share, share as image, and share tracking. Reads data-share-* attributes
 // from ShareSection.astro, so rename them in both files together.
 
 const CONFIRMATION_MS = 2000
 
-type ShareNetwork = 'facebook' | 'x' | 'copy' | 'native'
+type ShareNetwork = 'facebook' | 'x' | 'copy' | 'native' | 'image'
 
 // Matches the data-share-state values in ShareSection.astro.
 type CopyState = 'idle' | 'copied' | 'failed'
@@ -30,6 +30,13 @@ function initShareSection(section: HTMLElement) {
 
   initCopy(section, { postId, url, status })
   initNative(section, { postId, url, title })
+  initImage(section, {
+    postId,
+    url,
+    title,
+    background: section.dataset.shareImageBackground ?? '',
+    status,
+  })
 }
 
 function initCopy(
@@ -75,6 +82,87 @@ function initCopy(
     }
 
     captureShare('copy', context.postId)
+  })
+}
+
+function initImage(
+  section: HTMLElement,
+  context: {
+    postId: string
+    url: string
+    title: string
+    background: string
+    status: HTMLElement | null
+  },
+) {
+  const button = section.querySelector<HTMLButtonElement>('[data-share-image]')
+  if (!button || !context.background) return
+
+  const label = button.querySelector<HTMLElement>('[data-share-image-label]')
+  const idleLabel = label?.textContent ?? ''
+  const announce = (message: string) => {
+    if (context.status) context.status.textContent = message
+  }
+
+  const download = (blob: Blob) => {
+    const href = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = href
+    link.download = `${context.postId}.png`
+    document.body.append(link)
+    link.click()
+    link.remove()
+    window.setTimeout(() => URL.revokeObjectURL(href), 1000)
+  }
+
+  button.addEventListener('click', async () => {
+    if (button.disabled) return
+    button.disabled = true
+    if (label) label.textContent = 'Generating...'
+    announce('Generating image')
+
+    try {
+      // Loaded on click so the canvas code stays out of the initial page load.
+      const { ShareImageGenerator } = await import('../lib/shareImageGenerator')
+      const generator = new ShareImageGenerator()
+      let blob: Blob
+      try {
+        blob = await generator.generate({
+          title: context.title,
+          backgroundImageUrl: context.background,
+        })
+      } finally {
+        generator.dispose()
+      }
+
+      const file = new File([blob], `${context.postId}.png`, {
+        type: 'image/png',
+      })
+      if (navigator.canShare?.({ files: [file] })) {
+        try {
+          await navigator.share({
+            files: [file],
+            title: context.title,
+            url: context.url,
+          })
+        } catch (error) {
+          // Closing the share sheet rejects with AbortError. Not an error.
+          if (error instanceof DOMException && error.name === 'AbortError') {
+            return
+          }
+          throw error
+        }
+      } else {
+        download(blob)
+      }
+      captureShare('image', context.postId)
+    } catch (error) {
+      console.error('Share as image failed:', error)
+      announce('Could not create image')
+    } finally {
+      button.disabled = false
+      if (label) label.textContent = idleLabel
+    }
   })
 }
 

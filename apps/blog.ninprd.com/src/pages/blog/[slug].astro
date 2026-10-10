@@ -12,7 +12,6 @@ import {
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 import BlogCard from '../../components/BlogCard.astro'
 import BlogPostingJsonLd from '../../components/BlogPostingJsonLd.astro'
-import { ShareButton } from '../../components/blog/ShareButton'
 import TableOfContent from '../../components/blog/TableOfContent.astro'
 import ShareSection from '../../components/share/ShareSection.astro'
 import Layout from '../../layouts/Layout.astro'
@@ -117,13 +116,6 @@ const relatedPosts = allPosts
       <div class="text-sm text-muted-foreground">
         Posted: {date}
       </div>
-    </div>
-    <div class="flex justify-center py-6">
-      <ShareButton
-        client:load
-        title={title}
-        url={`https://blog.ninprd.com/blog/${post.id}`}
-      />
     </div>
     {
       relatedPosts.length > 0 ? (

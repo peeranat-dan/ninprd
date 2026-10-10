@@ -20,9 +20,13 @@ export class ShareImageGenerator {
   private readonly maxTextWidth: number = 800
   private readonly baseFontSize: number = 80
   private readonly minFontSize: number = 40
-  private readonly lineHeight: number = 1.2
+  // Thai tone marks and vowels stack above and below, so it needs more room than Latin.
+  private readonly lineHeight: number = 1.4
+  private readonly fontWeight: number = 700
+  // Same stack as --font-sans in globals.css. Names must match the Astro `fonts`
+  // config, and be quoted because they contain spaces.
   private readonly fontFamily: string =
-    "'IBM Plex Sans Thai', 'IBM Plex Sans Thai Looped', 'Sora', sans-serif"
+    '"Sora", "IBM Plex Sans Thai", sans-serif'
 
   constructor() {
     this.canvas = document.createElement('canvas')
@@ -60,38 +64,46 @@ export class ShareImageGenerator {
     })
   }
 
+  private fontString(fontSize: number): string {
+    return `${this.fontWeight} ${fontSize}px ${this.fontFamily}`
+  }
+
   /**
-   * Measure text width with a given font size
+   * Split into wrappable chunks that keep their trailing spaces. Thai has no
+   * spaces between words, so a plain split(' ') would never wrap it.
    */
-  private measureText(text: string, fontSize: number): number {
-    this.ctx.font = `${fontSize}px ${this.fontFamily}`
-    return this.ctx.measureText(text).width
+  private segment(text: string): string[] {
+    if (typeof Intl !== 'undefined' && 'Segmenter' in Intl) {
+      const segmenter = new Intl.Segmenter('th', { granularity: 'word' })
+      return Array.from(segmenter.segment(text), (part) => part.segment)
+    }
+    return text.split(/(?<= )/)
   }
 
   /**
    * Split text into words and wrap them into lines
    */
   private wrapText(text: string, maxWidth: number, fontSize: number): string[] {
-    this.ctx.font = `${fontSize}px ${this.fontFamily}`
+    this.ctx.font = this.fontString(fontSize)
 
-    const words = text.split(' ')
+    const words = this.segment(text)
     const lines: string[] = []
     let currentLine = ''
 
     for (const word of words) {
-      const testLine = currentLine ? `${currentLine} ${word}` : word
+      const testLine = currentLine + word
       const metrics = this.ctx.measureText(testLine)
 
       if (metrics.width > maxWidth && currentLine) {
-        lines.push(currentLine)
-        currentLine = word
+        lines.push(currentLine.trim())
+        currentLine = word.trimStart()
       } else {
         currentLine = testLine
       }
     }
 
-    if (currentLine) {
-      lines.push(currentLine)
+    if (currentLine.trim()) {
+      lines.push(currentLine.trim())
     }
 
     return lines
@@ -148,7 +160,7 @@ export class ShareImageGenerator {
    * Draw text with shadow for better readability
    */
   private drawText(textLines: TextLine[], fontSize: number): void {
-    this.ctx.font = `bold ${fontSize}px ${this.fontFamily}`
+    this.ctx.font = this.fontString(fontSize)
     this.ctx.textAlign = 'center'
     this.ctx.textBaseline = 'top'
 
@@ -173,39 +185,24 @@ export class ShareImageGenerator {
   }
 
   /**
-   * Wait for fonts to be loaded
+   * Load the exact weight and glyph subsets the canvas will draw. Canvas does not
+   * trigger @font-face downloads on its own, and the Thai subset is split by
+   * unicode-range, so pass the real text or the fallback font gets drawn.
    */
-  private async waitForFonts(): Promise<void> {
+  private async waitForFonts(text: string): Promise<void> {
     if (typeof document === 'undefined' || !document.fonts) {
       return
     }
 
+    const font = this.fontString(this.baseFontSize)
     try {
-      // Wait for fonts to be ready
+      await Promise.all([
+        document.fonts.load(font, text),
+        document.fonts.load(font, 'Abc'),
+      ])
       await document.fonts.ready
-
-      // Additionally, try to load specific fonts we need
-      const fontFaces = [
-        new FontFace('IBM Plex Sans Thai', 'local("IBM Plex Sans Thai")'),
-        new FontFace(
-          'IBM Plex Sans Thai Looped',
-          'local("IBM Plex Sans Thai Looped")',
-        ),
-        new FontFace('Sora', 'local("Sora")'),
-      ]
-
-      await Promise.allSettled(
-        fontFaces.map(async (fontFace) => {
-          try {
-            await fontFace.load()
-          } catch {
-            // Ignore individual font load failures
-          }
-        }),
-      )
     } catch {
-      // If font loading fails, continue anyway
-      // The system will fall back to default fonts
+      // Fall back to the next font in the stack.
     }
   }
 
@@ -216,7 +213,7 @@ export class ShareImageGenerator {
     const { title, backgroundImageUrl } = options
 
     // Wait for fonts to load
-    await this.waitForFonts()
+    await this.waitForFonts(title)
 
     // Load background image if not already loaded
     await this.loadBackground(backgroundImageUrl)
