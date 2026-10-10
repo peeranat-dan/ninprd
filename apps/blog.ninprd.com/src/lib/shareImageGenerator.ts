@@ -23,10 +23,9 @@ export class ShareImageGenerator {
   // Thai tone marks and vowels stack above and below, so it needs more room than Latin.
   private readonly lineHeight: number = 1.4
   private readonly fontWeight: number = 700
-  // Same stack as --font-sans in globals.css. Names must match the Astro `fonts`
-  // config, and be quoted because they contain spaces.
-  private readonly fontFamily: string =
-    '"Sora", "IBM Plex Sans Thai", sans-serif'
+  // Astro renames fonts to hashed families (e.g. "Sora-22acff5dc4e5d4bd"), so a
+  // literal "Sora" never matches. Resolved from Astro's CSS variables at generate time.
+  private fontFamily = '"Sora", "IBM Plex Sans Thai", sans-serif'
 
   constructor() {
     this.canvas = document.createElement('canvas')
@@ -193,6 +192,14 @@ export class ShareImageGenerator {
     if (typeof document === 'undefined' || !document.fonts) {
       return
     }
+
+    // Same order as --font-sans in globals.css. That one is `@theme inline`, so it
+    // is not a real custom property; read Astro's variables instead.
+    const root = getComputedStyle(document.documentElement)
+    const stack = ['--font-sora', '--font-ibm-plex-sans-thai']
+      .map((name) => root.getPropertyValue(name).trim())
+      .filter(Boolean)
+    if (stack.length > 0) this.fontFamily = `${stack.join(', ')}, sans-serif`
 
     const font = this.fontString(this.baseFontSize)
     try {
