@@ -6,6 +6,10 @@ interface ImportMeta {
 }
 
 interface Window {
-  /** Resolves the stored theme choice and applies the `dark` class. Defined in ThemeProvider.astro. */
+  /** Re-applies the theme. Call after writing `theme` to localStorage. */
   __applyTheme: () => void
+  /** May be missing if blocked. Call as `window.posthog?.capture?.(...)`. */
+  posthog?: {
+    capture?: (event: string, properties?: Record<string, unknown>) => void
+  }
 }
