@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
+import { postPath } from '../lib/post-path'
 
 interface Props {
   id: string
@@ -31,7 +32,7 @@ const {
 ---
 
 <a
-  href={`/blog/${id}`}
+  href={postPath(id)}
   class="glass-card group relative block rounded-xl p-3 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
 >
   <article

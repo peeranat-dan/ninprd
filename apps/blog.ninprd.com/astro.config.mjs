@@ -27,7 +27,7 @@ export default defineConfig({
       priority: 0.7,
       lastmod: new Date(),
       serialize(item) {
-        if (item.url.includes('/blog/')) {
+        if (item.url.includes('/post/')) {
           item.priority = 0.8
           item.changefreq = 'monthly'
         }

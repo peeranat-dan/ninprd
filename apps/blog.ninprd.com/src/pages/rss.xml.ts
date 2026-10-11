@@ -1,6 +1,7 @@
 import { getCollection } from 'astro:content'
 import rss from '@astrojs/rss'
 import type { APIRoute } from 'astro'
+import { postPath } from '../lib/post-path'
 
 export const GET: APIRoute = async (context) => {
   const posts = await getCollection('blog')
@@ -13,7 +14,7 @@ export const GET: APIRoute = async (context) => {
       title: post.data.title,
       pubDate: new Date(post.data.date),
       description: post.data.excerpt,
-      link: `/blog/${post.id}/`,
+      link: postPath(post.id),
     })),
   })
 }

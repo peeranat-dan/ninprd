@@ -1,0 +1,32 @@
+{
+  "redirects": [
+    {
+      "source": "/blog/wordpress-basic-i",
+      "destination": "https://learn.ninprd.com/wordpress-series/wordpress-basic/wordpress-basic-1/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wordpress-basic-ii",
+      "destination": "https://learn.ninprd.com/wordpress-series/wordpress-basic/wordpress-basic-2/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wordpress-basic-iii",
+      "destination": "https://learn.ninprd.com/wordpress-series/wordpress-basic/wordpress-basic-3/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wordpress-basic-iv",
+      "destination": "https://learn.ninprd.com/wordpress-series/wordpress-basic/wordpress-basic-4/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tutorial-building-your-first-wordpress-website",
+      "destination": "https://learn.ninprd.com/wordpress-series/wordpress-basic/wordpress-basic-tutorial/",
+      "permanent": true
+    },
+    { "source": "/blog/:slug", "destination": "/post/:slug", "permanent": true },
+    { "source": "/blog", "destination": "/", "permanent": true },
+    { "source": "/post", "destination": "/", "permanent": true }
+  ]
+}

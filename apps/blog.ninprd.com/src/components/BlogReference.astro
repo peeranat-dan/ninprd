@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import { getEntry } from 'astro:content'
+import { postPath } from '../lib/post-path'
 
 interface Props {
   id: string
@@ -17,7 +18,7 @@ if (!post) {
 
 const { title, featuredImage, date } = post.data
 
-const link = section ? `/blog/${id}#${section}` : `/blog/${id}`
+const link = postPath(id, section)
 ---
 
 <a

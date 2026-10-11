@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content'
+import { postPath } from './post-path'
 
 export const SITE_TITLE = 'blog.ninprd'
 export const SITE_DESCRIPTION =
@@ -15,7 +16,7 @@ export async function getPublishedPosts() {
 }
 
 export function postUrl(siteUrl: URL, postId: string): string {
-  return new URL(`/blog/${postId}/`, siteUrl).href
+  return new URL(postPath(postId), siteUrl).href
 }
 
 export function singleLine(text: string): string {

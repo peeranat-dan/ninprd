@@ -14,6 +14,7 @@ import {
 } from '@ninprd/ui/components/dialog'
 import { Calendar, FileText, Search, Tag } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
+import { postPath } from '../../lib/post-path'
 import { useKeyboardShortcut } from './useKeyboardShortcut'
 import { useSearch } from './useSearch'
 
@@ -47,7 +48,7 @@ export function SearchDialog({
     onOpenChange(false)
     // Use setTimeout to ensure dialog closes before navigation
     setTimeout(() => {
-      globalThis.location.href = `/blog/${postId}`
+      globalThis.location.href = postPath(postId)
     }, 100)
   }
 
