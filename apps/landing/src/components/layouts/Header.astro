@@ -3,6 +3,8 @@ import { buttonVariants } from '@ninprd/ui/components/button'
 
 import { RESUME_URL } from '../../constants'
 import { ModeToggle } from '../theme/mode-toggle'
+
+const isHome = Astro.url.pathname === '/'
 ---
 
 <header
@@ -13,9 +15,9 @@ import { ModeToggle } from '../theme/mode-toggle'
     class="mx-auto flex h-14 max-w-2xl items-center justify-between px-6 lg:px-0"
   >
     <a
-      href="#"
+      href={isHome ? '#' : '/'}
       class="press text-sm font-semibold tracking-tight text-primary"
-      aria-label="Back to top"
+      aria-label={isHome ? 'Back to top' : 'Back to home'}
     >
       PD
     </a>

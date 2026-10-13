@@ -38,5 +38,7 @@ export const EXPERIENCE: Experience[] = [
 ]
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/peeranatd/'
+export const FACEBOOK_URL =
+  'https://www.facebook.com/profile.php?id=61555700437640'
 export const GITHUB_URL = 'https://github.com/peeranat-dan'
 export const RESUME_URL = '/Resume_Peeranat_Danaidusadeekul.pdf'

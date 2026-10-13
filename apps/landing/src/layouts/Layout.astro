@@ -8,8 +8,15 @@ import Header from '../components/layouts/Header.astro'
 import ThemeProvider from '../components/theme/ThemeProvider.astro'
 import '../styles/globals.css'
 
-const title = 'Peeranat Danaidusadeekul'
-const description = `Dive into Peeranat Danaidusadeekul's coding journey! Explore impressive projects, and skills in software engineering.`
+type Props = {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Peeranat Danaidusadeekul',
+  description = `Dive into Peeranat Danaidusadeekul's coding journey! Explore impressive projects, and skills in software engineering.`,
+} = Astro.props
 ---
 
 <html lang="en">
