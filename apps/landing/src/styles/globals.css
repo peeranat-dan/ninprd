@@ -52,7 +52,7 @@
   .reveal {
     opacity: 0;
     transform: translateY(8px);
-    animation: reveal-up 560ms var(--ease-out) forwards;
+    animation: reveal-up var(--reveal-duration, 560ms) var(--ease-out) forwards;
     animation-delay: var(--reveal-delay, 0ms);
   }
 
@@ -148,6 +148,97 @@
     border-radius: var(--radius);
   }
 
+  /* Filter tabs: the highlighted pill is a full duplicate of the tab list in
+     the active colors, clipped down to the pressed tab. Sliding the clip gives
+     a seamless text color change that per-tab color transitions can't. */
+  /* The pill scrolls sideways when the tabs don't fit, instead of wrapping. */
+  .faci-tabs-scroll {
+    align-self: flex-start;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    scrollbar-width: none;
+  }
+  .faci-tabs-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  /* Fade the edge that still has tabs scrolled out of view. */
+  .faci-tabs-scroll[data-more-start],
+  .faci-tabs-scroll[data-more-end] {
+    --fade-start: 0px;
+    --fade-end: 0px;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 var(--fade-start),
+      #000 calc(100% - var(--fade-end)),
+      transparent
+    );
+  }
+  .faci-tabs-scroll[data-more-start] {
+    --fade-start: 32px;
+  }
+  .faci-tabs-scroll[data-more-end] {
+    --fade-end: 32px;
+  }
+  .faci-tabs {
+    position: relative;
+    display: flex;
+    width: max-content;
+    padding: 4px;
+  }
+  .faci-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--muted-foreground);
+    transition: color 200ms ease;
+  }
+  .faci-tab-count {
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.6;
+  }
+  .faci-tab:focus-visible {
+    outline: 2px solid var(--foreground);
+    outline-offset: 2px;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    button.faci-tab:hover {
+      color: var(--foreground);
+    }
+  }
+  .faci-tabs-active {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    padding: 4px;
+    border-radius: 999px;
+    background: var(--primary);
+    pointer-events: none;
+    clip-path: inset(0 100% 0 0 round 999px);
+  }
+  .faci-tabs-active .faci-tab {
+    color: var(--primary-foreground);
+  }
+  /* Before the clip is measured, the pressed tab paints its own pill so the
+     server-rendered markup already shows the selection. */
+  .faci-tabs:not([data-ready]) .faci-tab[aria-pressed="true"] {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+  .faci-tabs[data-ready] .faci-tabs-active {
+    transition: clip-path 250ms var(--ease-out);
+  }
+
   /* Thumbnail zooms subtly with the card; frame clips the overflow. */
   .project-thumb {
     transition: transform 320ms var(--ease-out);
@@ -174,6 +265,10 @@
   .project-card,
   .project-thumb,
   .experience-card {
+    transition: none;
+  }
+  .faci-tab,
+  .faci-tabs[data-ready] .faci-tabs-active {
     transition: none;
   }
   .project-card:hover,
