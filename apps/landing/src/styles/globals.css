@@ -267,6 +267,7 @@
   .experience-card {
     transition: none;
   }
+  .faci-tab,
   .faci-tabs[data-ready] .faci-tabs-active {
     transition: none;
   }

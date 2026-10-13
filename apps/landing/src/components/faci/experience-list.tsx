@@ -20,6 +20,14 @@ function ExperienceList() {
   const highlightRef = React.useRef<HTMLDivElement>(null)
 
   const experiences = filterExperience(filter)
+  const experienceNoun = experiences.length === 1 ? 'experience' : 'experiences'
+  const filterLabel = FACI_ROLES.find(({ id }) => id === filter)?.label
+  // Name the role too: two roles with the same count would otherwise leave the
+  // text unchanged, and an unchanged live region is not announced.
+  const announcement =
+    filter === 'all'
+      ? `Showing all ${experiences.length} ${experienceNoun}`
+      : `Showing ${experiences.length} ${filterLabel} ${experienceNoun}`
 
   // Clip the highlighted copy of the tab list down to the pressed tab.
   // biome-ignore lint/correctness/useExhaustiveDependencies: re-measure when the pressed tab changes
@@ -101,8 +109,11 @@ function ExperienceList() {
                 className="faci-tab cursor-pointer"
                 aria-pressed={id === filter}
                 onClick={(event) => {
+                  const reduceMotion = window.matchMedia(
+                    '(prefers-reduced-motion: reduce)',
+                  ).matches
                   event.currentTarget.scrollIntoView({
-                    behavior: 'smooth',
+                    behavior: reduceMotion ? 'auto' : 'smooth',
                     block: 'nearest',
                     inline: 'nearest',
                   })
@@ -135,9 +146,7 @@ function ExperienceList() {
         </div>
       </div>
       <p className="sr-only" aria-live="polite">
-        {hasFiltered
-          ? `Showing ${experiences.length} ${experiences.length === 1 ? 'experience' : 'experiences'}`
-          : null}
+        {hasFiltered ? announcement : null}
       </p>
 
       {/* Keyed by filter so the rows remount and their entrance replays once. */}
@@ -178,16 +187,16 @@ function ExperienceList() {
               >
                 <div className="col-span-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium sm:col-span-1 sm:flex-col sm:items-start sm:pt-1">
                   <span>{roleLabel}</span>
-                  {period && (
+                  {period ? (
                     <span className="text-muted-foreground tabular-nums">
                       {period}
                     </span>
-                  )}
-                  {batch && (
+                  ) : null}
+                  {batch ? (
                     <span className="rounded-md border border-primary/25 bg-primary/10 px-1.5 py-0.5 text-[11px] leading-4 text-primary tabular-nums sm:mt-1">
                       {batch}
                     </span>
-                  )}
+                  ) : null}
                 </div>
                 <div className="col-span-4 sm:col-span-3">
                   {url ? (
