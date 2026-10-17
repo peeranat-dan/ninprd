@@ -1,0 +1,4 @@
+{
+  "extends": "@ninprd/typescript-config/e2e.json",
+  "include": ["**/*.ts"]
+}
