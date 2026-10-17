@@ -6,18 +6,18 @@ Monorepo for the sites under [ninprd.com](https://ninprd.com) - a personal landi
 
 ### Apps
 
-| App | Path | Site | Description |
-| --- | --- | --- | --- |
-| `landing` | [`apps/landing`](apps/landing) | [ninprd.com](https://ninprd.com) | Portfolio landing page with projects and facilitator experience |
-| `blog` | [`apps/blog.ninprd.com`](apps/blog.ninprd.com) | [blog.ninprd.com](https://blog.ninprd.com) | Blog with MDX, KaTeX math, code highlighting, search, RSS, and sitemap |
-| `learn` | [`apps/learn`](apps/learn) | [learn.ninprd.com](https://learn.ninprd.com) | Tutorial series built on [Starlight](https://starlight.astro.build) |
+| App       | Path                           | Site                                         | Description                                                            |
+| --------- | ------------------------------ | -------------------------------------------- | ---------------------------------------------------------------------- |
+| `landing` | [`apps/landing`](apps/landing) | [ninprd.com](https://ninprd.com)             | Portfolio landing page with projects and facilitator experience        |
+| `blog`    | [`apps/blog`](apps/blog)       | [blog.ninprd.com](https://blog.ninprd.com)   | Blog with MDX, KaTeX math, code highlighting, search, RSS, and sitemap |
+| `learn`   | [`apps/learn`](apps/learn)     | [learn.ninprd.com](https://learn.ninprd.com) | Tutorial series built on [Starlight](https://starlight.astro.build)    |
 
 ### Packages
 
-| Package | Path | Description |
-| --- | --- | --- |
-| `@ninprd/ui` | [`packages/ui`](packages/ui) | Shared React components (shadcn/ui style, on Radix), hooks, utilities, and global styles |
-| `@ninprd/typescript-config` | [`packages/typescript-config`](packages/typescript-config) | Shared `tsconfig` presets |
+| Package                     | Path                                                       | Description                                                                              |
+| --------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `@ninprd/ui`                | [`packages/ui`](packages/ui)                               | Shared React components (shadcn/ui style, on Radix), hooks, utilities, and global styles |
+| `@ninprd/typescript-config` | [`packages/typescript-config`](packages/typescript-config) | Shared `tsconfig` presets                                                                |
 
 ## Getting started
 
@@ -63,12 +63,12 @@ Each app builds to its own `dist/` directory. Use `pnpm --filter <app> preview` 
 
 Run from the repository root:
 
-| Script | Description |
-| --- | --- |
-| `pnpm dev` | Start all apps in dev mode |
-| `pnpm build` | Build all apps |
-| `pnpm format-and-lint` | Check formatting and lint rules with Biome |
-| `pnpm format-and-lint:fix` | Same, and write fixes |
+| Script                     | Description                                |
+| -------------------------- | ------------------------------------------ |
+| `pnpm dev`                 | Start all apps in dev mode                 |
+| `pnpm build`               | Build all apps                             |
+| `pnpm format-and-lint`     | Check formatting and lint rules with Biome |
+| `pnpm format-and-lint:fix` | Same, and write fixes                      |
 
 ## Code quality
 
@@ -80,7 +80,7 @@ Shared dependency versions live in the `catalog` section of [`pnpm-workspace.yam
 
 ## Environment variables
 
-The blog loads its environment through [dotenvx](https://dotenvx.com). `apps/blog.ninprd.com/.env` is committed in encrypted form; the private key in `.env.keys` is gitignored and is needed to decrypt it.
+The blog loads its environment through [dotenvx](https://dotenvx.com). `apps/blog/.env` is committed in encrypted form; the private key in `.env.keys` is gitignored and is needed to decrypt it.
 
 ## Project screenshots
 
@@ -95,6 +95,6 @@ The [`Screenshot projects`](.github/workflows/screenshot-projects.yml) workflow 
 
 ## Writing content
 
-- Blog posts: Markdown or MDX files in `apps/blog.ninprd.com/src/blog`
+- Blog posts: Markdown or MDX files in `apps/blog/src/blog`
 - Landing page projects: Markdown files in `apps/landing/src/projects`
 - Learn pages: Markdown or MDX files in `apps/learn/src/content/docs`
