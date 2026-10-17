@@ -3,7 +3,7 @@ import { expect, test } from '@ninprd/e2e/fixtures'
 test('home lists published posts', async ({ page }) => {
   await page.goto('/')
 
-  await expect(page).toHaveTitle(/.+/)
+  await expect(page).toHaveTitle(/ninprd/i)
   await expect(
     page.getByRole('heading', { level: 1, name: /Building blocks/ }),
   ).toBeVisible()
