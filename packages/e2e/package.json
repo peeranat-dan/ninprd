@@ -1,0 +1,17 @@
+{
+  "name": "@ninprd/e2e",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./astro": "./src/astro.ts",
+    "./config": "./src/config.ts",
+    "./fixtures": "./src/fixtures.ts"
+  },
+  "dependencies": {
+    "@playwright/test": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:"
+  }
+}

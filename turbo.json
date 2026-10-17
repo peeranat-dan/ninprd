@@ -10,6 +10,16 @@
     "dev": {
       "persistent": true,
       "cache": false
+    },
+    "test:e2e": {
+      "dependsOn": ["^build"],
+      "env": ["BASE_URL"],
+      "outputs": ["playwright-report/**", "test-results/**"]
+    },
+    "test:e2e:remote": {
+      "cache": false,
+      "env": ["BASE_URL"],
+      "outputs": ["playwright-report/**", "test-results/**"]
     }
   }
 }
