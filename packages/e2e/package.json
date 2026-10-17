@@ -12,6 +12,7 @@
     "@playwright/test": "catalog:"
   },
   "devDependencies": {
+    "@ninprd/typescript-config": "workspace:*",
     "@types/node": "catalog:"
   }
 }
